@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>FAQ | Botanical Bliss</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+```
+
+</head>
+
+<body class="shop-page">
+
+```
+<!-- NAVBAR -->
+<nav class="home-nav">
+
+    <a href="home.html" class="home-brand">
+        <i class="bi bi-flower1"></i>
+        <span>Botanical Bliss</span>
+    </a>
+
+    <div class="home-nav-links">
+        <a href="home.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="categories.html">Categories</a>
+        <a href="gardening-guide.html">Gardening Guide</a>
+        <a href="garden-calendar.html">Garden Calendar</a>
+        <a href="seasonal-guide.html">Seasonal Guide</a>
+    </div>
+
+    <div class="home-nav-actions">
+
+        <a href="wishlist.html"
+            class="nav-icon-button"
+            title="Wishlist">
+            <i class="bi bi-heart"></i>
+        </a>
+
+        <a href="cart.html">
+            <button
+                class="nav-icon-button cart-button"
+                title="Cart"
+                type="button">
+
+                <i class="bi bi-bag"></i>
+                <span id="cartCount">0</span>
+
+            </button>
+        </a>
+
+        <a href="dashboard.html"
+            class="profile-button"
+            title="Dashboard">
+
+            <i class="bi bi-person"></i>
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- FAQ CONTENT -->
+<main class="faq-page">
+
+    <div class="faq-container">
+
+        <div class="faq-header">
+
+            <div class="faq-icon">
+                <i class="bi bi-question-circle"></i>
+            </div>
+
+            <h1>Frequently Asked Questions</h1>
+
+            <p>
+                Find answers to common questions about
+                Botanical Bliss.
+            </p>
+
+        </div>
+
+
+        <div class="faq-list">
+
+            <div class="faq-item">
+
+                <h3>
+                    <i class="bi bi-flower1"></i>
+                    What is Botanical Bliss?
+                </h3>
+
+                <p>
+                    Botanical Bliss is an online gardening
+                    platform where you can explore plants,
+                    seeds, fertilizers, gardening tools and
+                    useful gardening resources.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    <i class="bi bi-cart3"></i>
+                    How can I purchase a product?
+                </h3>
+
+                <p>
+                    Browse the Shop, select the product you
+                    want, add it to your cart and proceed to
+                    checkout.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    <i class="bi bi-heart"></i>
+                    Can I save products for later?
+                </h3>
+
+                <p>
+                    Yes. You can add products to your
+                    Wishlist and access them whenever you
+                    want.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    <i class="bi bi-person-check"></i>
+                    Do I need an account to use the website?
+                </h3>
+
+                <p>
+                    An account is required for features such
+                    as Wishlist, Cart, Orders and your personal
+                    Dashboard.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    <i class="bi bi-truck"></i>
+                    How can I check my orders?
+                </h3>
+
+                <p>
+                    After logging in, open your Dashboard and
+                    select My Orders to view your previous
+                    orders.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    <i class="bi bi-calendar3"></i>
+                    What is the Garden Calendar?
+                </h3>
+
+                <p>
+                    The Garden Calendar helps you organize
+                    gardening activities and keep track of
+                    your personal gardening tasks.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    <i class="bi bi-book"></i>
+                    Where can I learn about gardening?
+                </h3>
+
+                <p>
+                    You can explore the Gardening Guide,
+                    Garden Calendar and Seasonal Guide for
+                    useful gardening information.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    <i class="bi bi-images"></i>
+                    Can I share my garden with the community?
+                </h3>
+
+                <p>
+                    Yes. The Garden Gallery allows users to
+                    share their gardening posts and photos
+                    with the Botanical Bliss community.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="faq-back">
+
+            <a href="orders.html">
+                <i class="bi bi-arrow-left"></i>
+                Back
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- CART COUNT -->
+<script>
+
+    const storedUser =
+        localStorage.getItem("user");
+
+    if (storedUser) {
+
+        const user =
+            JSON.parse(storedUser);
+
+        const userId =
+            user._id ||
+            user.id ||
+            user.email;
+
+        const cartKey =
+            `cart_${userId}`;
+
+        const cart =
+            JSON.parse(
+                localStorage.getItem(cartKey)
+            ) || [];
+
+        const count =
+            cart.reduce(
+                function(total, item) {
+
+                    return total +
+                        Number(item.quantity || 0);
+
+                },
+                0
+            );
+
+        const cartCount =
+            document.getElementById("cartCount");
+
+        if (cartCount) {
+            cartCount.textContent = count;
+        }
+
+    }
+
+</script>
+
+
+</body>
+</html>

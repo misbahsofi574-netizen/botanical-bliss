@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Seasonal Guide | Botanical Bliss</title>
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body class="shop-page">
+
+
+    <!-- ================================
+         NAVBAR
+    ================================= -->
+
+    <nav class="home-nav">
+
+        <a href="home.html" class="home-brand">
+
+            <i class="bi bi-flower1"></i>
+
+            <span>Botanical Bliss</span>
+
+        </a>
+
+
+        <div class="home-nav-links">
+
+            <a href="home.html">
+                Home
+            </a>
+
+            <a href="shop.html">
+                Shop
+            </a>
+
+            <a href="categories.html">
+                Categories
+            </a>
+
+            <a href="gardening-guide.html">
+                Gardening Guide
+            </a>
+
+            <a href="garden-calendar.html">
+                Garden Calendar
+            </a>
+
+            <a href="seasonal-guide.html" class="active">
+                Seasonal Guide
+            </a>
+
+            <a href="orders.html#about-us">
+                About Us
+            </a>
+
+        </div>
+
+
+        <div class="home-nav-actions">
+
+            <a
+                href="cart.html"
+                class="nav-icon-button cart-button"
+                title="Cart">
+
+                <i class="bi bi-bag"></i>
+
+                <span id="cartCount">0</span>
+
+            </a>
+
+
+            <a
+                href="dashboard.html"
+                class="profile-button"
+                title="Profile">
+
+                <i class="bi bi-person"></i>
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ================================
+         PAGE HEADER
+    ================================= -->
+
+    <section class="shop-header">
+
+        <div>
+
+            <p>BOTANICAL BLISS</p>
+
+            <h1>Seasonal Guide</h1>
+
+            <span>
+                Discover how to care for your garden
+                throughout every season of the year.
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         SEASONAL GUIDE
+    ================================= -->
+
+    <section class="seasonal-guide-section">
+
+        <div class="seasonal-container">
+
+
+            <div class="seasonal-intro">
+
+                <h2>
+                    Gardening Through the Seasons
+                </h2>
+
+                <p>
+                    Every season brings different opportunities
+                    and challenges for your garden. Select a
+                    season to explore useful gardening tips.
+                </p>
+
+            </div>
+
+
+
+            <!-- SEASON BUTTONS -->
+
+            <div class="season-selector">
+
+                <button
+                    class="season-button active"
+                    data-season="spring">
+
+                    <i class="bi bi-flower1"></i>
+
+                    Spring
+
+                </button>
+
+
+                <button
+                    class="season-button"
+                    data-season="summer">
+
+                    <i class="bi bi-brightness-high"></i>
+
+                    Summer
+
+                </button>
+
+
+                <button
+                    class="season-button"
+                    data-season="monsoon">
+
+                    <i class="bi bi-cloud-rain"></i>
+
+                    Monsoon
+
+                </button>
+
+
+                <button
+                    class="season-button"
+                    data-season="winter">
+
+                    <i class="bi bi-snow"></i>
+
+                    Winter
+
+                </button>
+
+            </div>
+
+
+
+            <!-- SEASON CONTENT -->
+
+            <div
+                id="seasonalContent"
+                class="seasonal-content">
+
+
+                <div class="season-icon">
+
+                    <i
+                        id="seasonIcon"
+                        class="bi bi-flower1">
+                    </i>
+
+                </div>
+
+
+                
+<!-- =================================
+     INTERACTIVE SEASON CONTENT
+================================= -->
+
+<div id="seasonalContent" class="seasonal-content">
+
+    <div class="season-icon">
+
+        
+
+    </div>
+
+
+    <h2 id="seasonTitle">
+        Spring
+    </h2>
+
+
+    <p id="seasonDescription">
+        Spring is a wonderful time to refresh
+        your garden and begin new growth.
+    </p>
+
+
+    <!-- SEASON INFORMATION -->
+
+    <div class="season-info-grid">
+
+
+        <!-- WHAT TO GROW -->
+
+        <div class="season-info-card">
+
+            <div class="season-card-icon">
+                <i class="bi bi-flower2"></i>
+            </div>
+
+            <h3>
+                What to Grow
+            </h3>
+
+            <ul id="seasonPlants">
+            </ul>
+
+        </div>
+
+
+        <!-- CARE -->
+
+        <div class="season-info-card">
+
+            <div class="season-card-icon">
+                <i class="bi bi-droplet"></i>
+            </div>
+
+            <h3>
+                Care & Watering
+            </h3>
+
+            <ul id="seasonCare">
+            </ul>
+
+        </div>
+
+
+        <!-- PROTECTION -->
+
+        <div class="season-info-card">
+
+            <div class="season-card-icon">
+                <i class="bi bi-shield-check"></i>
+            </div>
+
+            <h3>
+                Protection
+            </h3>
+
+            <ul id="seasonProtection">
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- SEASONAL CHECKLIST -->
+
+    <div class="season-checklist">
+
+        <h3>
+            <i class="bi bi-check2-square"></i>
+            Seasonal Checklist
+        </h3>
+
+        <p>
+            Complete your gardening tasks as you go.
+        </p>
+
+        
+<div id="seasonChecklist">
+</div>
+
+<!-- ADD TASK TO GARDEN CALENDAR -->
+
+<div class="add-season-task">
+
+    <button id="addSeasonTask">
+        <i class="bi bi-calendar-plus"></i>
+        Add Seasonal Task to My Garden
+    </button>
+
+    <p id="seasonTaskMessage"></p>
+
+</div>
+
+
+    </div>
+
+</div>
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer class="home-footer">
+
+
+        <div class="footer-brand">
+
+            <a
+                href="home.html"
+                class="home-brand">
+
+                <i class="bi bi-flower1"></i>
+
+                <span>Botanical Bliss</span>
+
+            </a>
+
+            <p>
+                Grow something beautiful.
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+
+            <div>
+
+                <h4>Explore</h4>
+
+                <a href="shop.html">
+                    Shop
+                </a>
+
+                <a href="categories.html">
+                    Categories
+                </a>
+
+                <a href="gardening-guide.html">
+                    Gardening Guide
+                </a>
+
+                <a href="garden-calendar.html">
+                    Garden Calendar
+                </a>
+
+                <a href="seasonal-guide.html">
+                    Seasonal Guide
+                </a>
+
+            </div>
+
+
+
+            <div>
+
+                <h4>Support</h4>
+
+                <a href="orders.html#contact-us">
+                    Contact Us
+                </a>
+
+                <a href="faq.html">
+                    FAQs
+                </a>
+
+                <a href="shipping.html">
+                    Shipping
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            © 2026 Botanical Bliss.
+            All rights reserved.
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- Seasonal Guide JS -->
+
+    <script src="js/seasonal-guide.js"></script>
+
+
+
+    <!-- Cart Count -->
+
+    <script>
+
+        function updateCartCount() {
+
+            const cart =
+                JSON.parse(
+                    localStorage.getItem("cart")
+                ) || [];
+
+            const count =
+                cart.reduce(
+                    (total, item) =>
+                        total + Number(item.quantity || 0),
+                    0
+                );
+
+            const cartCount =
+                document.getElementById("cartCount");
+
+            if (cartCount) {
+
+                cartCount.textContent = count;
+
+            }
+
+        }
+
+        updateCartCount();
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Categories | Botanical Bliss</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .categories-page {
+            padding: 70px 8%;
+            background: #f8fbf8;
+            min-height: 70vh;
+        }
+
+        .categories-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .categories-heading h1 {
+            color: #315d3d;
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .categories-heading p {
+            color: #6b756d;
+            font-size: 16px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .category-box {
+            background: white;
+            border-radius: 18px;
+            padding: 40px 25px;
+            text-align: center;
+            text-decoration: none;
+            color: #315d3d;
+            box-shadow: 0 5px 20px rgba(49, 93, 61, 0.08);
+            transition: 0.3s ease;
+        }
+
+        .category-box:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 25px rgba(49, 93, 61, 0.15);
+        }
+
+        .category-icon {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: #edf6ef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #315d3d;
+        }
+
+        .category-box h3 {
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .category-box p {
+            color: #7a827b;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .categories-heading h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="home-nav">
+
+        <a href="home.html" class="home-brand">
+            <i class="bi bi-flower1"></i>
+            <span>Botanical Bliss</span>
+        </a>
+
+        <div class="home-nav-links">
+            <a href="home.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="categories.html" class="active">Categories</a>
+            <a href="gardening-guide.html">Gardening Guide</a>
+    
+             
+            <a href="garden-gallery.html">Garden Gallery</a>
+            <a href="garden-calendar.html">Garden Calender</a>
+            <a href="seasonal-guide.html">Seasonal Guide</a>
+            
+        </div>
+
+        <div class="home-nav-actions">
+            
+
+            <a href="cart.html">
+            <button class="nav-icon-button cart-button"title="Cart">
+               <i class="bi bi-bag"></i>
+               <span id="cartCount">0</span>
+            </a>
+            </button>   
+            
+
+            <a href="dashboard.html" class="profile-button">
+                <i class="bi bi-person"></i>
+            </a>
+
+           
+        </div>
+
+    </nav>
+
+
+    <!-- Categories -->
+    <main class="categories-page">
+
+        <div class="categories-heading">
+            <h1>Explore Our Categories</h1>
+            <p>Find everything you need to grow and care for your garden.</p>
+        </div>
+
+        <div class="categories-grid">
+
+            <a href="shop.html?category=Indoor%20Plants" class="category-box">
+                <div class="category-icon">
+                    <i class="bi bi-flower2"></i>
+                </div>
+
+                <h3>Indoor Plants</h3>
+
+                <p>
+                    Beautiful plants to bring freshness and greenery indoors.
+                </p>
+            </a>
+
+
+            <a href="shop.html?category=Seeds" class="category-box">
+                <div class="category-icon">
+                    <i class="bi bi-flower1"></i>
+                </div>
+
+                <h3>Seeds</h3>
+
+                <p>
+                    Quality seeds to start your own beautiful garden.
+                </p>
+            </a>
+
+
+            <a href="shop.html?category=Organic%20Care" class="category-box">
+                <div class="category-icon">
+                    <i class="bi bi-droplet-half"></i>
+                </div>
+
+                <h3>Organic Care</h3>
+
+                <p>
+                    Organic products to keep your plants healthy and thriving.
+                </p>
+            </a>
+
+
+            <a href="shop.html?category=Gardening%20Tools" class="category-box">
+                <div class="category-icon">
+                    <i class="bi bi-tools"></i>
+                </div>
+
+                <h3>Gardening Tools</h3>
+
+                <p>
+                    Essential tools for easy and efficient gardening.
+                </p>
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                <a href="home.html">
+                    <i class="bi bi-flower1"></i>
+                    Botanical Bliss
+                </a>
+                <p>
+                    Bringing nature closer to your home.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <a href="shop.html">Shop</a>
+                <a href="categories.html">Categories</a>
+                <a href="#">Gardening Guide</a>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <script>
+        function updateCartCount() {
+            var cart = JSON.parse(localStorage.getItem("cart")) || [];
+            var count = 0;
+
+            cart.forEach(function(item) {
+                count += Number(item.quantity || 0);
+            });
+
+            var cartCount = document.getElementById("cartCount");
+
+            if (cartCount) {
+                cartCount.textContent = count;
+            }
+        }
+
+        updateCartCount();
+    </script>
+
+</body>
+</html>

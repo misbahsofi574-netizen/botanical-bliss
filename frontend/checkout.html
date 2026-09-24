@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | Botanical Bliss</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="shop-page">
+
+    <!-- NAVBAR -->
+    <nav class="home-nav">
+
+        <a href="home.html" class="home-brand">
+            <i class="bi bi-flower1"></i>
+            <span>Botanical Bliss</span>
+        </a>
+
+        <div class="home-nav-links">
+            <a href="home.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="categories.html">Categories</a>
+            <a href="gardening-guide.html">Gardening Guide</a>
+            <a href="garden-gallery.html">Garden Gallery</a>
+            <a href="garden-calendar.html">Garden Calender</a>
+            <a href="seasonal-guide.html">Seasonal Guide</a>
+            <a href="about.html">About Us</a>
+        </div>
+
+        <div class="home-nav-actions">
+
+            <a href="cart.html"
+               class="nav-icon-button cart-button"
+               title="Cart">
+
+                <i class="bi bi-bag"></i>
+
+                <span id="cartCount">0</span>
+
+            </a>
+
+            <a href="dashboard.html"
+               class="profile-button">
+
+                <i class="bi bi-person"></i>
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HEADER -->
+    <section class="shop-header">
+
+        <div>
+
+            <p>BOTANICAL BLISS</p>
+
+            <h1>Checkout</h1>
+
+            <span>
+                Complete your details and place your order.
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- CHECKOUT -->
+    <main class="checkout-container">
+
+        <!-- CUSTOMER DETAILS -->
+
+        <section class="checkout-details">
+
+            <h2>Delivery Information</h2>
+
+            <form id="checkoutForm">
+
+                <div class="checkout-field">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="checkout-field">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="checkout-field">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter your phone number"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="checkout-field">
+
+                    <label for="address">
+                        Delivery Address
+                    </label>
+
+                    <textarea
+                        id="address"
+                        placeholder="Enter your complete address"
+                        rows="4"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="checkout-row">
+
+                    <div class="checkout-field">
+
+                        <label for="city">
+                            City
+                        </label>
+
+                        <input
+                            type="text"
+                            id="city"
+                            placeholder="City"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="checkout-field">
+
+                        <label for="pincode">
+                            PIN Code
+                        </label>
+
+                        <input
+                            type="text"
+                            id="pincode"
+                            placeholder="PIN Code"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="checkout-field">
+
+                    <label for="payment">
+                        Payment Method
+                    </label>
+
+                    <select id="payment" required>
+
+                        <option value="">
+                            Select payment method
+                        </option>
+
+                        <option value="cod">
+                            Cash on Delivery
+                        </option>
+
+                        <option value="online">
+                            Online Payment
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="placeOrderButton">
+
+                    Place Order
+
+                    <i class="bi bi-check-circle"></i>
+
+                </button>
+
+                <p id="checkoutMessage"></p>
+
+            </form>
+
+        </section>
+
+
+        <!-- ORDER SUMMARY -->
+
+        <section class="checkout-summary">
+
+            <h2>Order Summary</h2>
+
+            <div id="checkoutItems"></div>
+
+            <div class="checkout-total">
+
+                <span>Total</span>
+
+                <strong id="checkoutTotal">
+                    ₹0
+                </strong>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="home-footer">
+
+        <div class="footer-brand">
+
+            <a href="home.html" class="home-brand">
+
+                <i class="bi bi-flower1"></i>
+
+                <span>
+                    Botanical Bliss
+                </span>
+
+            </a>
+
+            <p>
+                Grow something beautiful.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <div>
+
+                <h4>Explore</h4>
+
+                <a href="shop.html">
+                    Shop
+                </a>
+
+                <a href="categories.html">
+                    Categories
+                </a>
+
+                <a href="gardening-guide.html">
+                    Gardening Guide
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>Support</h4>
+
+                <a href="orders.html#contact-us">
+                    Contact Us
+                </a>
+
+                <a href="faq.html">
+                    FAQs
+                </a>
+
+                <a href="shipping.html">
+                    Shipping
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 Botanical Bliss.
+            All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="js/checkout.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register | Botanical Bliss</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="auth-page">
+
+    <div class="auth-container">
+
+        <!-- Left Botanical Section -->
+        <div class="auth-visual">
+
+            <div class="auth-overlay"></div>
+
+            <div class="auth-content">
+                <div class="brand">
+                    <i class="bi bi-flower1"></i>
+                    <span>Botanical Bliss</span>
+                </div>
+
+                <h1>Grow something beautiful.</h1>
+
+                <p>
+                    Everything you need to create, nurture and enjoy
+                    your perfect garden.
+                </p>
+
+                <div class="auth-features">
+                    <div>
+                        <i class="bi bi-flower2"></i>
+                        <span>Quality gardening essentials</span>
+                    </div>
+
+                    <div>
+                        <i class="bi bi-truck"></i>
+                        <span>Easy & reliable shopping</span>
+                    </div>
+
+                    <div>
+                        <i class="bi bi-stars"></i>
+                        <span>Smart gardening guidance</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Register Form -->
+        <div class="auth-form-section">
+
+            <div class="auth-form">
+
+                <div class="mobile-brand">
+                    <i class="bi bi-flower1"></i>
+                    <span>Botanical Bliss</span>
+                </div>
+
+                <h2>Create your account</h2>
+
+                <p class="form-subtitle">
+                    Join Botanical Bliss and start your gardening journey.
+                </p>
+
+
+                <form id="registerForm">
+
+                    <!-- Name -->
+                    <div class="input-group">
+                        <label for="name">Full Name</label>
+
+                        <div class="input-box">
+                            <i class="bi bi-person"></i>
+
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Enter your full name"
+                                required
+                            >
+                        </div>
+                    </div>
+
+
+                    <!-- Email -->
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+
+                        <div class="input-box">
+                            <i class="bi bi-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+                        </div>
+                    </div>
+
+
+                    <!-- Password -->
+                    <div class="input-group">
+                        <label for="password">Password</label>
+
+                        <div class="input-box">
+                            <i class="bi bi-lock"></i>
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Create a password"
+                                required
+                            >
+
+                            <button type="button"
+                                    class="password-toggle"
+                                    onclick="togglePassword('password', this)">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <!-- Confirm Password -->
+                    <div class="input-group">
+                        <label for="confirmPassword">Confirm Password</label>
+
+                        <div class="input-box">
+                            <i class="bi bi-shield-check"></i>
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                placeholder="Confirm your password"
+                                required
+                            >
+
+                            <button type="button"
+                                    class="password-toggle"
+                                    onclick="togglePassword('confirmPassword', this)">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="auth-button">
+                        Create Account
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+
+                    <p id="registerMessage" class="form-message"></p>
+
+                </form>
+
+
+                <div class="divider">
+                    <span>Already have an account?</span>
+                </div>
+
+
+                <a href="login.html" class="login-link">
+                    Sign in to your account
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

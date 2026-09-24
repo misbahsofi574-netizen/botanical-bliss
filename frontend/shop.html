@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shop | Botanical Bliss</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="shop-page">
+
+    <!-- NAVBAR -->
+    <nav class="home-nav">
+
+        <a href="home.html" class="home-brand">
+            <i class="bi bi-flower1"></i>
+            <span>Botanical Bliss</span>
+        </a>
+
+        <div class="home-nav-links">
+            <a href="home.html">Home</a>
+            <a href="shop.html" class="active">Shop</a>
+            <a href="categories.html">Categories</a>
+            <a href="gardening-guide.html">Gardening Guide</a>
+            <a href="garden-gallery.html">Garden Gallery</a>
+            <a href="garden-calendar.html">Garden Calender</a>
+            <a href="seasonal-guide.html">Seasonal Guide</a>
+            
+        </div>
+
+        <div class="home-nav-actions">
+
+            <button class="nav-icon-button" title="Search">
+                <i class="bi bi-search"></i>
+            </button>
+
+            <a href="wishlist.html">
+
+               <button class="nav-icon-button"
+               title="Wishlist">
+                <i class="bi bi-heart"></i>
+            </a>
+
+            <a href="cart.html">
+                <button class="nav-icon-button cart-button" title="Cart">
+                    <i class="bi bi-bag"></i>
+                    <span id="cartCount">0</span>
+                </button>
+            </a>
+
+            <a href="dashboard.html" class="profile-button">
+                <i class="bi bi-person"></i>
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- SHOP HEADER -->
+    <section class="shop-header">
+
+        <div>
+            <p>BOTANICAL BLISS COLLECTION</p>
+
+            <h1>Shop for your garden</h1>
+
+            <span>
+                Discover plants, seeds, fertilizers and tools
+                to grow something beautiful.
+            </span>
+        </div>
+
+    </section>
+
+
+    <!-- SHOP CONTENT -->
+    <main class="shop-container">
+
+        <!-- PRODUCT SEARCH -->
+        <div class="shop-search">
+
+            <i class="bi bi-search"></i>
+
+            <input
+                type="text"
+                id="productSearch"
+                placeholder="Search for plants, seeds, tools..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <!-- FILTER BAR -->
+        <div class="shop-toolbar">
+
+            <div class="shop-categories">
+
+                <button class="shop-filter active">
+                    All
+                </button>
+
+                <button class="shop-filter">
+                    Plants
+                </button>
+
+                <button class="shop-filter">
+                    Seeds
+                </button>
+
+                <button class="shop-filter">
+                    Fertilizers
+                </button>
+
+                <button class="shop-filter">
+                    Garden Tools
+                </button>
+
+            </div>
+
+            <div class="product-count">
+                8 Products
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+        <div class="shop-product-grid">
+
+
+            <!-- PRODUCT 1 -->
+            <article class="shop-product-card">
+
+                <div class="shop-product-image plant-image">
+    <span class="product-badge">Popular</span>
+
+    <button class="wishlist-button" type="button" title="Add to Wishlist">
+        <i class="bi bi-heart"></i>
+    </button>
+
+    <img src="images/peace-lily.jpg" alt="Peace Lily">
+</div>
+                <div class="shop-product-info">
+
+                    <p>Indoor Plants</p>
+
+                    <h3>Peace Lily</h3>
+
+                    <div class="shop-product-bottom">
+
+                        <strong>₹399</strong>
+
+                        <button class="add-cart">
+                            <i class="bi bi-plus"></i>
+                            Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 2 -->
+            <article class="shop-product-card">
+
+                <div class="shop-product-image seed-image">
+    <span class="product-badge">New</span>
+
+    <button class="wishlist-button" type="button" title="Add to Wishlist">
+        <i class="bi bi-heart"></i>
+    </button>
+
+    <img src="images/rose-seeds.jpg" alt="Rose Seed Collection">
+</div>
+                <div class="shop-product-info">
+
+                    <p>Seeds</p>
+
+                    <h3>Seed Collection</h3>
+
+                    <div class="shop-product-bottom">
+
+                        <strong>₹199</strong>
+
+                        <button class="add-cart">
+                            <i class="bi bi-plus"></i>
+                            Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 3 -->
+            <article class="shop-product-card">
+
+                <div class="shop-product-image fertilizer-image">
+
+    <button class="wishlist-button" type="button" title="Add to Wishlist">
+        <i class="bi bi-heart"></i>
+    </button>
+
+    <img src="images/organic-plant-food.jpg" alt="Organic Plant Food">
+</div>
+                <div class="shop-product-info">
+
+                    <p>Organic Care</p>
+
+                    <h3>Organic Plant Food</h3>
+
+                    <div class="shop-product-bottom">
+
+                        <strong>₹299</strong>
+
+                        <button class="add-cart">
+                            <i class="bi bi-plus"></i>
+                            Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 4 -->
+            <article class="shop-product-card">
+
+                <div class="shop-product-image tools-image">
+
+    <button class="wishlist-button" type="button" title="Add to Wishlist">
+        <i class="bi bi-heart"></i>
+    </button>
+
+    <img src="images/garden-tool-set.jpg" alt="Garden Tool Set">
+</div>
+
+                <div class="shop-product-info">
+
+                    <p>Gardening Tools</p>
+
+                    <h3>Garden Tool Set</h3>
+
+                    <div class="shop-product-bottom">
+
+                        <strong>₹599</strong>
+
+                        <button class="add-cart">
+                            <i class="bi bi-plus"></i>
+                            Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 5 -->
+            <article class="shop-product-card">
+<div class="shop-product-image plant-image">
+
+    <button class="wishlist-button" type="button" title="Add to Wishlist">
+        <i class="bi bi-heart"></i>
+    </button>
+
+    <img src="images/snake-plant.jpg" alt="Snake Plant">
+</div>
+                     <div class="shop-product-info">
+
+                    <p>Indoor Plants</p>
+
+                    <h3>Snake Plant</h3>
+
+                    <div class="shop-product-bottom">
+
+                        <strong>₹449</strong>
+
+                        <button class="add-cart">
+                            <i class="bi bi-plus"></i>
+                            Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 6 -->
+            <article class="shop-product-card">
+
+                <div class="shop-product-image seed-image">
+
+    <button class="wishlist-button" type="button" title="Add to Wishlist">
+        <i class="bi bi-heart"></i>
+    </button>
+
+    <img src="images/herb-seed-kit.jpg" alt="Herb Seed Kit">
+</div>
+                <div class="shop-product-info">
+
+                    <p>Seeds</p>
+
+                    <h3>Herb Seed Kit</h3>
+
+                    <div class="shop-product-bottom">
+
+                        <strong>₹249</strong>
+
+                        <button class="add-cart">
+                            <i class="bi bi-plus"></i>
+                            Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 7 -->
+            <article class="shop-product-card">
+
+                <div class="shop-product-image fertilizer-image">
+
+    <button class="wishlist-button" type="button" title="Add to Wishlist">
+        <i class="bi bi-heart"></i>
+    </button>
+
+    <img src="images/organic-compost.jpg" alt="Organic Compost">
+</div>
+                <div class="shop-product-info">
+
+                    <p>Organic Care</p>
+
+                    <h3>Organic Compost</h3>
+
+                    <div class="shop-product-bottom">
+
+                        <strong>₹349</strong>
+
+                        <button class="add-cart">
+                            <i class="bi bi-plus"></i>
+                            Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 8 -->
+            <article class="shop-product-card">
+
+               <div class="shop-product-image tools-image">
+    <span class="product-badge">Best Seller</span>
+
+    <button class="wishlist-button" type="button" title="Add to Wishlist">
+        <i class="bi bi-heart"></i>
+    </button>
+
+    <img src="images/pruning-tool-kit.jpg" alt="Pruning Tool Kit">
+</div>
+                <div class="shop-product-info">
+
+                    <p>Gardening Tools</p>
+
+                    <h3>Pruning Tool Kit</h3>
+
+                    <div class="shop-product-bottom">
+
+                        <strong>₹499</strong>
+
+                        <button class="add-cart">
+                            <i class="bi bi-plus"></i>
+                            Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+             <!-- PRODUCT 9 -->
+            <article class="shop-product-card">
+
+                <div class="shop-product-image plant-image">
+   
+    <button class="wishlist-button" type="button" title="Add to Wishlist">
+        <i class="bi bi-heart"></i>
+    </button>
+
+    <img src="images/lavender.jpg" alt="Lavender">
+</div>
+                <div class="shop-product-info">
+
+                    <p>Indoor Plants</p>
+
+                    <h3>Lavender</h3>
+
+                    <div class="shop-product-bottom">
+
+                        <strong>₹499</strong>
+
+                        <button class="add-cart">
+                            <i class="bi bi-plus"></i>
+                            Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="home-footer">
+
+        <div class="footer-brand">
+
+            <a href="home.html" class="home-brand">
+                <i class="bi bi-flower1"></i>
+                <span>Botanical Bliss</span>
+            </a>
+
+            <p>
+                Grow something beautiful.
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <div>
+                <h4>Explore</h4>
+                <a href="shop.html">Shop</a>
+                <a href="categories.html">Categories</a>
+                <a href="gardening-guide.html">Gardening Guide</a>
+            </div>
+
+            <div>
+                <h4>Support</h4>
+                <a href="orders.html#contact-us">Contact Us</a>
+                <a href="faq.html">FAQs</a>
+                <a href="shipping.html">Shipping</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Botanical Bliss. All rights reserved.
+        </div>
+
+    </footer>
+
+
+    <script src="js/shop.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Garden Gallery | Botanical Bliss</title>
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body class="shop-page">
+
+
+    <!-- ================================
+         NAVBAR
+    ================================= -->
+
+    <nav class="home-nav">
+
+        <a href="home.html" class="home-brand">
+
+            <i class="bi bi-flower1"></i>
+
+            <span>Botanical Bliss</span>
+
+        </a>
+
+
+        <div class="home-nav-links">
+
+            <a href="home.html">
+                Home
+            </a>
+
+            <a href="shop.html">
+                Shop
+            </a>
+
+            <a href="categories.html">
+                Categories
+            </a>
+
+            <a href="gardening-guide.html">
+                Gardening Guide
+            </a>
+
+            <a href="garden-calendar.html">
+                Garden Calendar
+            </a>
+
+            <a href="garden-gallery.html" class="active">
+                Garden Gallery
+            </a>
+
+            <a href="">
+                About Us
+            </a>
+
+        </div>
+
+
+        <div class="home-nav-actions">
+
+            <a
+                href="cart.html"
+                class="nav-icon-button cart-button"
+                title="Cart">
+
+                <i class="bi bi-bag"></i>
+
+                <span id="cartCount">0</span>
+
+            </a>
+
+
+            <a
+                href="dashboard.html"
+                class="profile-button"
+                title="Profile">
+
+                <i class="bi bi-person"></i>
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================================
+         HEADER
+    ================================= -->
+
+    <section class="shop-header">
+
+        <div>
+
+            <p>BOTANICAL BLISS</p>
+
+            <h1>Garden Gallery</h1>
+
+            <span>
+                Explore beautiful gardens, plants and inspiring
+                gardening ideas.
+            </span>
+
+        </div>
+
+    </section>
+
+    <div class="gallery-card">
+
+    <img
+        src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735"
+        alt="Garden flowers">
+
+    <div class="gallery-card-content">
+
+        <h3>
+            Garden Flowers
+        </h3>
+
+        <p>
+            Create a colourful and welcoming
+            garden with flowers.
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- =================================
+     SHARE YOUR GARDEN
+================================= -->
+
+<section class="share-garden-section">
+
+    <div class="share-garden-intro">
+
+        <p>COMMUNITY</p>
+
+        <h2>Share Your Garden</h2>
+
+        <span>
+            Show your plants, flowers and gardening journey
+            with the Botanical Bliss community.
+        </span>
+
+    </div>
+
+
+    <div class="share-garden-card">
+
+        <form id="gardenPostForm">
+
+            <!-- PHOTO UPLOAD -->
+
+            <div class="upload-area">
+
+                
+
+                <h3>Upload Your Garden Photo</h3>
+
+                <p>
+                    Share a beautiful moment from your garden.
+                </p>
+
+                <label
+                    for="gardenPhoto"
+                    class="upload-button">
+
+                    <i class="bi bi-image"></i>
+                    Choose Photo
+
+                </label>
+
+                <input
+                    type="file"
+                    id="gardenPhoto"
+                    accept="image/*"
+                    hidden>
+
+                <p
+                    id="selectedFileName"
+                    class="selected-file">
+                </p>
+
+            </div>
+
+
+            <!-- CAPTION -->
+
+            <div class="garden-caption">
+
+                <label for="gardenCaption">
+                    Caption
+                </label>
+
+                <textarea
+                    id="gardenCaption"
+                    rows="4"
+                    placeholder="Tell us about your garden..."
+                    maxlength="300"
+                    required></textarea>
+
+            </div>
+
+
+            <!-- SHARE BUTTON -->
+
+            <button
+                type="submit"
+                class="share-garden-button">
+
+                <i class="bi bi-send"></i>
+                Share Post
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =================================
+     COMMUNITY POSTS
+================================= -->
+
+<section class="community-section">
+
+    <div class="community-heading">
+    <p>BOTANICAL BLISS COMMUNITY</p>
+    <h2>Gardeners' Corner</h2>
+    <span>
+        Discover gardens shared by our community.
+    </span>
+</div>
+
+<div id="communityPosts" class="community-posts">
+</div>
+
+
+    
+
+
+        
+
+      
+
+        
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer class="home-footer">
+
+        <div class="footer-brand">
+
+            <a href="home.html" class="home-brand">
+
+                <i class="bi bi-flower1"></i>
+
+                <span>Botanical Bliss</span>
+
+            </a>
+
+            <p>
+                Grow something beautiful.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <div>
+
+                <h4>Explore</h4>
+
+                <a href="shop.html">
+                    Shop
+                </a>
+
+                <a href="categories.html">
+                    Categories
+                </a>
+
+                <a href="gardening-guide.html">
+                    Gardening Guide
+                </a>
+
+                <a href="garden-calendar.html">
+                    Garden Calendar
+                </a>
+
+                <a href="garden-gallery.html">
+                    Garden Gallery
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>Support</h4>
+
+                <a href="orders.html#contact-us">
+                    Contact Us
+                </a>
+
+                <a href="faq.html">
+                    FAQs
+                </a>
+
+                <a href="shipping.html">
+                    Shipping
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 Botanical Bliss.
+            All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+    <!-- CART COUNT -->
+
+    <script>
+
+        function updateCartCount() {
+
+            const cart =
+                JSON.parse(
+                    localStorage.getItem("cart")
+                ) || [];
+
+            const count =
+                cart.reduce(
+                    (total, item) =>
+                        total +
+                        Number(item.quantity || 0),
+                    0
+                );
+
+            const cartCount =
+                document.getElementById(
+                    "cartCount"
+                );
+
+            if (cartCount) {
+
+                cartCount.textContent =
+                    count;
+
+            }
+
+        }
+
+        updateCartCount();
+
+    </script>
+
+    <script src="js/garden-gallery.js"></script>
+
+
+</body>
+
+</html>

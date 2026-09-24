@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Details | Botanical Bliss</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body class="shop-page">
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <!-- NAVBAR -->
+<nav class="home-nav">
+
+    <a href="home.html" class="home-brand">
+        <i class="bi bi-flower1"></i>
+        <span>Botanical Bliss</span>
+    </a>
+
+    <div class="home-nav-links">
+
+        <a href="home.html">Home</a>
+
+        <a href="shop.html" class="active">Shop</a>
+
+        <a href="categories.html">Categories</a>
+
+        <a href="gardening-guide.html">Gardening Guide</a>
+
+        <a href="orders.html#about-us">About Us</a>
+    </div>
+
+    <div class="home-nav-actions">
+        <a href="wishlist.html">
+
+            <button class="nav-icon-button"
+            title="Wishlist">
+
+            <i class="bi bi-heart"></i>
+
+        </a>
+
+
+        <a href="cart.html">
+
+            <button
+                class="nav-icon-button cart-button"
+                title="Cart"
+                type="button">
+
+                <i class="bi bi-bag"></i>
+
+                <span id="cartCount">0</span>
+
+            </button>
+
+        </a>
+
+
+        <a
+            href="dashboard.html"
+            class="profile-button">
+
+            <i class="bi bi-person"></i>
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+    <!-- =========================
+         PRODUCT DETAIL SECTION
+    ========================== -->
+
+    <main class="product-detail-page">
+
+        <div id="productDetails">
+
+            <!-- Product will appear here using JavaScript -->
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         REVIEWS SECTION
+    ========================== -->
+
+    <section class="reviews-section">
+
+        <div class="reviews-container">
+
+            <h2>Customer Reviews</h2>
+
+            <p class="reviews-subtitle">
+                Share your experience with this product.
+            </p>
+
+
+            <!-- WRITE REVIEW -->
+
+            <div class="write-review">
+
+                <h3>Write a Review</h3>
+
+
+                <div class="star-rating">
+
+                    <button type="button" data-rating="1">
+                        <i class="bi bi-star"></i>
+                    </button>
+
+                    <button type="button" data-rating="2">
+                        <i class="bi bi-star"></i>
+                    </button>
+
+                    <button type="button" data-rating="3">
+                        <i class="bi bi-star"></i>
+                    </button>
+
+                    <button type="button" data-rating="4">
+                        <i class="bi bi-star"></i>
+                    </button>
+
+                    <button type="button" data-rating="5">
+                        <i class="bi bi-star"></i>
+                    </button>
+
+                </div>
+
+
+                <textarea
+                    id="reviewText"
+                    placeholder="Write your review here..."
+                    rows="5"></textarea>
+
+                    <label for="reviewImage" class="review-image-label">
+    <i class="bi bi-image"></i>
+    Add a Product Image
+</label>
+
+<input
+    type="file"
+    id="reviewImage"
+    accept="image/*">
+
+                <button
+                    type="button"
+                    id="submitReview"
+                    class="submit-review">
+
+                    Submit Review
+
+                </button>
+
+            </div>
+
+
+            <!-- REVIEWS -->
+
+            <div id="reviewsList">
+
+                <!-- Reviews appear here -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    
+<script src="js/product-details.js"></script>
+
+
+</body>
+
+</html>
