@@ -5,7 +5,7 @@ console.log("GARDEN GALLERY JS LOADED");
    Image Compression + JWT Authentication
 ========================================================= */
 
-const API_URL = "http://localhost:5000/api/garden-posts";
+const API_URL = "https://botanical-bliss-52ra.onrender.com/api/garden-posts";
 
 const gardenPostForm = document.getElementById("gardenPostForm");
 const gardenPhoto = document.getElementById("gardenPhoto");

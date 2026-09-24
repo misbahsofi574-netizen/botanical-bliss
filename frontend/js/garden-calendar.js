@@ -488,7 +488,7 @@ addPersonalTask.addEventListener("click", async () => {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/garden-reminders",
+            "https://botanical-bliss-52ra.onrender.com/api/garden-reminders",
             {
                 method: "POST",
 
