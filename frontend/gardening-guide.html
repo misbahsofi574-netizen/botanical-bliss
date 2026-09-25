@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,11 +14,13 @@
     >
 
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body class="shop-page">
 
     <!-- NAVBAR -->
+
     <nav class="home-nav">
 
         <a href="home.html" class="home-brand">
@@ -26,32 +29,48 @@
         </a>
 
         <div class="home-nav-links">
+
             <a href="home.html">Home</a>
+
             <a href="shop.html">Shop</a>
+
             <a href="categories.html">Categories</a>
+
             <a href="gardening-guide.html" class="active">
                 Gardening Guide
             </a>
-            <a href="#">About Us</a>
+
+            <a href="garden-gallery.html">
+                Garden Gallery
+            </a>
+
+            <a href="garden-calendar.html">
+                Garden Calendar
+            </a>
+
+            <a href="seasonal-guide.html">
+                Seasonal Guide
+            </a>
+
         </div>
 
         <div class="home-nav-actions">
 
-            <a href="cart.html"
-               class="nav-icon-button cart-button"
-               title="Cart">
-
+            <a
+                href="cart.html"
+                class="nav-icon-button cart-button"
+                title="Cart"
+            >
                 <i class="bi bi-bag"></i>
                 <span id="cartCount">0</span>
-
             </a>
 
-            <a href="dashboard.html"
-               class="profile-button"
-               title="Profile">
-
+            <a
+                href="dashboard.html"
+                class="profile-button"
+                title="Profile"
+            >
                 <i class="bi bi-person"></i>
-
             </a>
 
         </div>
@@ -59,7 +78,9 @@
     </nav>
 
 
+
     <!-- HEADER -->
+
     <section class="shop-header">
 
         <div>
@@ -69,7 +90,8 @@
             <h1>Gardening Guide</h1>
 
             <span>
-                Simple tips and useful knowledge to help your plants grow beautifully.
+                Simple tips and useful knowledge to help your plants
+                grow beautifully.
             </span>
 
         </div>
@@ -77,12 +99,20 @@
     </section>
 
 
-    <!-- GUIDE -->
+
+    <!-- MAIN GUIDE -->
+
     <main class="guide-container">
+
+
+
+        <!-- INTRO -->
 
         <div class="guide-intro">
 
-            <h2>Grow Better. Garden Happier.</h2>
+            <h2>
+                Grow Better. Garden Happier.
+            </h2>
 
             <p>
                 Whether you are growing your first indoor plant or caring
@@ -93,10 +123,327 @@
         </div>
 
 
-        <!-- GUIDE CARDS -->
+
+        <!-- =====================================================
+             PLANT DOCTOR
+        ====================================================== -->
+
+        <section class="plant-doctor">
+
+            <div class="plant-doctor-header">
+
+                <div>
+
+                    <span class="guide-section-label">
+                        PLANT DOCTOR
+                    </span>
+
+                    <h2>
+                        What's Happening With Your Plant?
+                    </h2>
+
+                    <p>
+                        Select a problem you have noticed and get simple
+                        guidance on possible causes and what you can do.
+                    </p>
+
+                </div>
+
+                <div class="plant-doctor-icon">
+                    <i class="bi bi-heart-pulse"></i>
+                </div>
+
+            </div>
+
+
+
+            <!-- PROBLEM OPTIONS -->
+
+            <div class="plant-problem-selector">
+
+                <button
+                    class="plant-problem"
+                    data-problem="yellow"
+                >
+                    <span class="problem-icon">
+                        <i class="bi bi-droplet-half"></i>
+                    </span>
+
+                    <span>Yellow Leaves</span>
+                </button>
+
+
+                <button
+                    class="plant-problem"
+                    data-problem="wilting"
+                >
+                    <span class="problem-icon">
+                        <i class="bi bi-activity"></i>
+                    </span>
+
+                    <span>Wilting</span>
+                </button>
+
+
+                <button
+                    class="plant-problem"
+                    data-problem="brown"
+                >
+                    <span class="problem-icon">
+                        <i class="bi bi-tree"></i>
+                    </span>
+
+                    <span>Brown Tips</span>
+                </button>
+
+
+                <button
+                    class="plant-problem"
+                    data-problem="growth"
+                >
+                    <span class="problem-icon">
+                        <i class="bi bi-arrow-up-circle"></i>
+                    </span>
+
+                    <span>Slow Growth</span>
+                </button>
+
+
+                <button
+                    class="plant-problem"
+                    data-problem="pests"
+                >
+                    <span class="problem-icon">
+                        <i class="bi bi-bug"></i>
+                    </span>
+
+                    <span>Pests</span>
+                </button>
+
+
+                <button
+                    class="plant-problem"
+                    data-problem="flowers"
+                >
+                    <span class="problem-icon">
+                        <i class="bi bi-flower2"></i>
+                    </span>
+
+                    <span>No Flowers</span>
+                </button>
+
+            </div>
+
+
+
+            <!-- PROBLEM RESULT -->
+
+            <div
+                class="plant-doctor-result"
+                id="plantDoctorResult"
+            >
+
+                <div class="plant-doctor-empty">
+
+                    <i class="bi bi-search-heart"></i>
+
+                    <h3>
+                        Select a plant problem
+                    </h3>
+
+                    <p>
+                        Choose one of the problems above to see
+                        possible causes and basic care steps.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PLANT DOCTOR CHATBOT
+            ================================================== -->
+
+            <div class="plant-doctor-chat">
+
+                <div class="plant-chat-header">
+
+                    <div class="plant-chat-title">
+
+                        <div class="plant-chat-avatar">
+                            <i class="bi bi-flower2"></i>
+                        </div>
+
+                        <div>
+
+                            <span class="guide-section-label">
+                                PLANT DOCTOR CHAT
+                            </span>
+
+                            <h3>
+                                Ask Plant Doctor
+                            </h3>
+
+                            <p>
+                                Get quick answers to common gardening questions.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="plant-chat-status">
+                        <span></span>
+                        Online
+                    </div>
+
+                </div>
+
+
+
+                <!-- CHAT MESSAGES -->
+
+                <div
+                    class="plant-chat-messages"
+                    id="plantChatMessages"
+                >
+
+                    <div class="plant-chat-message bot">
+
+                        <div class="chat-message-icon">
+                            <i class="bi bi-flower2"></i>
+                        </div>
+
+                        <div class="chat-bubble">
+
+                            <p>
+                                Hello! I'm Plant Doctor.
+                                Tell me what is happening with your plant
+                                and I'll suggest some basic care steps.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- QUICK QUESTIONS -->
+
+                <div class="plant-chat-quick">
+
+                    <button data-question="Why are my leaves yellow?">
+                        Yellow leaves
+                    </button>
+
+                    <button data-question="Why is my plant wilting?">
+                        Wilting
+                    </button>
+
+                    <button data-question="How often should I water my plant?">
+                        Watering
+                    </button>
+
+                    <button data-question="Why does my plant have pests?">
+                        Pests
+                    </button>
+
+                </div>
+
+
+
+                <!-- CHAT INPUT -->
+
+                <form
+                    class="plant-chat-input"
+                    id="plantChatForm"
+                >
+
+                    <input
+                        type="text"
+                        id="plantChatInput"
+                        placeholder="Ask about your plant..."
+                        autocomplete="off"
+                    >
+
+                    <button
+                        type="submit"
+                        title="Send"
+                    >
+                        <i class="bi bi-send-fill"></i>
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             START HERE
+        ====================================================== -->
+
+        <section class="guide-start">
+
+            <div class="guide-start-content">
+
+                <span class="guide-section-label">
+                    START HERE
+                </span>
+
+                <h2>
+                    New to Gardening?
+                </h2>
+
+                <p>
+                    Start with the basics and learn how to give your plants
+                    the right amount of water, sunlight, soil and care.
+                </p>
+
+                <div class="guide-start-points">
+
+                    <span>
+                        <i class="bi bi-check-circle"></i>
+                        Understand your plants
+                    </span>
+
+                    <span>
+                        <i class="bi bi-check-circle"></i>
+                        Learn basic plant care
+                    </span>
+
+                    <span>
+                        <i class="bi bi-check-circle"></i>
+                        Identify common problems
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="guide-start-icon">
+                <i class="bi bi-flower2"></i>
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             GUIDE CARDS
+        ====================================================== -->
+
         <div class="guide-grid">
 
-            <!-- Watering -->
+
+            <!-- WATERING -->
+
             <article class="guide-card">
 
                 <div class="guide-icon">
@@ -110,7 +457,7 @@
                     when your plants actually need water.
                 </p>
 
-                <a href="#watering">
+                <a href="#watering" class="guide-read-link">
                     Read Guide
                     <i class="bi bi-arrow-right"></i>
                 </a>
@@ -118,7 +465,9 @@
             </article>
 
 
-            <!-- Sunlight -->
+
+            <!-- SUNLIGHT -->
+
             <article class="guide-card">
 
                 <div class="guide-icon">
@@ -132,7 +481,7 @@
                     the right place for your plants.
                 </p>
 
-                <a href="#sunlight">
+                <a href="#sunlight" class="guide-read-link">
                     Read Guide
                     <i class="bi bi-arrow-right"></i>
                 </a>
@@ -140,7 +489,9 @@
             </article>
 
 
-            <!-- Soil -->
+
+            <!-- SOIL -->
+
             <article class="guide-card">
 
                 <div class="guide-icon">
@@ -154,7 +505,7 @@
                     support strong and healthy plant growth.
                 </p>
 
-                <a href="#soil">
+                <a href="#soil" class="guide-read-link">
                     Read Guide
                     <i class="bi bi-arrow-right"></i>
                 </a>
@@ -162,7 +513,9 @@
             </article>
 
 
-            <!-- Indoor -->
+
+            <!-- INDOOR -->
+
             <article class="guide-card">
 
                 <div class="guide-icon">
@@ -176,7 +529,7 @@
                     and beautiful throughout the year.
                 </p>
 
-                <a href="#indoor">
+                <a href="#indoor" class="guide-read-link">
                     Read Guide
                     <i class="bi bi-arrow-right"></i>
                 </a>
@@ -184,7 +537,9 @@
             </article>
 
 
-            <!-- Problems -->
+
+            <!-- PROBLEMS -->
+
             <article class="guide-card">
 
                 <div class="guide-icon">
@@ -198,7 +553,7 @@
                     leaves, pests and slow growth.
                 </p>
 
-                <a href="#problems">
+                <a href="#problems" class="guide-read-link">
                     Read Guide
                     <i class="bi bi-arrow-right"></i>
                 </a>
@@ -206,7 +561,9 @@
             </article>
 
 
-            <!-- Seasonal -->
+
+            <!-- SEASONAL -->
+
             <article class="guide-card">
 
                 <div class="guide-icon">
@@ -220,7 +577,7 @@
                     and adjust your gardening routine accordingly.
                 </p>
 
-                <a href="#seasonal">
+                <a href="#seasonal" class="guide-read-link">
                     Read Guide
                     <i class="bi bi-arrow-right"></i>
                 </a>
@@ -230,16 +587,161 @@
         </div>
 
 
-        <!-- DETAILED GUIDES -->
 
-        <section class="guide-details" id="watering">
+        <!-- =====================================================
+             GROW YOUR OWN
+        ====================================================== -->
+
+        <section class="grow-your-own">
+
+            <div class="grow-header">
+
+                <span class="guide-section-label">
+                    GROW YOUR OWN
+                </span>
+
+                <h2>
+                    Choose a Plant to Explore
+                </h2>
+
+                <p>
+                    Select a plant and discover the basic care it needs
+                    to grow healthy and strong.
+                </p>
+
+            </div>
+
+
+
+            <!-- PLANT OPTIONS -->
+
+            <div class="plant-selector">
+
+
+                <button
+                    class="plant-option"
+                    data-plant="basil"
+                >
+                    <span class="plant-option-icon">
+                        <i class="bi bi-flower1"></i>
+                    </span>
+
+                    <span>Basil</span>
+                </button>
+
+
+                <button
+                    class="plant-option"
+                    data-plant="mint"
+                >
+                    <span class="plant-option-icon">
+                        <i class="bi bi-leaf"></i>
+                    </span>
+
+                    <span>Mint</span>
+                </button>
+
+
+                <button
+                    class="plant-option"
+                    data-plant="rose"
+                >
+                    <span class="plant-option-icon">
+                        <i class="bi bi-flower2"></i>
+                    </span>
+
+                    <span>Rose</span>
+                </button>
+
+
+                <button
+                    class="plant-option"
+                    data-plant="tomato"
+                >
+                    <span class="plant-option-icon">
+                        <i class="bi bi-circle-fill"></i>
+                    </span>
+
+                    <span>Tomato</span>
+                </button>
+
+
+                <button
+                    class="plant-option"
+                    data-plant="snake"
+                >
+                    <span class="plant-option-icon">
+                        <i class="bi bi-tree"></i>
+                    </span>
+
+                    <span>Snake Plant</span>
+                </button>
+
+
+                <button
+                    class="plant-option"
+                    data-plant="peace-lily"
+                >
+                    <span class="plant-option-icon">
+                        <i class="bi bi-flower1"></i>
+                    </span>
+
+                    <span>Peace Lily</span>
+                </button>
+
+            </div>
+
+
+
+            <!-- PLANT INFORMATION -->
+
+            <div
+                class="plant-care-result"
+                id="plantCareResult"
+            >
+
+                <div class="plant-result-empty">
+
+                    <i class="bi bi-flower2"></i>
+
+                    <h3>
+                        Choose a plant
+                    </h3>
+
+                    <p>
+                        Select one of the plants above to see its
+                        basic care information.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             DETAILED GUIDES
+        ====================================================== -->
+
+
+        <!-- WATERING -->
+
+        <section
+            class="guide-details"
+            id="watering"
+        >
 
             <div class="guide-detail-icon">
                 <i class="bi bi-droplet"></i>
             </div>
 
             <div>
-                <h2>Watering Your Plants</h2>
+
+                <h2>
+                    Watering Your Plants
+                </h2>
 
                 <p>
                     Watering is one of the most important parts of plant care.
@@ -248,24 +750,47 @@
                 </p>
 
                 <ul>
-                    <li>Check the top layer of soil before watering.</li>
-                    <li>Water thoroughly rather than giving only a few drops.</li>
-                    <li>Make sure excess water can drain properly.</li>
-                    <li>Avoid keeping plant roots constantly waterlogged.</li>
+
+                    <li>
+                        Check the top layer of soil before watering.
+                    </li>
+
+                    <li>
+                        Water thoroughly rather than giving only a few drops.
+                    </li>
+
+                    <li>
+                        Make sure excess water can drain properly.
+                    </li>
+
+                    <li>
+                        Avoid keeping plant roots constantly waterlogged.
+                    </li>
+
                 </ul>
+
             </div>
 
         </section>
 
 
-        <section class="guide-details" id="sunlight">
+
+        <!-- SUNLIGHT -->
+
+        <section
+            class="guide-details"
+            id="sunlight"
+        >
 
             <div class="guide-detail-icon">
                 <i class="bi bi-sun"></i>
             </div>
 
             <div>
-                <h2>Understanding Sunlight</h2>
+
+                <h2>
+                    Understanding Sunlight
+                </h2>
 
                 <p>
                     Different plants need different amounts of light.
@@ -274,24 +799,47 @@
                 </p>
 
                 <ul>
-                    <li>Place sun-loving plants in bright locations.</li>
-                    <li>Use bright indirect light for plants that prefer it.</li>
-                    <li>Rotate indoor plants occasionally for even growth.</li>
-                    <li>Watch for signs of too much or too little light.</li>
+
+                    <li>
+                        Place sun-loving plants in bright locations.
+                    </li>
+
+                    <li>
+                        Use bright indirect light for plants that prefer it.
+                    </li>
+
+                    <li>
+                        Rotate indoor plants occasionally for even growth.
+                    </li>
+
+                    <li>
+                        Watch for signs of too much or too little light.
+                    </li>
+
                 </ul>
+
             </div>
 
         </section>
 
 
-        <section class="guide-details" id="soil">
+
+        <!-- SOIL -->
+
+        <section
+            class="guide-details"
+            id="soil"
+        >
 
             <div class="guide-detail-icon">
                 <i class="bi bi-tree"></i>
             </div>
 
             <div>
-                <h2>Soil & Fertilizer</h2>
+
+                <h2>
+                    Soil & Fertilizer
+                </h2>
 
                 <p>
                     Healthy soil provides plants with support, water and
@@ -300,24 +848,47 @@
                 </p>
 
                 <ul>
-                    <li>Use well-draining soil for most container plants.</li>
-                    <li>Choose a suitable potting mix for indoor plants.</li>
-                    <li>Use fertilizers according to the plant's needs.</li>
-                    <li>Avoid over-fertilizing your plants.</li>
+
+                    <li>
+                        Use well-draining soil for most container plants.
+                    </li>
+
+                    <li>
+                        Choose a suitable potting mix for indoor plants.
+                    </li>
+
+                    <li>
+                        Use fertilizers according to the plant's needs.
+                    </li>
+
+                    <li>
+                        Avoid over-fertilizing your plants.
+                    </li>
+
                 </ul>
+
             </div>
 
         </section>
 
 
-        <section class="guide-details" id="indoor">
+
+        <!-- INDOOR -->
+
+        <section
+            class="guide-details"
+            id="indoor"
+        >
 
             <div class="guide-detail-icon">
                 <i class="bi bi-house-heart"></i>
             </div>
 
             <div>
-                <h2>Indoor Plant Care</h2>
+
+                <h2>
+                    Indoor Plant Care
+                </h2>
 
                 <p>
                     Indoor plants need the right balance of light, water,
@@ -325,24 +896,47 @@
                 </p>
 
                 <ul>
-                    <li>Keep plants in suitable lighting conditions.</li>
-                    <li>Do not overwater plants.</li>
-                    <li>Clean dusty leaves gently when needed.</li>
-                    <li>Give plants enough space and airflow.</li>
+
+                    <li>
+                        Keep plants in suitable lighting conditions.
+                    </li>
+
+                    <li>
+                        Do not overwater plants.
+                    </li>
+
+                    <li>
+                        Clean dusty leaves gently when needed.
+                    </li>
+
+                    <li>
+                        Give plants enough space and airflow.
+                    </li>
+
                 </ul>
+
             </div>
 
         </section>
 
 
-        <section class="guide-details" id="problems">
+
+        <!-- PROBLEMS -->
+
+        <section
+            class="guide-details"
+            id="problems"
+        >
 
             <div class="guide-detail-icon">
                 <i class="bi bi-bug"></i>
             </div>
 
             <div>
-                <h2>Common Plant Problems</h2>
+
+                <h2>
+                    Common Plant Problems
+                </h2>
 
                 <p>
                     Changes in leaves or growth can indicate that a plant
@@ -351,24 +945,47 @@
                 </p>
 
                 <ul>
-                    <li>Yellow leaves may have several possible causes.</li>
-                    <li>Check watering and drainage when growth looks unhealthy.</li>
-                    <li>Inspect leaves regularly for visible pests.</li>
-                    <li>Remove damaged leaves when appropriate.</li>
+
+                    <li>
+                        Yellow leaves may have several possible causes.
+                    </li>
+
+                    <li>
+                        Check watering and drainage when growth looks unhealthy.
+                    </li>
+
+                    <li>
+                        Inspect leaves regularly for visible pests.
+                    </li>
+
+                    <li>
+                        Remove damaged leaves when appropriate.
+                    </li>
+
                 </ul>
+
             </div>
 
         </section>
 
 
-        <section class="guide-details" id="seasonal">
+
+        <!-- SEASONAL -->
+
+        <section
+            class="guide-details"
+            id="seasonal"
+        >
 
             <div class="guide-detail-icon">
                 <i class="bi bi-calendar3"></i>
             </div>
 
             <div>
-                <h2>Seasonal Gardening</h2>
+
+                <h2>
+                    Seasonal Gardening
+                </h2>
 
                 <p>
                     Plant care can change with temperature, rainfall and
@@ -377,24 +994,44 @@
                 </p>
 
                 <ul>
-                    <li>Monitor soil moisture more carefully during rainy periods.</li>
-                    <li>Protect sensitive plants from extreme temperatures.</li>
-                    <li>Adjust watering when weather conditions change.</li>
-                    <li>Use seasonal conditions to plan new planting.</li>
+
+                    <li>
+                        Monitor soil moisture more carefully during rainy periods.
+                    </li>
+
+                    <li>
+                        Protect sensitive plants from extreme temperatures.
+                    </li>
+
+                    <li>
+                        Adjust watering when weather conditions change.
+                    </li>
+
+                    <li>
+                        Use seasonal conditions to plan new planting.
+                    </li>
+
                 </ul>
+
             </div>
 
         </section>
 
+
+
+        <!-- NOTE -->
 
         <div class="guide-note">
 
             <i class="bi bi-info-circle"></i>
 
             <p>
+
                 <strong>Gardening Note:</strong>
+
                 Every plant is different. Always consider the specific
                 needs of your plant, local climate and growing conditions.
+
             </p>
 
         </div>
@@ -402,7 +1039,9 @@
     </main>
 
 
+
     <!-- FOOTER -->
+
     <footer class="home-footer">
 
         <div class="footer-brand">
@@ -410,7 +1049,10 @@
             <a href="home.html" class="home-brand">
 
                 <i class="bi bi-flower1"></i>
-                <span>Botanical Bliss</span>
+
+                <span>
+                    Botanical Bliss
+                </span>
 
             </a>
 
@@ -421,30 +1063,53 @@
         </div>
 
 
+
         <div class="footer-links">
 
             <div>
 
-                <h4>Explore</h4>
+                <h4>
+                    Explore
+                </h4>
 
-                <a href="shop.html">Shop</a>
-                <a href="categories.html">Categories</a>
-                <a href="gardening-guide.html">Gardening Guide</a>
+                <a href="shop.html">
+                    Shop
+                </a>
+
+                <a href="categories.html">
+                    Categories
+                </a>
+
+                <a href="gardening-guide.html">
+                    Gardening Guide
+                </a>
 
             </div>
+
 
 
             <div>
 
-                <h4>Support</h4>
+                <h4>
+                    Support
+                </h4>
 
-                <a href="#">Contact Us</a>
-                <a href="#">FAQs</a>
-                <a href="#">Shipping</a>
+                <a href="#">
+                    Contact Us
+                </a>
+
+                <a href="#">
+                    FAQs
+                </a>
+
+                <a href="#">
+                    Shipping
+                </a>
 
             </div>
 
         </div>
+
 
 
         <div class="footer-bottom">
@@ -456,6 +1121,9 @@
 
     </footer>
 
+
+
+    <!-- CART COUNT -->
 
     <script>
 
@@ -481,6 +1149,889 @@
         }
 
         updateCartCount();
+
+    </script>
+
+
+
+    <!-- =====================================================
+         GROW YOUR OWN
+    ====================================================== -->
+
+    <script>
+
+        const plantData = {
+
+            basil: {
+
+                name: "Basil",
+                icon: "bi-flower1",
+                sunlight: "4–6 hours of sunlight",
+                water: "Water when the top soil feels dry",
+                soil: "Rich, well-draining soil",
+                difficulty: "Easy",
+                tip: "Pinch the growing tips regularly to encourage bushier growth."
+
+            },
+
+
+            mint: {
+
+                name: "Mint",
+                icon: "bi-leaf",
+                sunlight: "Bright light with some indirect light",
+                water: "Keep the soil slightly moist",
+                soil: "Moist, nutrient-rich and well-draining soil",
+                difficulty: "Easy",
+                tip: "Mint spreads quickly, so growing it in a separate container can help control its growth."
+
+            },
+
+
+            rose: {
+
+                name: "Rose",
+                icon: "bi-flower2",
+                sunlight: "6+ hours of direct sunlight",
+                water: "Water deeply when the soil begins to dry",
+                soil: "Rich, fertile and well-draining soil",
+                difficulty: "Moderate",
+                tip: "Prune damaged or weak growth to encourage healthy new growth."
+
+            },
+
+
+            tomato: {
+
+                name: "Tomato",
+                icon: "bi-circle-fill",
+                sunlight: "6–8 hours of direct sunlight",
+                water: "Water regularly while keeping the soil evenly moist",
+                soil: "Nutrient-rich, well-draining soil",
+                difficulty: "Moderate",
+                tip: "Provide support as the plant grows and avoid wetting the leaves frequently."
+
+            },
+
+
+            snake: {
+
+                name: "Snake Plant",
+                icon: "bi-tree",
+                sunlight: "Low to bright indirect light",
+                water: "Allow the soil to dry between watering",
+                soil: "Light, well-draining potting mix",
+                difficulty: "Very Easy",
+                tip: "Avoid overwatering because snake plants are sensitive to excess moisture."
+
+            },
+
+
+            "peace-lily": {
+
+                name: "Peace Lily",
+                icon: "bi-flower1",
+                sunlight: "Bright indirect light",
+                water: "Water when the top layer of soil becomes dry",
+                soil: "Moist but well-draining potting mix",
+                difficulty: "Easy",
+                tip: "Drooping leaves can be a sign that the plant needs water."
+
+            }
+
+        };
+
+
+
+        const plantOptions =
+            document.querySelectorAll(".plant-option");
+
+        const plantCareResult =
+            document.getElementById("plantCareResult");
+
+
+
+        plantOptions.forEach(option => {
+
+            option.addEventListener("click", function () {
+
+                const plantName =
+                    this.dataset.plant;
+
+                const plant =
+                    plantData[plantName];
+
+                if (!plant) return;
+
+
+
+                plantOptions.forEach(item => {
+                    item.classList.remove("selected");
+                });
+
+                this.classList.add("selected");
+
+
+
+                plantCareResult.innerHTML = `
+
+                    <div class="plant-result-header">
+
+                        <div class="plant-result-icon">
+
+                            <i class="bi ${plant.icon}"></i>
+
+                        </div>
+
+                        <div>
+
+                            <span class="guide-section-label">
+                                PLANT CARE
+                            </span>
+
+                            <h3>
+                                ${plant.name}
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="plant-care-grid">
+
+
+                        <div class="plant-care-item">
+
+                            <i class="bi bi-sun"></i>
+
+                            <div>
+
+                                <span>
+                                    SUNLIGHT
+                                </span>
+
+                                <strong>
+                                    ${plant.sunlight}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="plant-care-item">
+
+                            <i class="bi bi-droplet"></i>
+
+                            <div>
+
+                                <span>
+                                    WATER
+                                </span>
+
+                                <strong>
+                                    ${plant.water}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="plant-care-item">
+
+                            <i class="bi bi-tree"></i>
+
+                            <div>
+
+                                <span>
+                                    SOIL
+                                </span>
+
+                                <strong>
+                                    ${plant.soil}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="plant-care-item">
+
+                            <i class="bi bi-speedometer2"></i>
+
+                            <div>
+
+                                <span>
+                                    DIFFICULTY
+                                </span>
+
+                                <strong>
+                                    ${plant.difficulty}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="plant-care-tip">
+
+                        <i class="bi bi-lightbulb"></i>
+
+                        <p>
+
+                            <strong>Care Tip:</strong>
+
+                            ${plant.tip}
+
+                        </p>
+
+                    </div>
+
+                `;
+
+            });
+
+        });
+
+    </script>
+
+
+
+    <!-- =====================================================
+         PLANT DOCTOR
+    ====================================================== -->
+
+    <script>
+
+        const plantProblemData = {
+
+            yellow: {
+
+                title: "Yellow Leaves",
+
+                icon: "bi-droplet-half",
+
+                causes: [
+                    "Overwatering or poor drainage",
+                    "Not enough light",
+                    "Natural aging of older leaves"
+                ],
+
+                check:
+                    "Check the soil moisture and make sure the pot has proper drainage.",
+
+                action:
+                    "Allow excess water to drain and place the plant in suitable light. Remove completely yellow or damaged leaves if needed."
+
+            },
+
+
+            wilting: {
+
+                title: "Wilting",
+
+                icon: "bi-activity",
+
+                causes: [
+                    "Underwatering",
+                    "Overwatering causing root problems",
+                    "Excessive heat or direct sunlight"
+                ],
+
+                check:
+                    "Feel the soil before watering. Very dry soil and constantly wet soil can both cause wilting.",
+
+                action:
+                    "Adjust watering according to the soil condition and move the plant away from extreme heat if necessary."
+
+            },
+
+
+            brown: {
+
+                title: "Brown Leaf Tips",
+
+                icon: "bi-tree",
+
+                causes: [
+                    "Low humidity",
+                    "Irregular watering",
+                    "Excess fertilizer or salt buildup"
+                ],
+
+                check:
+                    "Check the moisture level, humidity around the plant and how often fertilizer is being used.",
+
+                action:
+                    "Maintain consistent watering, avoid excessive fertilizer and improve humidity when suitable for the plant."
+
+            },
+
+
+            growth: {
+
+                title: "Slow Growth",
+
+                icon: "bi-arrow-up-circle",
+
+                causes: [
+                    "Insufficient light",
+                    "Poor nutrition",
+                    "Small or unsuitable growing container"
+                ],
+
+                check:
+                    "Check whether the plant is receiving enough light and whether the soil has enough nutrients.",
+
+                action:
+                    "Move the plant to a suitable light level and refresh the soil or fertilize according to the plant's needs."
+
+            },
+
+
+            pests: {
+
+                title: "Pests",
+
+                icon: "bi-bug",
+
+                causes: [
+                    "Aphids, mealybugs or other common pests",
+                    "Weak or stressed plant",
+                    "Poor airflow around the plant"
+                ],
+
+                check:
+                    "Inspect the underside of leaves, stems and new growth for small insects or sticky residue.",
+
+                action:
+                    "Remove visible pests, isolate affected plants and use an appropriate plant-safe treatment if necessary."
+
+            },
+
+
+            flowers: {
+
+                title: "No Flowers",
+
+                icon: "bi-flower2",
+
+                causes: [
+                    "Not enough sunlight",
+                    "Too much nitrogen fertilizer",
+                    "Plant is too young or not in its flowering season"
+                ],
+
+                check:
+                    "Check the plant's light conditions, fertilizer routine and natural flowering season.",
+
+                action:
+                    "Provide suitable light and avoid excessive nitrogen. Give the plant time if it is naturally outside its flowering period."
+
+            }
+
+        };
+
+
+
+        const problemButtons =
+            document.querySelectorAll(".plant-problem");
+
+        const plantDoctorResult =
+            document.getElementById("plantDoctorResult");
+
+
+
+        problemButtons.forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                const problemName =
+                    this.dataset.problem;
+
+                const problem =
+                    plantProblemData[problemName];
+
+                if (!problem) return;
+
+
+
+                problemButtons.forEach(item => {
+                    item.classList.remove("selected");
+                });
+
+                this.classList.add("selected");
+
+
+
+                plantDoctorResult.innerHTML = `
+
+                    <div class="doctor-result-header">
+
+                        <div class="doctor-result-icon">
+
+                            <i class="bi ${problem.icon}"></i>
+
+                        </div>
+
+                        <div>
+
+                            <span class="guide-section-label">
+                                PLANT CHECK
+                            </span>
+
+                            <h3>
+                                ${problem.title}
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="doctor-result-grid">
+
+
+                        <div class="doctor-result-card">
+
+                            <div class="doctor-card-title">
+
+                                <i class="bi bi-search"></i>
+
+                                <span>
+                                    POSSIBLE CAUSES
+                                </span>
+
+                            </div>
+
+                            <ul>
+
+                                ${problem.causes.map(cause => `
+
+                                    <li>
+                                        ${cause}
+                                    </li>
+
+                                `).join("")}
+
+                            </ul>
+
+                        </div>
+
+
+
+                        <div class="doctor-result-card">
+
+                            <div class="doctor-card-title">
+
+                                <i class="bi bi-eye"></i>
+
+                                <span>
+                                    WHAT TO CHECK
+                                </span>
+
+                            </div>
+
+                            <p>
+                                ${problem.check}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="doctor-action">
+
+                        <i class="bi bi-check2-circle"></i>
+
+                        <div>
+
+                            <span>
+                                WHAT YOU CAN DO
+                            </span>
+
+                            <p>
+                                ${problem.action}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="doctor-note">
+
+                        <i class="bi bi-info-circle"></i>
+
+                        <span>
+                            Plant symptoms can have more than one cause.
+                            Check the basic growing conditions before making
+                            major changes to your plant's care routine.
+                        </span>
+
+                    </div>
+
+                `;
+
+            });
+
+        });
+
+    </script>
+
+
+
+    <!-- =====================================================
+         PLANT DOCTOR CHATBOT
+    ====================================================== -->
+
+    <script>
+
+        const plantChatForm =
+            document.getElementById("plantChatForm");
+
+        const plantChatInput =
+            document.getElementById("plantChatInput");
+
+        const plantChatMessages =
+            document.getElementById("plantChatMessages");
+
+        const quickQuestionButtons =
+            document.querySelectorAll(".plant-chat-quick button");
+
+
+
+        const plantChatAnswers = {
+
+            yellow: {
+                keywords: [
+                    "yellow",
+                    "yellow leaves",
+                    "leaves turning yellow"
+                ],
+                answer:
+                    "Yellow leaves can happen because of overwatering, poor drainage, insufficient light or natural aging. Check the soil before watering and make sure excess water can drain properly."
+            },
+
+            wilt: {
+                keywords: [
+                    "wilt",
+                    "wilting",
+                    "drooping",
+                    "droop"
+                ],
+                answer:
+                    "Wilting can be caused by both too little and too much water. Feel the soil first. If it is very dry, the plant may need water. If it stays constantly wet, check the drainage and roots."
+            },
+
+            water: {
+                keywords: [
+                    "water",
+                    "watering",
+                    "how often should i water",
+                    "how much water"
+                ],
+                answer:
+                    "There is no single watering schedule for every plant. Check the top layer of soil and water when the plant actually needs it. Always make sure excess water can drain away."
+            },
+
+            brown: {
+                keywords: [
+                    "brown",
+                    "brown tips",
+                    "brown leaves",
+                    "leaf tips"
+                ],
+                answer:
+                    "Brown leaf tips can be related to low humidity, irregular watering or excess fertilizer. Check the soil moisture and avoid over-fertilizing."
+            },
+
+            sunlight: {
+                keywords: [
+                    "sunlight",
+                    "sun",
+                    "light",
+                    "bright light",
+                    "direct light"
+                ],
+                answer:
+                    "Different plants need different amounts of light. Sun-loving plants usually need brighter locations, while many indoor plants prefer bright indirect light. Check your plant's specific requirements."
+            },
+
+            pests: {
+                keywords: [
+                    "pest",
+                    "pests",
+                    "bugs",
+                    "insects",
+                    "aphids",
+                    "mealybugs"
+                ],
+                answer:
+                    "Inspect the underside of leaves, stems and new growth. If you find pests, isolate the affected plant, remove visible insects and use an appropriate plant-safe treatment."
+            },
+
+            growth: {
+                keywords: [
+                    "slow growth",
+                    "not growing",
+                    "growth",
+                    "small",
+                    "growing slowly"
+                ],
+                answer:
+                    "Slow growth can be caused by insufficient light, poor nutrition or an unsuitable container. Check the plant's light, soil and growing space first."
+            },
+
+            flowers: {
+                keywords: [
+                    "flowers",
+                    "flower",
+                    "not flowering",
+                    "no flowers",
+                    "bloom"
+                ],
+                answer:
+                    "A plant may not flower because it lacks enough sunlight, receives too much nitrogen or is outside its natural flowering season. Check its light and fertilizer routine."
+            },
+
+            soil: {
+                keywords: [
+                    "soil",
+                    "fertilizer",
+                    "fertiliser",
+                    "compost"
+                ],
+                answer:
+                    "Most container plants benefit from well-draining soil. Fertilizer should be used according to the plant's needs, and over-fertilizing should be avoided."
+            },
+
+            indoor: {
+                keywords: [
+                    "indoor",
+                    "inside",
+                    "house plant",
+                    "indoor plant"
+                ],
+                answer:
+                    "Indoor plants generally need suitable light, careful watering, enough airflow and appropriate humidity. Avoid placing them in extreme heat or constantly wet soil."
+            }
+
+        };
+
+
+
+        function getPlantDoctorAnswer(question) {
+
+            const lowerQuestion =
+                question.toLowerCase().trim();
+
+
+
+            for (const category in plantChatAnswers) {
+
+                const data =
+                    plantChatAnswers[category];
+
+                const found =
+                    data.keywords.some(keyword =>
+                        lowerQuestion.includes(keyword)
+                    );
+
+                if (found) {
+                    return data.answer;
+                }
+
+            }
+
+
+
+            return "I can help with common gardening questions about watering, sunlight, yellow leaves, wilting, brown tips, pests, soil, slow growth and flowering. Try asking me about one of these.";
+        }
+
+
+
+        function addPlantChatMessage(message, sender) {
+
+            const messageWrapper =
+                document.createElement("div");
+
+            messageWrapper.className =
+                `plant-chat-message ${sender}`;
+
+
+
+            if (sender === "bot") {
+
+                messageWrapper.innerHTML = `
+
+                    <div class="chat-message-icon">
+
+                        <i class="bi bi-flower2"></i>
+
+                    </div>
+
+                    <div class="chat-bubble">
+
+                        <p>
+                            ${message}
+                        </p>
+
+                    </div>
+
+                `;
+
+            } else {
+
+                messageWrapper.innerHTML = `
+
+                    <div class="chat-bubble">
+
+                        <p>
+                            ${message}
+                        </p>
+
+                    </div>
+
+                `;
+
+            }
+
+
+
+            plantChatMessages.appendChild(messageWrapper);
+
+
+
+            plantChatMessages.scrollTop =
+                plantChatMessages.scrollHeight;
+
+        }
+
+
+
+        function sendPlantDoctorQuestion(question) {
+
+            if (!question || !question.trim()) {
+                return;
+            }
+
+
+
+            const cleanQuestion =
+                question.trim();
+
+
+
+            addPlantChatMessage(
+                cleanQuestion,
+                "user"
+            );
+
+
+
+            setTimeout(() => {
+
+                const answer =
+                    getPlantDoctorAnswer(cleanQuestion);
+
+                addPlantChatMessage(
+                    answer,
+                    "bot"
+                );
+
+            }, 400);
+
+        }
+
+
+
+        plantChatForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                const question =
+                    plantChatInput.value;
+
+                if (!question.trim()) {
+                    return;
+                }
+
+                sendPlantDoctorQuestion(question);
+
+                plantChatInput.value = "";
+
+                plantChatInput.focus();
+
+            }
+        );
+
+
+
+        quickQuestionButtons.forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                const question =
+                    this.dataset.question;
+
+                sendPlantDoctorQuestion(question);
+
+            });
+
+        });
+
+    </script>
+
+
+
+    <!-- =====================================================
+         SMOOTH GUIDE NAVIGATION
+    ====================================================== -->
+
+    <script>
+
+        document.querySelectorAll(
+            '.guide-read-link[href^="#"]'
+        ).forEach(link => {
+
+            link.addEventListener("click", function (event) {
+
+                const targetId =
+                    this.getAttribute("href");
+
+                const target =
+                    document.querySelector(targetId);
+
+                if (!target) return;
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            });
+
+        });
 
     </script>
 

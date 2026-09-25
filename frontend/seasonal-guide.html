@@ -1,18 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Seasonal Guide | Botanical Bliss</title>
+    <title>Garden Guide | Botanical Bliss</title>
 
     <!-- Bootstrap Icons -->
     <link
         rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -23,26 +24,397 @@
 <body class="shop-page">
 
 
-    <!-- ================================
-         NAVBAR
-    ================================= -->
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
-    <nav class="home-nav">
+<nav class="home-nav">
 
-        <a href="home.html" class="home-brand">
+    <a href="home.html" class="home-brand">
 
-            <i class="bi bi-flower1"></i>
+        <i class="bi bi-flower1"></i>
 
-            <span>Botanical Bliss</span>
+        <span>
+            Botanical Bliss
+        </span>
+
+    </a>
+
+
+    <div class="home-nav-links">
+
+        <a href="home.html">
+            Home
+        </a>
+
+        <a href="shop.html">
+            Shop
+        </a>
+
+        <a href="categories.html">
+            Categories
+        </a>
+
+        <a href="gardening-guide.html">
+            Gardening Guide
+        </a>
+
+        <a href="garden-calendar.html">
+            Garden Calendar
+        </a>
+
+        <a href="seasonal-guide.html" class="active">
+            Garden Guide
+        </a>
+
+        <a href="garden-gallery.html">
+            Garden Gallery
+        </a>
+
+        <a href="orders.html#about-us">
+            About Us
+        </a>
+
+    </div>
+
+
+    <div class="home-nav-actions">
+
+        <a
+            href="cart.html"
+            class="nav-icon-button cart-button"
+            title="Cart"
+        >
+
+            <i class="bi bi-bag"></i>
+
+            <span id="cartCount">
+                0
+            </span>
 
         </a>
 
 
-        <div class="home-nav-links">
+        <a
+            href="dashboard.html"
+            class="profile-button"
+            title="Profile"
+        >
 
-            <a href="home.html">
-                Home
-            </a>
+            <i class="bi bi-person"></i>
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     PAGE HEADER
+===================================================== -->
+
+<section class="shop-header">
+
+    <div>
+
+        <p>
+            BOTANICAL BLISS
+        </p>
+
+        <h1>
+            Garden Guide
+        </h1>
+
+        <span>
+            Keep your gardening routine simple, organized
+            and a little more fun.
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN GARDEN GUIDE
+===================================================== -->
+
+<section class="seasonal-guide-section">
+
+    <div class="seasonal-container">
+
+
+        <!-- =================================================
+             INTRO
+        ================================================== -->
+
+        <div class="seasonal-intro">
+
+            <h2>
+                Your Garden Checklist
+            </h2>
+
+            <p>
+                Keep track of simple gardening tasks and
+                take care of your plants one step at a time.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             GARDEN BUDDY HIGHLIGHT
+        ================================================== -->
+
+        <div class="garden-buddy-highlight">
+
+            <div class="garden-buddy-highlight-icon">
+
+                <i class="bi bi-chat-heart-fill"></i>
+
+            </div>
+
+
+            <div class="garden-buddy-highlight-content">
+
+                <span class="garden-buddy-highlight-label">
+                    YOUR GARDEN ASSISTANT
+                </span>
+
+                <h2>
+                    Meet Garden Buddy
+                </h2>
+
+                <p>
+                    Have a gardening question? Ask Garden Buddy
+                    about watering, plants, sunlight, pests,
+                    compost and more.
+                </p>
+
+            </div>
+
+
+            <button
+                id="gardenBuddyHighlightButton"
+                class="garden-buddy-highlight-button"
+            >
+
+                <i class="bi bi-chat-dots-fill"></i>
+
+                Open Garden Buddy
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             GARDEN CHECKLIST
+        ================================================== -->
+
+        <div class="season-checklist garden-checklist">
+
+            <h3>
+
+                <i class="bi bi-check2-square"></i>
+
+                Garden Checklist
+
+            </h3>
+
+
+            <p>
+                Complete your gardening tasks as you go.
+            </p>
+
+
+
+            <!-- CHECKLIST -->
+
+            <div id="gardenChecklist">
+
+
+                <label class="season-check-item">
+
+                    <input
+                        type="checkbox"
+                        class="garden-check"
+                    >
+
+                    <span>
+                        Check the soil moisture
+                    </span>
+
+                </label>
+
+
+
+                <label class="season-check-item">
+
+                    <input
+                        type="checkbox"
+                        class="garden-check"
+                    >
+
+                    <span>
+                        Remove weeds from the garden
+                    </span>
+
+                </label>
+
+
+
+                <label class="season-check-item">
+
+                    <input
+                        type="checkbox"
+                        class="garden-check"
+                    >
+
+                    <span>
+                        Check plants for pests
+                    </span>
+
+                </label>
+
+
+
+                <label class="season-check-item">
+
+                    <input
+                        type="checkbox"
+                        class="garden-check"
+                    >
+
+                    <span>
+                        Add compost when needed
+                    </span>
+
+                </label>
+
+
+
+                <label class="season-check-item">
+
+                    <input
+                        type="checkbox"
+                        class="garden-check"
+                    >
+
+                    <span>
+                        Remove damaged or dry leaves
+                    </span>
+
+                </label>
+
+
+
+                <label class="season-check-item">
+
+                    <input
+                        type="checkbox"
+                        class="garden-check"
+                    >
+
+                    <span>
+                        Clean and organize garden tools
+                    </span>
+
+                </label>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CHECKLIST PROGRESS
+            ================================================== -->
+
+            <div class="season-progress">
+
+                <div class="season-progress-header">
+
+                    <span>
+                        Garden progress
+                    </span>
+
+                    <strong id="gardenProgressText">
+                        0 / 6 completed
+                    </strong>
+
+                </div>
+
+
+                <div class="season-progress-bar">
+
+                    <div
+                        id="gardenProgressFill"
+                        style="width: 0%;"
+                    ></div>
+
+                </div>
+
+
+                <p id="gardenProgressMessage">
+                    Start checking off your gardening tasks.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="home-footer">
+
+
+    <div class="footer-brand">
+
+        <a
+            href="home.html"
+            class="home-brand"
+        >
+
+            <i class="bi bi-flower1"></i>
+
+            <span>
+                Botanical Bliss
+            </span>
+
+        </a>
+
+
+        <p>
+            Grow something beautiful.
+        </p>
+
+    </div>
+
+
+
+    <div class="footer-links">
+
+
+        <div>
+
+            <h4>
+                Explore
+            </h4>
 
             <a href="shop.html">
                 Shop
@@ -60,357 +432,198 @@
                 Garden Calendar
             </a>
 
-            <a href="seasonal-guide.html" class="active">
-                Seasonal Guide
-            </a>
-
-            <a href="orders.html#about-us">
-                About Us
+            <a href="seasonal-guide.html">
+                Garden Guide
             </a>
 
         </div>
 
 
-        <div class="home-nav-actions">
-
-            <a
-                href="cart.html"
-                class="nav-icon-button cart-button"
-                title="Cart">
-
-                <i class="bi bi-bag"></i>
-
-                <span id="cartCount">0</span>
-
-            </a>
-
-
-            <a
-                href="dashboard.html"
-                class="profile-button"
-                title="Profile">
-
-                <i class="bi bi-person"></i>
-
-            </a>
-
-        </div>
-
-    </nav>
-
-
-
-    <!-- ================================
-         PAGE HEADER
-    ================================= -->
-
-    <section class="shop-header">
 
         <div>
 
-            <p>BOTANICAL BLISS</p>
+            <h4>
+                Support
+            </h4>
 
-            <h1>Seasonal Guide</h1>
+            <a href="orders.html#contact-us">
+                Contact Us
+            </a>
+
+            <a href="faq.html">
+                FAQs
+            </a>
+
+            <a href="shipping.html">
+                Shipping
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        © 2026 Botanical Bliss.
+
+        All rights reserved.
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     GARDEN BUDDY - CHROME STYLE MINI WINDOW
+===================================================== -->
+
+<button
+    id="gardenBuddyButton"
+    class="garden-buddy-button"
+    aria-label="Open Garden Buddy"
+>
+
+    <i class="bi bi-flower1"></i>
+
+</button>
+
+
+
+<div
+    id="gardenBuddyChat"
+    class="garden-buddy-chat"
+>
+
+
+    <!-- Browser Top Bar -->
+
+    <div class="garden-browser-bar">
+
+
+        <div class="garden-browser-controls">
+
+            <span class="browser-dot red"></span>
+
+            <span class="browser-dot yellow"></span>
+
+            <span class="browser-dot green"></span>
+
+        </div>
+
+
+
+        <div class="garden-browser-tab">
+
+            <i class="bi bi-flower1"></i>
 
             <span>
-                Discover how to care for your garden
-                throughout every season of the year.
+                Garden Buddy
             </span>
 
-        </div>
 
-    </section>
+            <button
+                id="gardenBuddyClose"
+                class="garden-browser-close"
+                aria-label="Close"
+            >
 
+                <i class="bi bi-x"></i>
 
-
-    <!-- ================================
-         SEASONAL GUIDE
-    ================================= -->
-
-    <section class="seasonal-guide-section">
-
-        <div class="seasonal-container">
-
-
-            <div class="seasonal-intro">
-
-                <h2>
-                    Gardening Through the Seasons
-                </h2>
-
-                <p>
-                    Every season brings different opportunities
-                    and challenges for your garden. Select a
-                    season to explore useful gardening tips.
-                </p>
-
-            </div>
-
-
-
-            <!-- SEASON BUTTONS -->
-
-            <div class="season-selector">
-
-                <button
-                    class="season-button active"
-                    data-season="spring">
-
-                    <i class="bi bi-flower1"></i>
-
-                    Spring
-
-                </button>
-
-
-                <button
-                    class="season-button"
-                    data-season="summer">
-
-                    <i class="bi bi-brightness-high"></i>
-
-                    Summer
-
-                </button>
-
-
-                <button
-                    class="season-button"
-                    data-season="monsoon">
-
-                    <i class="bi bi-cloud-rain"></i>
-
-                    Monsoon
-
-                </button>
-
-
-                <button
-                    class="season-button"
-                    data-season="winter">
-
-                    <i class="bi bi-snow"></i>
-
-                    Winter
-
-                </button>
-
-            </div>
-
-
-
-            <!-- SEASON CONTENT -->
-
-            <div
-                id="seasonalContent"
-                class="seasonal-content">
-
-
-                <div class="season-icon">
-
-                    <i
-                        id="seasonIcon"
-                        class="bi bi-flower1">
-                    </i>
-
-                </div>
-
-
-                
-<!-- =================================
-     INTERACTIVE SEASON CONTENT
-================================= -->
-
-<div id="seasonalContent" class="seasonal-content">
-
-    <div class="season-icon">
-
-        
-
-    </div>
-
-
-    <h2 id="seasonTitle">
-        Spring
-    </h2>
-
-
-    <p id="seasonDescription">
-        Spring is a wonderful time to refresh
-        your garden and begin new growth.
-    </p>
-
-
-    <!-- SEASON INFORMATION -->
-
-    <div class="season-info-grid">
-
-
-        <!-- WHAT TO GROW -->
-
-        <div class="season-info-card">
-
-            <div class="season-card-icon">
-                <i class="bi bi-flower2"></i>
-            </div>
-
-            <h3>
-                What to Grow
-            </h3>
-
-            <ul id="seasonPlants">
-            </ul>
+            </button>
 
         </div>
 
 
-        <!-- CARE -->
 
-        <div class="season-info-card">
+        <div class="garden-browser-menu">
 
-            <div class="season-card-icon">
-                <i class="bi bi-droplet"></i>
-            </div>
-
-            <h3>
-                Care & Watering
-            </h3>
-
-            <ul id="seasonCare">
-            </ul>
-
-        </div>
-
-
-        <!-- PROTECTION -->
-
-        <div class="season-info-card">
-
-            <div class="season-card-icon">
-                <i class="bi bi-shield-check"></i>
-            </div>
-
-            <h3>
-                Protection
-            </h3>
-
-            <ul id="seasonProtection">
-            </ul>
+            <i class="bi bi-three-dots-vertical"></i>
 
         </div>
 
     </div>
 
 
-    <!-- SEASONAL CHECKLIST -->
 
-    <div class="season-checklist">
+    <!-- Address Bar -->
 
-        <h3>
-            <i class="bi bi-check2-square"></i>
-            Seasonal Checklist
-        </h3>
+    <div class="garden-address-bar">
 
-        <p>
-            Complete your gardening tasks as you go.
-        </p>
+        <i class="bi bi-lock-fill"></i>
 
-        
-<div id="seasonChecklist">
-</div>
-
-<!-- ADD TASK TO GARDEN CALENDAR -->
-
-<div class="add-season-task">
-
-    <button id="addSeasonTask">
-        <i class="bi bi-calendar-plus"></i>
-        Add Seasonal Task to My Garden
-    </button>
-
-    <p id="seasonTaskMessage"></p>
-
-</div>
-
+        <span>
+            botanicalbliss.local / garden-buddy
+        </span>
 
     </div>
 
-</div>
 
 
-    <!-- ================================
-         FOOTER
-    ================================= -->
+    <!-- Chat Header -->
 
-    <footer class="home-footer">
+    <div class="garden-buddy-header">
+
+        <div class="garden-buddy-title">
 
 
-        <div class="footer-brand">
-
-            <a
-                href="home.html"
-                class="home-brand">
+            <div class="garden-buddy-avatar">
 
                 <i class="bi bi-flower1"></i>
 
-                <span>Botanical Bliss</span>
-
-            </a>
-
-            <p>
-                Grow something beautiful.
-            </p>
-
-        </div>
-
-
-
-        <div class="footer-links">
+            </div>
 
 
             <div>
 
-                <h4>Explore</h4>
+                <h3>
+                    Garden Buddy
+                </h3>
 
-                <a href="shop.html">
-                    Shop
-                </a>
+                <span>
 
-                <a href="categories.html">
-                    Categories
-                </a>
+                    <i class="bi bi-circle-fill"></i>
 
-                <a href="gardening-guide.html">
-                    Gardening Guide
-                </a>
+                    Online
 
-                <a href="garden-calendar.html">
-                    Garden Calendar
-                </a>
-
-                <a href="seasonal-guide.html">
-                    Seasonal Guide
-                </a>
+                </span>
 
             </div>
 
 
+        </div>
 
-            <div>
+    </div>
 
-                <h4>Support</h4>
 
-                <a href="orders.html#contact-us">
-                    Contact Us
-                </a>
 
-                <a href="faq.html">
-                    FAQs
-                </a>
+    <!-- Messages -->
 
-                <a href="shipping.html">
-                    Shipping
-                </a>
+    <div
+        id="gardenBuddyMessages"
+        class="garden-buddy-messages"
+    >
+
+
+        <div class="garden-buddy-message bot">
+
+
+            <div class="message-avatar">
+
+                <i class="bi bi-flower1"></i>
+
+            </div>
+
+
+            <div class="message-content">
+
+                Hi! I'm Garden Buddy. 🌱
+
+                <br><br>
+
+                Ask me anything about your garden!
 
             </div>
 
@@ -418,57 +631,353 @@
         </div>
 
 
-
-        <div class="footer-bottom">
-
-            © 2026 Botanical Bliss.
-            All rights reserved.
-
-        </div>
-
-
-    </footer>
+    </div>
 
 
 
-    <!-- Seasonal Guide JS -->
+    <!-- Quick Questions -->
 
-    <script src="js/seasonal-guide.js"></script>
+    <div class="garden-buddy-quick">
+
+
+        <button class="garden-quick-question">
+
+            What should I grow?
+
+        </button>
+
+
+        <button class="garden-quick-question">
+
+            How often should I water?
+
+        </button>
+
+
+        <button class="garden-quick-question">
+
+            My leaves are yellow
+
+        </button>
+
+
+    </div>
 
 
 
-    <!-- Cart Count -->
+    <!-- Input -->
 
-    <script>
+    <div class="garden-buddy-input-area">
 
-        function updateCartCount() {
 
-            const cart =
-                JSON.parse(
-                    localStorage.getItem("cart")
-                ) || [];
+        <input
+            type="text"
+            id="gardenBuddyInput"
+            placeholder="Ask Garden Buddy..."
+            autocomplete="off"
+        >
 
-            const count =
-                cart.reduce(
-                    (total, item) =>
-                        total + Number(item.quantity || 0),
-                    0
-                );
 
-            const cartCount =
-                document.getElementById("cartCount");
+        <button
+            id="gardenBuddySend"
+            aria-label="Send message"
+        >
 
-            if (cartCount) {
+            <i class="bi bi-send-fill"></i>
 
-                cartCount.textContent = count;
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     GARDEN CHECKLIST JAVASCRIPT
+===================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        /* =========================================
+           CHECKLIST ELEMENTS
+        ========================================= */
+
+        const checklistItems =
+            document.querySelectorAll(".garden-check");
+
+        const progressText =
+            document.getElementById(
+                "gardenProgressText"
+            );
+
+        const progressFill =
+            document.getElementById(
+                "gardenProgressFill"
+            );
+
+        const progressMessage =
+            document.getElementById(
+                "gardenProgressMessage"
+            );
+
+
+        const storageKey =
+            "botanicalBlissGardenChecklist";
+
+
+        /* =========================================
+           LOAD SAVED CHECKLIST
+        ========================================= */
+
+        let savedTasks =
+            JSON.parse(
+                localStorage.getItem(storageKey)
+            ) || [];
+
+
+        checklistItems.forEach(
+            function (checkbox, index) {
+
+                if (savedTasks[index]) {
+
+                    checkbox.checked = true;
+
+                    checkbox
+                        .closest(".season-check-item")
+                        .classList.add("completed");
+
+                }
+
+            }
+        );
+
+
+        /* =========================================
+           UPDATE PROGRESS
+        ========================================= */
+
+        function updateGardenProgress() {
+
+            const total =
+                checklistItems.length;
+
+            let completed = 0;
+
+
+            checklistItems.forEach(
+                function (checkbox) {
+
+                    if (checkbox.checked) {
+
+                        completed++;
+
+                    }
+
+                }
+            );
+
+
+            const percentage =
+                total > 0
+                    ? (completed / total) * 100
+                    : 0;
+
+
+            progressText.textContent =
+                completed +
+                " / " +
+                total +
+                " completed";
+
+
+            progressFill.style.width =
+                percentage + "%";
+
+
+            if (completed === 0) {
+
+                progressMessage.textContent =
+                    "Start checking off your gardening tasks.";
+
+            }
+
+            else if (completed < total) {
+
+                progressMessage.textContent =
+                    "You're making progress. Keep going!";
+
+            }
+
+            else {
+
+                progressMessage.textContent =
+                    "All gardening tasks completed. Great job!";
 
             }
 
         }
 
-        updateCartCount();
 
-    </script>
+        /* =========================================
+           CHECKBOX INTERACTION
+        ========================================= */
+
+        checklistItems.forEach(
+            function (checkbox, index) {
+
+                checkbox.addEventListener(
+                    "change",
+                    function () {
+
+
+                        const taskItem =
+                            checkbox.closest(
+                                ".season-check-item"
+                            );
+
+
+                        if (checkbox.checked) {
+
+                            taskItem.classList.add(
+                                "completed"
+                            );
+
+                        }
+
+                        else {
+
+                            taskItem.classList.remove(
+                                "completed"
+                            );
+
+                        }
+
+
+                        savedTasks[index] =
+                            checkbox.checked;
+
+
+                        localStorage.setItem(
+                            storageKey,
+                            JSON.stringify(savedTasks)
+                        );
+
+
+                        updateGardenProgress();
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =========================================
+           INITIAL PROGRESS
+        ========================================= */
+
+        updateGardenProgress();
+
+
+        /* =========================================
+           HIGHLIGHT BUTTON
+           OPENS GARDEN BUDDY
+        ========================================= */
+
+        const highlightButton =
+            document.getElementById(
+                "gardenBuddyHighlightButton"
+            );
+
+
+        const gardenBuddyButton =
+            document.getElementById(
+                "gardenBuddyButton"
+            );
+
+
+        if (
+            highlightButton &&
+            gardenBuddyButton
+        ) {
+
+            highlightButton.addEventListener(
+                "click",
+                function () {
+
+                    gardenBuddyButton.click();
+
+                }
+            );
+
+        }
+
+    }
+
+);
+
+</script>
+
+
+
+<!-- =====================================================
+     GARDEN BUDDY JAVASCRIPT
+===================================================== -->
+
+<script src="js/garden-buddy.js"></script>
+
+
+
+<!-- =====================================================
+     CART COUNT
+===================================================== -->
+
+<script>
+
+function updateCartCount() {
+
+    const cart =
+        JSON.parse(
+            localStorage.getItem("cart")
+        ) || [];
+
+
+    const count =
+        cart.reduce(
+            (total, item) =>
+                total +
+                Number(item.quantity || 0),
+            0
+        );
+
+
+    const cartCount =
+        document.getElementById(
+            "cartCount"
+        );
+
+
+    if (cartCount) {
+
+        cartCount.textContent =
+            count;
+
+    }
+
+}
+
+
+updateCartCount();
+
+</script>
 
 
 </body>
