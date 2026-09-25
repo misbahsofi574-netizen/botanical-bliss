@@ -9,6 +9,7 @@ dns.setServers(["8.8.8.8"]);
 
 
 const authRoutes = require("./routes/authRoutes");
+const orderRoutes = require("./routes/orderroutes");
 const gardenReminderRoutes = require("./routes/gardenReminder");
 const gardenPostRoutes = require("./routes/gardenPostRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
@@ -37,6 +38,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/garden-reminders", gardenReminderRoutes);
 app.use("/api/garden-posts", gardenPostRoutes);
 app.use("/api/payment", paymentRoutes);
+app.use("/api/orders", orderRoutes);
+
 
 // Home/Test route
 app.get("/", (req, res) => {

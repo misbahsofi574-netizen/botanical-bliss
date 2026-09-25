@@ -1,7 +1,16 @@
+
 /* =========================
    BOTANICAL BLISS - MY ORDERS
-   User-Specific Orders
+   MongoDB Based Orders
 ========================= */
+
+
+/* =========================
+   API URL
+========================= */
+
+const ORDERS_API_URL =
+    "http://localhost:5000/api/orders";
 
 
 /* =========================
@@ -18,42 +27,12 @@ function getCurrentUser() {
 
 
 /* =========================
-   USER ORDER KEY
+   GET JWT TOKEN
 ========================= */
 
-function getOrderKey() {
+function getToken() {
 
-    const user = getCurrentUser();
-
-    if (!user) {
-        return null;
-    }
-
-    const userId =
-        user._id ||
-        user.id ||
-        user.email;
-
-    return `orders_${userId}`;
-
-}
-
-
-/* =========================
-   GET USER-SPECIFIC ORDERS
-========================= */
-
-function getOrders() {
-
-    const orderKey = getOrderKey();
-
-    if (!orderKey) {
-        return [];
-    }
-
-    return JSON.parse(
-        localStorage.getItem(orderKey)
-    ) || [];
+    return localStorage.getItem("token");
 
 }
 
@@ -64,44 +43,59 @@ function getOrders() {
 
 function updateCartCount() {
 
-    const user = getCurrentUser();
+    const user =
+        getCurrentUser();
 
     const cartCount =
-        document.getElementById("cartCount");
+        document.getElementById(
+            "cartCount"
+        );
 
     if (!cartCount) {
         return;
     }
 
+
     if (!user) {
 
-        cartCount.textContent = "0";
+        cartCount.textContent =
+            "0";
 
         return;
 
     }
+
 
     const userId =
         user._id ||
         user.id ||
         user.email;
 
+
     const cartKey =
         `cart_${userId}`;
 
+
     const cart =
         JSON.parse(
-            localStorage.getItem(cartKey)
+            localStorage.getItem(
+                cartKey
+            )
         ) || [];
 
+
     let totalItems = 0;
+
 
     cart.forEach(function(item) {
 
         totalItems +=
-            Number(item.quantity || 0);
+            Number(
+                item.quantity || 0
+            );
 
     });
+
 
     cartCount.textContent =
         totalItems;
@@ -110,16 +104,95 @@ function updateCartCount() {
 
 
 /* =========================
+   GET ORDERS FROM MONGODB
+========================= */
+
+async function getOrders() {
+
+    const token =
+        getToken();
+
+
+    if (!token) {
+
+        return null;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${ORDERS_API_URL}/my-orders`,
+                {
+                    method: "GET",
+
+                    headers: {
+
+                        "Authorization":
+                            `Bearer ${token}`
+
+                    }
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            console.error(
+                "Get orders error:",
+                data
+            );
+
+            return null;
+
+        }
+
+
+        return data.orders || [];
+
+
+    } catch (error) {
+
+        console.error(
+            "Orders connection error:",
+            error
+        );
+
+        return null;
+
+    }
+
+}
+
+
+/* =========================
    CANCEL ORDER
 ========================= */
 
-function cancelOrder(orderId) {
+async function cancelOrder(orderId) {
 
-    const orderKey =
-        getOrderKey();
+    const token =
+        getToken();
 
-    if (!orderKey) {
+
+    if (!token) {
+
+        alert(
+            "Please login again."
+        );
+
+        window.location.href =
+            "login.html";
+
         return;
+
     }
 
 
@@ -130,51 +203,68 @@ function cancelOrder(orderId) {
 
 
     if (!confirmed) {
+
         return;
+
     }
 
 
-    const orders =
-        getOrders();
+    try {
+
+        const response =
+            await fetch(
+                `${ORDERS_API_URL}/cancel/${encodeURIComponent(orderId)}`,
+                {
+                    method: "PUT",
+
+                    headers: {
+
+                        "Authorization":
+                            `Bearer ${token}`
+
+                    }
+
+                }
+            );
 
 
-    const orderIndex =
-        orders.findIndex(
-            function(order) {
+        const data =
+            await response.json();
 
-                return String(order.orderId) ===
-                    String(orderId);
 
-            }
+        if (!response.ok) {
+
+            alert(
+                data.message ||
+                "Unable to cancel the order."
+            );
+
+            return;
+
+        }
+
+
+        alert(
+            "Order cancelled successfully."
         );
 
 
-    if (orderIndex === -1) {
+        displayOrders();
 
-        alert("Order could not be found.");
 
-        return;
+    } catch (error) {
+
+        console.error(
+            "Cancel order error:",
+            error
+        );
+
+
+        alert(
+            "Unable to connect to the server. Please try again."
+        );
 
     }
-
-
-    /* Change order status */
-
-    orders[orderIndex].status =
-        "Cancelled";
-
-
-    /* Save updated orders */
-
-    localStorage.setItem(
-        orderKey,
-        JSON.stringify(orders)
-    );
-
-
-    /* Refresh order list */
-
-    displayOrders();
 
 }
 
@@ -183,15 +273,18 @@ function cancelOrder(orderId) {
    DISPLAY ORDERS
 ========================= */
 
-function displayOrders() {
+async function displayOrders() {
 
     const ordersList =
         document.getElementById(
             "ordersList"
         );
 
+
     if (!ordersList) {
+
         return;
+
     }
 
 
@@ -199,7 +292,9 @@ function displayOrders() {
         getCurrentUser();
 
 
-    /* User is not logged in */
+    /* =========================
+       USER NOT LOGGED IN
+    ========================= */
 
     if (!user) {
 
@@ -228,11 +323,101 @@ function displayOrders() {
     }
 
 
+    /* =========================
+       TOKEN CHECK
+    ========================= */
+
+    const token =
+        getToken();
+
+
+    if (!token) {
+
+        ordersList.innerHTML = `
+
+            <div class="empty-orders">
+
+                <i class="bi bi-person-lock"></i>
+
+                <h2>Session Expired</h2>
+
+                <p>
+                    Please login again to view your orders.
+                </p>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* =========================
+       LOADING
+    ========================= */
+
+    ordersList.innerHTML = `
+
+        <div class="empty-orders">
+
+            <i class="bi bi-arrow-repeat"></i>
+
+            <h2>Loading Orders...</h2>
+
+            <p>
+                Please wait while we load your orders.
+            </p>
+
+        </div>
+
+    `;
+
+
+    /* =========================
+       GET MONGODB ORDERS
+    ========================= */
+
     const orders =
-        getOrders();
+        await getOrders();
 
 
-    /* No orders */
+    /* =========================
+       SERVER ERROR
+    ========================= */
+
+    if (orders === null) {
+
+        ordersList.innerHTML = `
+
+            <div class="empty-orders">
+
+                <i class="bi bi-exclamation-circle"></i>
+
+                <h2>Unable to Load Orders</h2>
+
+                <p>
+                    We could not connect to the server.
+                    Please make sure the Botanical Bliss server is running.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* =========================
+       NO ORDERS
+    ========================= */
 
     if (orders.length === 0) {
 
@@ -261,7 +446,9 @@ function displayOrders() {
     }
 
 
-    /* Display orders */
+    /* =========================
+       DISPLAY ORDERS
+    ========================= */
 
     ordersList.innerHTML = "";
 
@@ -273,16 +460,23 @@ function displayOrders() {
         let itemsHTML = "";
 
 
+        /* =========================
+           ORDER ITEMS
+        ========================= */
+
         order.items.forEach(function(item) {
 
             const price =
                 Number(item.price) || 0;
 
+
             const quantity =
                 Number(item.quantity) || 1;
 
+
             const itemTotal =
                 price * quantity;
+
 
             orderTotal +=
                 itemTotal;
@@ -293,11 +487,19 @@ function displayOrders() {
                 <div class="order-item-image">
 
                     <img
-                        src="${item.image || 'images/default-product.jpg'}"
-                        alt="${item.name || 'Product'}"
+                        src="${
+                            item.image ||
+                            "images/default-product.jpg"
+                        }"
+
+                        alt="${
+                            item.name ||
+                            "Product"
+                        }"
                     >
 
                 </div>
+
 
                 <div class="order-item-info">
 
@@ -311,6 +513,7 @@ function displayOrders() {
 
                 </div>
 
+
                 <strong>
                     ₹${itemTotal}
                 </strong>
@@ -319,6 +522,10 @@ function displayOrders() {
 
         });
 
+
+        /* =========================
+           ORDER DATE
+        ========================= */
 
         const orderDate =
             new Date(
@@ -338,33 +545,49 @@ function displayOrders() {
         ========================= */
 
         const isCancelled =
-            order.status === "Cancelled";
+            order.status ===
+            "Cancelled";
 
 
         const orderStatus =
-            isCancelled
-                ? "Cancelled"
-                : "Placed";
+            order.status ||
+            "Placed";
 
+
+        /* =========================
+           CANCEL BUTTON
+        ========================= */
 
         const cancelButton =
             isCancelled
+
                 ? ""
+
                 : `
 
                     <button
                         class="cancel-order-btn"
                         onclick="cancelOrder('${order.orderId}')"
                     >
+
                         <i class="bi bi-x-circle"></i>
+
                         Cancel Order
+
                     </button>
 
                 `;
 
 
+        /* =========================
+           ORDER CARD
+        ========================= */
+
         const orderElement =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
+
 
         orderElement.className =
             "order-card";
@@ -386,6 +609,7 @@ function displayOrders() {
 
                 </div>
 
+
                 <span
                     class="order-status ${
                         isCancelled
@@ -393,7 +617,9 @@ function displayOrders() {
                             : ""
                     }"
                 >
+
                     ${orderStatus}
+
                 </span>
 
             </div>
@@ -408,29 +634,32 @@ function displayOrders() {
 
             <div class="order-footer">
 
-    <div>
+                <div>
 
-        Payment:
+                    Payment:
 
-        <strong>
-            ${order.paymentMethod}
-        </strong>
+                    <strong>
+                        ${order.paymentMethod}
+                    </strong>
 
-    </div>
+                </div>
 
-    <div>
 
-        Total:
+                <div>
 
-        <strong>
-            ₹${orderTotal}
-        </strong>
+                    Total:
 
-    </div>
+                    <strong>
+                        ₹${order.totalAmount || orderTotal}
+                    </strong>
 
-    ${cancelButton}
+                </div>
 
-</div>
+
+                ${cancelButton}
+
+            </div>
+
         `;
 
 

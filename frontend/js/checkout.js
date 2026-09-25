@@ -1,3 +1,4 @@
+
 /* =========================
    BOTANICAL BLISS CHECKOUT
 ========================= */
@@ -34,13 +35,11 @@ function getCart() {
 }
 
 
-
 /* =========================
    CART COUNT
 ========================= */
 
 function updateCartCount() {
-
     const cart = getCart();
 
     const totalItems = cart.reduce(
@@ -82,6 +81,7 @@ function displayCheckout() {
 
         checkoutItems.innerHTML = `
             <div class="empty-cart">
+
                 <i class="bi bi-bag"></i>
 
                 <h2>Your cart is empty</h2>
@@ -93,6 +93,7 @@ function displayCheckout() {
                 <a href="shop.html">
                     Continue Shopping
                 </a>
+
             </div>
         `;
 
@@ -109,7 +110,8 @@ function displayCheckout() {
 
     cart.forEach(item => {
 
-        const price = Number(item.price) || 0;
+        const price =
+            Number(item.price) || 0;
 
         const quantity =
             Number(item.quantity) || 1;
@@ -126,14 +128,17 @@ function displayCheckout() {
         itemElement.className =
             "checkout-item";
 
+
         itemElement.innerHTML = `
 
             <div class="checkout-item-icon">
-    <img
-        src="${item.image}"
-        alt="${item.name}"
-    >
-</div>
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                >
+
+            </div>
 
             <div class="checkout-item-info">
 
@@ -151,7 +156,10 @@ function displayCheckout() {
 
         `;
 
-        checkoutItems.appendChild(itemElement);
+
+        checkoutItems.appendChild(
+            itemElement
+        );
 
     });
 
@@ -164,8 +172,10 @@ function displayCheckout() {
 /* =========================
    PLACE ORDER
 ========================= */
+
 const checkoutForm =
     document.getElementById("checkoutForm");
+
 
 if (checkoutForm) {
 
@@ -175,41 +185,122 @@ if (checkoutForm) {
 
             event.preventDefault();
 
+
             const cart = getCart();
 
+
             if (cart.length === 0) {
+
                 alert(
                     "Your cart is empty. Please add products first."
                 );
+
                 return;
             }
 
-            const fullName =
-                document.getElementById("fullName").value.trim();
 
-            const email =
-                document.getElementById("email").value.trim();
-
-            const phone =
-                document.getElementById("phone").value.trim();
-
-            const address =
-                document.getElementById("address").value.trim();
-
-            const city =
-                document.getElementById("city").value.trim();
-
-            const pincode =
-                document.getElementById("pincode").value.trim();
-
-            const payment =
-                document.getElementById("payment").value;
+            /* =========================
+               CHECK LOGIN
+            ========================= */
 
             const loggedInUser =
-                JSON.parse(localStorage.getItem("user"));
+                JSON.parse(
+                    localStorage.getItem("user")
+                );
 
-            // Calculate total
+
+            if (!loggedInUser) {
+
+                alert(
+                    "Please login before placing an order."
+                );
+
+                window.location.href =
+                    "login.html";
+
+                return;
+            }
+
+
+            /* =========================
+               GET CUSTOMER DETAILS
+            ========================= */
+
+            const fullName =
+                document
+                    .getElementById("fullName")
+                    .value
+                    .trim();
+
+
+            const email =
+                document
+                    .getElementById("email")
+                    .value
+                    .trim();
+
+
+            const phone =
+                document
+                    .getElementById("phone")
+                    .value
+                    .trim();
+
+
+            const address =
+                document
+                    .getElementById("address")
+                    .value
+                    .trim();
+
+
+            const city =
+                document
+                    .getElementById("city")
+                    .value
+                    .trim();
+
+
+            const pincode =
+                document
+                    .getElementById("pincode")
+                    .value
+                    .trim();
+
+
+            const payment =
+                document
+                    .getElementById("payment")
+                    .value;
+
+
+            /* =========================
+               GET JWT TOKEN
+            ========================= */
+
+            const token =
+                localStorage.getItem("token");
+
+
+            if (!token) {
+
+                alert(
+                    "Your login session has expired. Please login again."
+                );
+
+                window.location.href =
+                    "login.html";
+
+                return;
+            }
+
+
+            /* =========================
+               CALCULATE TOTAL
+            ========================= */
+
             let total = 0;
+
 
             cart.forEach(item => {
 
@@ -219,38 +310,42 @@ if (checkoutForm) {
                             .replace(/[₹,]/g, "")
                     ) || 0;
 
+
                 const quantity =
                     Number(item.quantity) || 1;
 
-                total += price * quantity;
+
+                total +=
+                    price * quantity;
+
             });
 
 
-            // ==========================================
-            // COMMON ORDER DATA
-            // ==========================================
+            /* =========================
+               COMMON ORDER DATA
+            ========================= */
 
             const order = {
 
                 orderId:
                     "BB" + Date.now(),
 
-                userId:
-                    loggedInUser?._id ||
-                    loggedInUser?.id ||
-                    null,
-
                 userEmail:
-                    loggedInUser?.email ||
+                    loggedInUser.email ||
                     email,
 
                 customer: {
 
                     fullName,
+
                     email,
+
                     phone,
+
                     address,
+
                     city,
+
                     pincode
 
                 },
@@ -270,21 +365,23 @@ if (checkoutForm) {
             };
 
 
-            // ==========================================
-            // CASH ON DELIVERY
-            // ==========================================
+            /* =========================
+               CASH ON DELIVERY
+            ========================= */
 
             if (payment === "cod") {
 
-                saveOrderAndFinish(order);
+                await saveOrderAndFinish(
+                    order
+                );
 
                 return;
             }
 
 
-            // ==========================================
-            // ONLINE PAYMENT
-            // ==========================================
+            /* =========================
+               ONLINE PAYMENT
+            ========================= */
 
             if (payment === "online") {
 
@@ -295,13 +392,19 @@ if (checkoutForm) {
                             "checkoutMessage"
                         );
 
+
                     if (message) {
+
                         message.textContent =
                             "Opening secure payment...";
+
                     }
 
 
-                    // Create Razorpay order
+                    /* =========================
+                       CREATE RAZORPAY ORDER
+                    ========================= */
+
                     const response =
                         await fetch(
                             "https://botanical-bliss-52ra.onrender.com/api/payment/create-order",
@@ -309,13 +412,16 @@ if (checkoutForm) {
                                 method: "POST",
 
                                 headers: {
+
                                     "Content-Type":
-                                        "application/json",
+                                        "application/json"
+
                                 },
 
-                                body: JSON.stringify({
-                                    amount: total
-                                })
+                                body:
+                                    JSON.stringify({
+                                        amount: total
+                                    })
                             }
                         );
 
@@ -337,9 +443,9 @@ if (checkoutForm) {
                     }
 
 
-                    // ==================================
-                    // RAZORPAY CHECKOUT
-                    // ==================================
+                    /* =========================
+                       RAZORPAY CHECKOUT
+                    ========================= */
 
                     const options = {
 
@@ -361,6 +467,7 @@ if (checkoutForm) {
                         order_id:
                             data.order.id,
 
+
                         prefill: {
 
                             name:
@@ -374,6 +481,7 @@ if (checkoutForm) {
 
                         },
 
+
                         theme: {
 
                             color:
@@ -382,7 +490,10 @@ if (checkoutForm) {
                         },
 
 
-                        // Payment successful
+                        /* =========================
+                           PAYMENT SUCCESSFUL
+                        ========================= */
+
                         handler:
                             async function (
                                 razorpayResponse
@@ -397,8 +508,10 @@ if (checkoutForm) {
                                                 method: "POST",
 
                                                 headers: {
+
                                                     "Content-Type":
                                                         "application/json"
+
                                                 },
 
                                                 body:
@@ -437,27 +550,35 @@ if (checkoutForm) {
                                         );
 
                                         return;
-
                                     }
 
 
-                                    // Add payment information
+                                    /* =========================
+                                       ADD PAYMENT INFORMATION
+                                    ========================= */
+
                                     order.paymentStatus =
                                         "Paid";
+
 
                                     order.razorpayOrderId =
                                         razorpayResponse
                                             .razorpay_order_id;
+
 
                                     order.razorpayPaymentId =
                                         razorpayResponse
                                             .razorpay_payment_id;
 
 
-                                    // Save order
-                                    saveOrderAndFinish(
+                                    /* =========================
+                                       SAVE ORDER TO MONGODB
+                                    ========================= */
+
+                                    await saveOrderAndFinish(
                                         order
                                     );
+
 
                                 } catch (error) {
 
@@ -465,6 +586,7 @@ if (checkoutForm) {
                                         "Payment verification error:",
                                         error
                                     );
+
 
                                     alert(
                                         "Payment verification failed."
@@ -475,34 +597,38 @@ if (checkoutForm) {
                             },
 
 
-                        // Payment modal closed
-                        modal:
-                            {
+                        /* =========================
+                           PAYMENT MODAL CLOSED
+                        ========================= */
 
-                                ondismiss:
-                                    function () {
+                        modal: {
 
-                                        const message =
-                                            document.getElementById(
-                                                "checkoutMessage"
-                                            );
+                            ondismiss:
+                                function () {
 
-                                        if (message) {
+                                    const message =
+                                        document.getElementById(
+                                            "checkoutMessage"
+                                        );
 
-                                            message.textContent =
-                                                "Payment cancelled. Your order was not placed.";
 
-                                        }
+                                    if (message) {
+
+                                        message.textContent =
+                                            "Payment cancelled. Your order was not placed.";
 
                                     }
 
-                            }
+                                }
+
+                        }
 
                     };
 
 
                     const razorpay =
                         new Razorpay(options);
+
 
                     razorpay.open();
 
@@ -514,6 +640,7 @@ if (checkoutForm) {
                         error
                     );
 
+
                     alert(
                         "Unable to start online payment. Please try again."
                     );
@@ -524,9 +651,9 @@ if (checkoutForm) {
             }
 
 
-            // ==========================================
-            // INVALID PAYMENT METHOD
-            // ==========================================
+            /* =========================
+               INVALID PAYMENT METHOD
+            ========================= */
 
             alert(
                 "Please select a payment method."
@@ -538,11 +665,13 @@ if (checkoutForm) {
 }
 
 
-// ==========================================
-// SAVE ORDER + CLEAR CART + REDIRECT
-// ==========================================
+/* ==========================================
+   SAVE ORDER TO MONGODB
+   + CLEAR CART
+   + REDIRECT
+========================================== */
 
-function saveOrderAndFinish(order) {
+async function saveOrderAndFinish(order) {
 
     /* =========================
        CURRENT USER
@@ -554,93 +683,163 @@ function saveOrderAndFinish(order) {
         ) || null;
 
 
-    /* User must be logged in */
+    /* =========================
+       LOGIN CHECK
+    ========================= */
 
     if (!user) {
 
-        alert("Please login before placing an order.");
+        alert(
+            "Please login before placing an order."
+        );
 
-        window.location.href = "login.html";
+        window.location.href =
+            "login.html";
 
         return;
-
     }
 
 
     /* =========================
-       USER-SPECIFIC ORDER KEY
+       JWT TOKEN
     ========================= */
 
-    const userId =
-        user._id ||
-        user.id ||
-        user.email;
+    const token =
+        localStorage.getItem("token");
 
 
-    const orderKey =
-        `orders_${userId}`;
+    if (!token) {
 
-
-    /* =========================
-       GET EXISTING USER ORDERS
-    ========================= */
-
-    const existingOrders =
-        JSON.parse(
-            localStorage.getItem(orderKey)
-        ) || [];
-
-
-    /* Add newest order at the top */
-
-    existingOrders.unshift(order);
-
-
-    /* Save only for this user */
-
-    localStorage.setItem(
-        orderKey,
-        JSON.stringify(existingOrders)
-    );
-
-
-    /* =========================
-       LATEST ORDER
-    ========================= */
-
-    localStorage.setItem(
-        "latestOrder",
-        JSON.stringify(order)
-    );
-
-
-    /* =========================
-       CLEAR USER CART
-    ========================= */
-
-    const cartKey =
-        getCartKey();
-
-    if (cartKey) {
-
-        localStorage.removeItem(
-            cartKey
+        alert(
+            "Your login session has expired. Please login again."
         );
 
+        window.location.href =
+            "login.html";
+
+        return;
     }
 
 
-    /* =========================
-       ORDER SUCCESS PAGE
-    ========================= */
+    try {
 
-    window.location.href =
-        window.location.pathname.replace(
-            "checkout.html",
-            "order-success.html"
+        /* =========================
+           SAVE ORDER TO BACKEND
+        ========================= */
+
+        const response =
+            await fetch(
+                "http://localhost:5000/api/orders",
+                {
+                    method: "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json",
+
+                        "Authorization":
+                            `Bearer ${token}`
+
+                    },
+
+                    body:
+                        JSON.stringify(order)
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        /* =========================
+           CHECK RESPONSE
+        ========================= */
+
+        if (
+            !response.ok ||
+            !data.success
+        ) {
+
+            console.error(
+                "Order save failed:",
+                data
+            );
+
+
+            alert(
+                data.message ||
+                "Unable to save your order. Please try again."
+            );
+
+            return;
+        }
+
+
+        /* =========================
+           SAVE LATEST ORDER
+           FOR SUCCESS PAGE
+        ========================= */
+
+        localStorage.setItem(
+            "latestOrder",
+            JSON.stringify(
+                data.order || order
+            )
         );
+
+
+        /* =========================
+           CLEAR USER CART
+        ========================= */
+
+        const cartKey =
+            getCartKey();
+
+
+        if (cartKey) {
+
+            localStorage.removeItem(
+                cartKey
+            );
+
+        }
+
+
+        /* =========================
+           ORDER SUCCESS PAGE
+        ========================= */
+
+        window.location.href =
+            window.location.pathname.replace(
+                "checkout.html",
+                "order-success.html"
+            );
+
+
+    } catch (error) {
+
+        console.error(
+            "Save order error:",
+            error
+        );
+
+
+        alert(
+            "Unable to connect to the server. Your order was not placed. Please try again."
+        );
+
+    }
 
 }
 
+
+/* =========================
+   INITIAL LOAD
+========================= */
+
 updateCartCount();
+
 displayCheckout();
