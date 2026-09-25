@@ -392,7 +392,7 @@ if (checkoutForm) {
 
                                     const verifyResponse =
                                         await fetch(
-                                            "http://localhost:5000/api/payment/verify",
+                                            "https://botanical-bliss-52ra.onrender.com/api/payment/verify",
                                             {
                                                 method: "POST",
 
