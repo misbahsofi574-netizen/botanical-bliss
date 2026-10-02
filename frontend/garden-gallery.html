@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,363 +10,689 @@
     <!-- Bootstrap Icons -->
     <link
         rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
-<body class="shop-page">
+<body class="shop-page garden-gallery-page">
 
 
-    <!-- ================================
-         NAVBAR
-    ================================= -->
+    <!-- =================================
+         MOBILE MENU BUTTON
+    ================================== -->
 
-    <nav class="home-nav">
+    <button
+        class="bb-mobile-menu"
+        id="bbMobileMenu"
+        type="button"
+        aria-label="Open menu">
 
-        <a href="home.html" class="home-brand">
+        <i class="bi bi-list"></i>
 
-            <i class="bi bi-flower1"></i>
+    </button>
 
-            <span>Botanical Bliss</span>
+
+    <!-- =================================
+         SIDEBAR OVERLAY
+    ================================== -->
+
+    <div
+        class="bb-sidebar-overlay"
+        id="bbSidebarOverlay">
+    </div>
+
+
+    <!-- =================================
+         BOTANICAL BLISS SIDEBAR
+    ================================== -->
+
+    <aside class="bb-sidebar" id="bbSidebar">
+
+
+        <!-- BRAND -->
+
+        <a
+            href="home.html"
+            class="bb-sidebar-brand">
+
+            <div class="bb-brand-icon">
+                <i class="bi bi-flower1"></i>
+            </div>
+
+            <div class="bb-brand-text">
+
+                <strong>Botanical Bliss</strong>
+
+                <span>Grow • Care • Bloom</span>
+
+            </div>
 
         </a>
 
 
-        <div class="home-nav-links">
+        <!-- USER / DASHBOARD BOX -->
 
-            <a href="home.html">
-                Home
-            </a>
+        <a
+            href="dashboard.html"
+            class="bb-user-box">
 
-            <a href="shop.html">
-                Shop
-            </a>
-
-            <a href="categories.html">
-                Categories
-            </a>
-
-            <a href="gardening-guide.html">
-                Gardening Guide
-            </a>
-
-            <a href="garden-calendar.html">
-                Garden Calendar
-            </a>
-
-            <a href="garden-gallery.html" class="active">
-                Garden Gallery
-            </a>
-
-            <a href="seasonal-guide.html">Seasonal Guide</a>
-            
-
-        </div>
-
-
-        <div class="home-nav-actions">
-
-            <a
-                href="cart.html"
-                class="nav-icon-button cart-button"
-                title="Cart">
-
-                <i class="bi bi-bag"></i>
-
-                <span id="cartCount">0</span>
-
-            </a>
-
-
-            <a
-                href="dashboard.html"
-                class="profile-button"
-                title="Profile">
+            <div class="bb-user-avatar">
 
                 <i class="bi bi-person"></i>
 
+            </div>
+
+            <div>
+
+                <strong>My Garden</strong>
+
+                <span>Open Dashboard</span>
+
+            </div>
+
+            <i class="bi bi-chevron-right"></i>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="bb-navigation">
+
+
+            <!-- EXPLORE -->
+
+            <div class="bb-nav-section">
+
+                <div class="bb-nav-label">
+                    EXPLORE
+                </div>
+
+
+                <a
+                    href="home.html"
+                    class="bb-nav-link">
+
+                    <span class="bb-nav-icon">
+                        <i class="bi bi-house"></i>
+                    </span>
+
+                    <span>Home</span>
+
+                </a>
+
+
+                <a
+                    href="shop.html"
+                    class="bb-nav-link">
+
+                    <span class="bb-nav-icon">
+                        <i class="bi bi-shop"></i>
+                    </span>
+
+                    <span>Shop</span>
+
+                </a>
+
+
+                <a
+                    href="categories.html"
+                    class="bb-nav-link">
+
+                    <span class="bb-nav-icon">
+                        <i class="bi bi-grid"></i>
+                    </span>
+
+                    <span>Categories</span>
+
+                </a>
+
+
+                <a
+                    href="wishlist.html"
+                    class="bb-nav-link">
+
+                    <span class="bb-nav-icon">
+                        <i class="bi bi-heart"></i>
+                    </span>
+
+                    <span>Wishlist</span>
+
+                    <small id="bbWishlistCount">
+                        0
+                    </small>
+
+                </a>
+
+
+                <a
+                    href="cart.html"
+                    class="bb-nav-link">
+
+                    <span class="bb-nav-icon">
+                        <i class="bi bi-bag"></i>
+                    </span>
+
+                    <span>Cart</span>
+
+                    <small id="bbCartCount">
+                        0
+                    </small>
+
+                </a>
+
+            </div>
+
+
+            <!-- MY GARDEN -->
+
+            <div class="bb-nav-section">
+
+                <div class="bb-nav-label">
+                    MY GARDEN
+                </div>
+
+
+                <a
+                    href="garden-calendar.html"
+                    class="bb-nav-link">
+
+                    <span class="bb-nav-icon">
+                        <i class="bi bi-calendar3"></i>
+                    </span>
+
+                    <span>Garden Calendar</span>
+
+                </a>
+
+
+                <a
+                    href="gardening-guide.html"
+                    class="bb-nav-link">
+
+                    <span class="bb-nav-icon">
+                        <i class="bi bi-book"></i>
+                    </span>
+
+                    <span>Gardening Guide</span>
+
+                </a>
+
+
+                <a
+                    href="seasonal-guide.html"
+                    class="bb-nav-link">
+
+                    <span class="bb-nav-icon">
+                        <i class="bi bi-sun"></i>
+                    </span>
+
+                    <span>Seasonal Guide</span>
+
+                </a>
+
+
+                <a
+                    href="garden-gallery.html"
+                    class="bb-nav-link bb-active">
+
+                    <span class="bb-nav-icon">
+                        <i class="bi bi-images"></i>
+                    </span>
+
+                    <span>Garden Gallery</span>
+
+                </a>
+
+            </div>
+
+
+            <!-- ACCOUNT -->
+
+            <div class="bb-nav-section">
+
+                <div class="bb-nav-label">
+                    ACCOUNT
+                </div>
+
+
+                <a
+                    href="orders.html"
+                    class="bb-nav-link">
+
+                    <span class="bb-nav-icon">
+                        <i class="bi bi-box-seam"></i>
+                    </span>
+
+                    <span>My Orders</span>
+
+                </a>
+
+
+                <a
+                    href="dashboard.html"
+                    class="bb-nav-link">
+
+                    <span class="bb-nav-icon">
+                        <i class="bi bi-person"></i>
+                    </span>
+
+                    <span>My Profile</span>
+
+                </a>
+
+            </div>
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="bb-sidebar-bottom">
+
+
+            <!-- TIP -->
+
+            <div class="bb-sidebar-tip">
+
+                <div class="bb-tip-icon">
+
+                    <i class="bi bi-lightbulb"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>Garden Tip</strong>
+
+                    <span>
+                        Healthy plants need
+                        consistent care.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXPLORE BUTTON -->
+
+            <a
+                href="shop.html"
+                class="bb-explore-button">
+
+                <i class="bi bi-leaf"></i>
+
+                Explore Products
+
             </a>
 
         </div>
 
-    </nav>
+    </aside>
 
 
-    <!-- ================================
-         HEADER
-    ================================= -->
+    <!-- =================================
+         MAIN CONTENT
+    ================================== -->
 
-    <section class="shop-header">
-
-        <div>
-
-            <p>BOTANICAL BLISS</p>
-
-            <h1>Garden Gallery</h1>
-
-            <span>
-                Explore beautiful gardens, plants and inspiring
-                gardening ideas.
-            </span>
-
-        </div>
-
-    </section>
-
-    <div class="gallery-card">
-
-    <img
-        src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735"
-        alt="Garden flowers">
-
-    <div class="gallery-card-content">
-
-        <h3>
-            Garden Flowers
-        </h3>
-
-        <p>
-            Create a colourful and welcoming
-            garden with flowers.
-        </p>
-
-    </div>
-
-</div>
-
-</div>
+    <main class="garden-gallery-main">
 
 
-<!-- =================================
-     SHARE YOUR GARDEN
-================================= -->
+        <!-- =================================
+             HEADER
+        ================================== -->
 
-<section class="share-garden-section">
+        <section class="shop-header">
 
-    <div class="share-garden-intro">
+            <div>
 
-        <p>COMMUNITY</p>
+                <p>BOTANICAL BLISS</p>
 
-        <h2>Share Your Garden</h2>
+                <h1>Garden Gallery</h1>
 
-        <span>
-            Show your plants, flowers and gardening journey
-            with the Botanical Bliss community.
-        </span>
+                <span>
+                    Explore beautiful gardens, plants and
+                    inspiring gardening ideas.
+                </span>
 
-    </div>
+            </div>
+
+        </section>
 
 
-    <div class="share-garden-card">
+        <!-- =================================
+             FEATURED GARDEN CARD
+        ================================== -->
 
-        <form id="gardenPostForm">
+        <section class="gallery-feature-section">
 
-            <!-- PHOTO UPLOAD -->
+            <div class="gallery-card">
 
-            <div class="upload-area">
+                <img
+                    src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735"
+                    alt="Garden flowers">
 
-                
+                <div class="gallery-card-content">
 
-                <h3>Upload Your Garden Photo</h3>
+                    <h3>
+                        Garden Flowers
+                    </h3>
+
+                    <p>
+                        Create a colourful and welcoming
+                        garden with flowers.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             SHARE YOUR GARDEN
+        ================================== -->
+
+        <section class="share-garden-section">
+
+            <div class="share-garden-intro">
+
+                <p>COMMUNITY</p>
+
+                <h2>
+                    Share Your Garden
+                </h2>
+
+                <span>
+                    Show your plants, flowers and gardening
+                    journey with the Botanical Bliss community.
+                </span>
+
+            </div>
+
+
+            <div class="share-garden-card">
+
+                <form id="gardenPostForm">
+
+
+                    <!-- PHOTO UPLOAD -->
+
+                    <div class="upload-area">
+
+                        <h3>
+                            Upload Your Garden Photo
+                        </h3>
+
+                        <p>
+                            Share a beautiful moment
+                            from your garden.
+                        </p>
+
+
+                        <label
+                            for="gardenPhoto"
+                            class="upload-button">
+
+                            <i class="bi bi-image"></i>
+
+                            Choose Photo
+
+                        </label>
+
+
+                        <input
+                            type="file"
+                            id="gardenPhoto"
+                            accept="image/*"
+                            hidden>
+
+
+                        <p
+                            id="selectedFileName"
+                            class="selected-file">
+                        </p>
+
+                    </div>
+
+
+                    <!-- CAPTION -->
+
+                    <div class="garden-caption">
+
+                        <label for="gardenCaption">
+                            Caption
+                        </label>
+
+                        <textarea
+                            id="gardenCaption"
+                            rows="4"
+                            placeholder="Tell us about your garden..."
+                            maxlength="300"
+                            required></textarea>
+
+                    </div>
+
+
+                    <!-- SHARE BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="share-garden-button">
+
+                        <i class="bi bi-send"></i>
+
+                        Share Post
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             COMMUNITY POSTS
+        ================================== -->
+
+        <section class="community-section">
+
+
+            <div class="community-heading">
 
                 <p>
-                    Share a beautiful moment from your garden.
+                    BOTANICAL BLISS COMMUNITY
                 </p>
 
-                <label
-                    for="gardenPhoto"
-                    class="upload-button">
+                <h2>
+                    Gardeners' Corner
+                </h2>
 
-                    <i class="bi bi-image"></i>
-                    Choose Photo
+                <span>
+                    Discover gardens shared by
+                    our community.
+                </span>
 
-                </label>
+            </div>
 
-                <input
-                    type="file"
-                    id="gardenPhoto"
-                    accept="image/*"
-                    hidden>
 
-                <p
-                    id="selectedFileName"
-                    class="selected-file">
+            <div
+                id="communityPosts"
+                class="community-posts">
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================
+             FOOTER
+        ================================== -->
+
+        <footer class="home-footer">
+
+
+            <div class="footer-brand">
+
+                <a
+                    href="home.html"
+                    class="home-brand">
+
+                    <i class="bi bi-flower1"></i>
+
+                    <span>
+                        Botanical Bliss
+                    </span>
+
+                </a>
+
+                <p>
+                    Grow something beautiful.
                 </p>
 
             </div>
 
 
-            <!-- CAPTION -->
+            <div class="footer-links">
 
-            <div class="garden-caption">
 
-                <label for="gardenCaption">
-                    Caption
-                </label>
+                <div>
 
-                <textarea
-                    id="gardenCaption"
-                    rows="4"
-                    placeholder="Tell us about your garden..."
-                    maxlength="300"
-                    required></textarea>
+                    <h4>
+                        Explore
+                    </h4>
+
+                    <a href="shop.html">
+                        Shop
+                    </a>
+
+                    <a href="categories.html">
+                        Categories
+                    </a>
+
+                    <a href="gardening-guide.html">
+                        Gardening Guide
+                    </a>
+
+                    <a href="garden-calendar.html">
+                        Garden Calendar
+                    </a>
+
+                    <a href="garden-gallery.html">
+                        Garden Gallery
+                    </a>
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Support
+                    </h4>
+
+                    <a href="orders.html#contact-us">
+                        Contact Us
+                    </a>
+
+                    <a href="faq.html">
+                        FAQs
+                    </a>
+
+                    <a href="shipping.html">
+                        Shipping
+                    </a>
+
+                </div>
+
 
             </div>
 
 
-            <!-- SHARE BUTTON -->
+            <div class="footer-bottom">
 
-            <button
-                type="submit"
-                class="share-garden-button">
-
-                <i class="bi bi-send"></i>
-                Share Post
-
-            </button>
-
-        </form>
-
-    </div>
-
-</section>
-
-
-<!-- =================================
-     COMMUNITY POSTS
-================================= -->
-
-<section class="community-section">
-
-    <div class="community-heading">
-    <p>BOTANICAL BLISS COMMUNITY</p>
-    <h2>Gardeners' Corner</h2>
-    <span>
-        Discover gardens shared by our community.
-    </span>
-</div>
-
-<div id="communityPosts" class="community-posts">
-</div>
-
-
-    
-
-
-        
-
-      
-
-        
-
-    <!-- ================================
-         FOOTER
-    ================================= -->
-
-    <footer class="home-footer">
-
-        <div class="footer-brand">
-
-            <a href="home.html" class="home-brand">
-
-                <i class="bi bi-flower1"></i>
-
-                <span>Botanical Bliss</span>
-
-            </a>
-
-            <p>
-                Grow something beautiful.
-            </p>
-
-        </div>
-
-
-        <div class="footer-links">
-
-            <div>
-
-                <h4>Explore</h4>
-
-                <a href="shop.html">
-                    Shop
-                </a>
-
-                <a href="categories.html">
-                    Categories
-                </a>
-
-                <a href="gardening-guide.html">
-                    Gardening Guide
-                </a>
-
-                <a href="garden-calendar.html">
-                    Garden Calendar
-                </a>
-
-                <a href="garden-gallery.html">
-                    Garden Gallery
-                </a>
+                © 2026 Botanical Bliss.
+                All rights reserved.
 
             </div>
 
+        </footer>
 
-            <div>
-
-                <h4>Support</h4>
-
-                <a href="orders.html#contact-us">
-                    Contact Us
-                </a>
-
-                <a href="faq.html">
-                    FAQs
-                </a>
-
-                <a href="shipping.html">
-                    Shipping
-                </a>
-
-            </div>
-
-        </div>
+    </main>
 
 
-        <div class="footer-bottom">
-
-            © 2026 Botanical Bliss.
-            All rights reserved.
-
-        </div>
-
-    </footer>
-
-
-    <!-- CART COUNT -->
+    <!-- =================================
+         SIDEBAR + USER COUNTS
+    ================================== -->
 
     <script>
 
-        function updateCartCount() {
+        /* =================================
+           USER-SPECIFIC STORAGE
+        ================================== */
 
-            const cart =
+        function getCurrentUserKey() {
+
+            const user =
                 JSON.parse(
-                    localStorage.getItem("cart")
-                ) || [];
+                    localStorage.getItem("user")
+                );
+
+            if (!user) {
+                return null;
+            }
+
+            return (
+                user._id ||
+                user.id ||
+                user.email
+            );
+        }
+
+
+        /* =================================
+           UPDATE CART COUNT
+        ================================== */
+
+        function updateSidebarCartCount() {
+
+            const userKey =
+                getCurrentUserKey();
+
+            let cart = [];
+
+            if (userKey) {
+
+                cart =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "cart_" + userKey
+                        )
+                    ) || [];
+
+            }
 
             const count =
                 cart.reduce(
                     (total, item) =>
                         total +
-                        Number(item.quantity || 0),
+                        Number(
+                            item.quantity || 0
+                        ),
                     0
                 );
 
+
             const cartCount =
                 document.getElementById(
-                    "cartCount"
+                    "bbCartCount"
                 );
 
             if (cartCount) {
@@ -379,9 +704,148 @@
 
         }
 
-        updateCartCount();
+
+        /* =================================
+           UPDATE WISHLIST COUNT
+        ================================== */
+
+        function updateSidebarWishlistCount() {
+
+            const userKey =
+                getCurrentUserKey();
+
+            let wishlist = [];
+
+            if (userKey) {
+
+                wishlist =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "wishlist_" + userKey
+                        )
+                    ) || [];
+
+            }
+
+
+            const wishlistCount =
+                document.getElementById(
+                    "bbWishlistCount"
+                );
+
+            if (wishlistCount) {
+
+                wishlistCount.textContent =
+                    wishlist.length;
+
+            }
+
+        }
+
+
+        /* =================================
+           MOBILE SIDEBAR
+        ================================== */
+
+        const mobileMenu =
+            document.getElementById(
+                "bbMobileMenu"
+            );
+
+        const sidebar =
+            document.getElementById(
+                "bbSidebar"
+            );
+
+        const overlay =
+            document.getElementById(
+                "bbSidebarOverlay"
+            );
+
+
+        if (mobileMenu) {
+
+            mobileMenu.addEventListener(
+                "click",
+                function () {
+
+                    sidebar.classList.add(
+                        "bb-sidebar-open"
+                    );
+
+                    overlay.classList.add(
+                        "bb-overlay-visible"
+                    );
+
+                }
+            );
+
+        }
+
+
+        function closeSidebar() {
+
+            sidebar.classList.remove(
+                "bb-sidebar-open"
+            );
+
+            overlay.classList.remove(
+                "bb-overlay-visible"
+            );
+
+        }
+
+
+        if (overlay) {
+
+            overlay.addEventListener(
+                "click",
+                closeSidebar
+            );
+
+        }
+
+
+        /* =================================
+           CLOSE MOBILE SIDEBAR
+           AFTER LINK CLICK
+        ================================== */
+
+        document
+            .querySelectorAll(".bb-nav-link, .bb-user-box, .bb-sidebar-brand")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        if (
+                            window.innerWidth <= 850
+                        ) {
+
+                            closeSidebar();
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+        /* =================================
+           INITIAL COUNTS
+        ================================== */
+
+        updateSidebarCartCount();
+        updateSidebarWishlistCount();
 
     </script>
+
+
+    <!-- =================================
+         GARDEN GALLERY JS
+    ================================== -->
 
     <script src="js/garden-gallery.js"></script>
 

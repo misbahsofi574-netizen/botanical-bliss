@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,261 +18,622 @@
 
 <body class="dashboard-page">
 
-    <!-- NAVBAR -->
-    <nav class="dashboard-nav">
+    <!-- MOBILE SIDEBAR BUTTON -->
+    <button class="dashboard-menu-btn" id="dashboardMenuBtn">
+        <i class="bi bi-list"></i>
+    </button>
 
-        <div class="dashboard-brand">
-            <i class="bi bi-flower1"></i>
-            <span>Botanical Bliss</span>
-        </div>
-
-        <div class="dashboard-nav-links">
-            <a href="home.html">
-              <i class="bi bi-bag"></i>
-               Home
-            </a>
-
-            <a href="shop.html">
-               <i class="bi bi-shop"></i>
-                Shop
-            </a>
-
-            <a href="wishlist.html">
-                <i class="bi bi-heart"></i>
-                Wishlist
-            </a>
-
-            <a href="orders.html">
-              <i class="bi bi-bag"></i>
-               Orders
-            </a>
-
-            <a href="garden-calendar.html">
-              <i class="bi bi-"></i>
-               Garden Calender
-            </a>
-
-            <a href="gardening-guide.html">
-              <i class="bi bi-"></i>
-               Gardening guide
-            </a>
-
-            <a href="seasonal-guide.html">
-              <i class="bi bi-"></i>
-               Seasonal Guide
-            </a>
-
-            <a href="garden-gallery.html">
-              <i class="bi bi-"></i>
-               Garden Gallery
-            </a>
-        </div>
-
-        <button class="logout-button" id="logoutButton">
-            <i class="bi bi-box-arrow-right"></i>
-            Logout
-        </button>
-
-    </nav>
+    <!-- SIDEBAR OVERLAY -->
+    <div class="dashboard-overlay" id="dashboardOverlay"></div>
 
 
-    <!-- MAIN CONTENT -->
-    <main class="dashboard-main">
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
 
-        <!-- WELCOME -->
-        <section class="dashboard-welcome">
+    <aside class="dashboard-sidebar" id="dashboardSidebar">
+
+        <!-- BRAND -->
+        <div class="sidebar-brand">
+            <div class="sidebar-brand-icon">
+                <i class="bi bi-flower1"></i>
+            </div>
 
             <div>
-                <p class="welcome-label">WELCOME BACK</p>
+                <strong>Botanical Bliss</strong>
+                <span>Garden & Lifestyle</span>
+            </div>
+        </div>
 
-                <h1>
-                    Hello, <span id="userName">Gardener</span>!
-                </h1>
 
-                <p>
-                    Welcome to your Botanical Bliss garden.
-                    Let's grow something beautiful today.
-                </p>
+        <!-- USER MINI PROFILE -->
+        <div class="sidebar-user">
+
+            <div class="sidebar-profile-image">
+                <img
+                    id="sidebarProfileImage"
+                    src="images/default-profile.png"
+                    alt="Profile"
+                >
+
+                <span class="profile-status"></span>
             </div>
 
-            <div class="welcome-icon">
-                <i class="bi bi-flower2"></i>
+            <div class="sidebar-user-info">
+                <strong id="sidebarUserName">Gardener</strong>
+                <span id="sidebarUserEmail">Welcome back</span>
             </div>
 
-        </section>
+        </div>
 
 
-        <!-- QUICK ACTIONS -->
-        <section class="dashboard-section">
+        <!-- NAVIGATION -->
+        <nav class="sidebar-navigation">
 
-            <div class="section-heading">
-                <h2>Quick Actions</h2>
-                <p>Everything you need for your garden.</p>
+            <p class="sidebar-label">MAIN MENU</p>
+
+            <a href="dashboard.html" class="sidebar-link active">
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="home.html" class="sidebar-link">
+                <i class="bi bi-house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="shop.html" class="sidebar-link">
+                <i class="bi bi-shop"></i>
+                <span>Shop</span>
+            </a>
+
+            <a href="wishlist.html" class="sidebar-link">
+                <i class="bi bi-heart"></i>
+                <span>Wishlist</span>
+                <small id="sidebarWishlistCount">0</small>
+            </a>
+
+            <a href="orders.html" class="sidebar-link">
+                <i class="bi bi-bag-check"></i>
+                <span>My Orders</span>
+                <small id="sidebarOrderCount">0</small>
+            </a>
+
+
+            <p class="sidebar-label">MY GARDEN</p>
+
+            <a href="garden-calendar.html" class="sidebar-link">
+                <i class="bi bi-calendar3"></i>
+                <span>Garden Calendar</span>
+            </a>
+
+            <a href="gardening-guide.html" class="sidebar-link">
+                <i class="bi bi-book"></i>
+                <span>Gardening Guide</span>
+            </a>
+
+            <a href="seasonal-guide.html" class="sidebar-link">
+                <i class="bi bi-cloud-sun"></i>
+                <span>Seasonal Guide</span>
+            </a>
+
+            <a href="garden-gallery.html" class="sidebar-link">
+                <i class="bi bi-images"></i>
+                <span>Garden Gallery</span>
+            </a>
+
+
+            <p class="sidebar-label">ACCOUNT</p>
+
+            <a href="profile.html" class="sidebar-link">
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
+            </a>
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-tip">
+                <i class="bi bi-leaf"></i>
+
+                <div>
+                    <strong>Garden Tip</strong>
+                    <span>Small care today creates a beautiful garden tomorrow.</span>
+                </div>
             </div>
 
+            <button class="sidebar-logout" id="logoutButton">
+                <i class="bi bi-box-arrow-left"></i>
+                <span>Logout</span>
+            </button>
 
-            <div class="dashboard-cards">
+        </div>
 
-                <a href="shop.html" class="dashboard-card">
+    </aside>
 
-                    <div class="card-icon">
-                        <i class="bi bi-shop"></i>
-                    </div>
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="dashboard-content">
+
+
+        <!-- TOP HEADER -->
+        <header class="dashboard-topbar">
+
+            <div class="dashboard-page-title">
+                <span>MY SPACE</span>
+                <h1>Dashboard</h1>
+            </div>
+
+            <div class="dashboard-top-actions">
+
+                <a href="wishlist.html" class="topbar-icon">
+                    <i class="bi bi-heart"></i>
+                </a>
+
+                <a href="cart.html" class="topbar-icon cart-top-icon">
+                    <i class="bi bi-bag"></i>
+                    <span id="cartCount">0</span>
+                </a>
+
+                <a href="profile.html" class="topbar-profile">
+
+                    <img
+                        id="topProfileImage"
+                        src="images/default-profile.png"
+                        alt="Profile"
+                    >
 
                     <div>
-                        <h3>Shop Products</h3>
-                        <p>
-                            Explore plants, fertilizers and
-                            gardening essentials.
-                        </p>
+                        <strong id="topUserName">Gardener</strong>
+                        <span>My Account</span>
                     </div>
 
-                    <i class="bi bi-arrow-right card-arrow"></i>
+                    <i class="bi bi-chevron-down"></i>
 
                 </a>
 
-
-                <a href="wishlist.html" class="dashboard-card">
-
-                    <div class="card-icon">
-                        <i class="bi bi-heart"></i>
-                    </div>
-
-                    <div>
-                        <h3>My Wishlist</h3>
-                        <p>
-                            View the products you saved
-                            for later.
-                        </p>
-                    </div>
-
-                    <i class="bi bi-arrow-right card-arrow"></i>
-
-                </a>
-
-
-                <a href="orders.html" class="dashboard-card">
-
-                    <div class="card-icon">
-                        <i class="bi bi-bag"></i>
-                    </div>
-
-                    <div>
-                        <h3>My Orders</h3>
-                        <p>
-                            Track and manage your purchases.
-                        </p>
-                    </div>
-
-                    <i class="bi bi-arrow-right card-arrow"></i>
-
-                </a>
-
-
-                    <a href="profile.html" class="dashboard-card">
-                    <div class="card-icon">
-                        <i class="bi bi-person"></i>
-                    </div>
-
-                    <div>
-                        <h3>My Profile</h3>
-                        <p>
-                            Manage your account information.
-                        </p>
-                    </div>
-
-                    <i class="bi bi-arrow-right card-arrow"></i>
-
-                </a>
-
             </div>
 
-        </section>
+        </header>
 
 
-        <!-- GARDENING SECTION -->
-        <section class="garden-banner">
+        <!-- =========================
+             WELCOME HERO
+        ========================== -->
 
-            <div class="garden-content">
+        <section class="dashboard-welcome-card">
 
-                <p>BOTANICAL BLISS</p>
+            <div class="welcome-text">
+
+                <span class="welcome-small">
+                    WELCOME BACK
+                </span>
 
                 <h2>
-                    Grow your garden,
-                    grow your happiness.
+                    Hello, <span id="userName">Gardener</span>!
                 </h2>
 
                 <p>
-                    Discover everything you need to create
-                    a healthier and more beautiful garden.
+                    Your personal gardening space is ready.
+                    Keep growing, caring and creating something beautiful.
                 </p>
 
-                <a href="shop.html" class="garden-button"></a>
-                    Explore Products
-                    <i class="bi bi-arrow-right"></i>
-                </a>
+                <div class="welcome-buttons">
+
+                    <a href="shop.html" class="primary-dashboard-btn">
+                        <i class="bi bi-shop"></i>
+                        Explore Shop
+                    </a>
+
+                    <a href="garden-calendar.html" class="secondary-dashboard-btn">
+                        <i class="bi bi-calendar3"></i>
+                        Garden Calendar
+                    </a>
+
+                </div>
 
             </div>
 
-            <div class="garden-decoration">
+
+            <div class="welcome-illustration">
+
+                <div class="welcome-circle circle-one"></div>
+                <div class="welcome-circle circle-two"></div>
+
                 <i class="bi bi-flower2"></i>
-                <i class="bi bi-leaf"></i>
+
             </div>
 
         </section>
 
+
+        <!-- =========================
+             STATISTICS
+        ========================== -->
+
+        <section class="dashboard-stats">
+
+            <div class="dashboard-stat-card">
+
+                <div class="stat-icon cart-stat">
+                    <i class="bi bi-bag"></i>
+                </div>
+
+                <div class="stat-details">
+                    <span>Cart Items</span>
+                    <strong id="dashboardCartCount">0</strong>
+                </div>
+
+                <a href="cart.html">
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="dashboard-stat-card">
+
+                <div class="stat-icon wishlist-stat">
+                    <i class="bi bi-heart"></i>
+                </div>
+
+                <div class="stat-details">
+                    <span>Wishlist</span>
+                    <strong id="wishlistCount">0</strong>
+                </div>
+
+                <a href="wishlist.html">
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="dashboard-stat-card">
+
+                <div class="stat-icon order-stat">
+                    <i class="bi bi-box-seam"></i>
+                </div>
+
+                <div class="stat-details">
+                    <span>My Orders</span>
+                    <strong id="orderCount">0</strong>
+                </div>
+
+                <a href="orders.html">
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="dashboard-stat-card">
+
+                <div class="stat-icon garden-stat">
+                    <i class="bi bi-flower1"></i>
+                </div>
+
+                <div class="stat-details">
+                    <span>My Garden</span>
+                    <strong id="plantCount">0</strong>
+                </div>
+
+                <a href="garden-calendar.html">
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             MAIN GRID
+        ========================== -->
+
+        <div class="dashboard-main-grid">
+
+
+            <!-- QUICK ACTIONS -->
+            <section class="dashboard-panel quick-actions-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <span>EXPLORE</span>
+                        <h2>Quick Actions</h2>
+                    </div>
+
+                    <i class="bi bi-stars panel-heading-icon"></i>
+
+                </div>
+
+
+                <div class="quick-action-grid">
+
+                    <a href="shop.html" class="quick-action-card">
+
+                        <div class="quick-action-icon">
+                            <i class="bi bi-shop"></i>
+                        </div>
+
+                        <div>
+                            <strong>Shop Products</strong>
+                            <span>Plants, tools & essentials</span>
+                        </div>
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+
+                    <a href="garden-calendar.html" class="quick-action-card">
+
+                        <div class="quick-action-icon">
+                            <i class="bi bi-calendar3"></i>
+                        </div>
+
+                        <div>
+                            <strong>Garden Calendar</strong>
+                            <span>Plan your gardening tasks</span>
+                        </div>
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+
+                    <a href="gardening-guide.html" class="quick-action-card">
+
+                        <div class="quick-action-icon">
+                            <i class="bi bi-book"></i>
+                        </div>
+
+                        <div>
+                            <strong>Gardening Guide</strong>
+                            <span>Learn better plant care</span>
+                        </div>
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+
+                    <a href="garden-gallery.html" class="quick-action-card">
+
+                        <div class="quick-action-icon">
+                            <i class="bi bi-images"></i>
+                        </div>
+
+                        <div>
+                            <strong>Garden Gallery</strong>
+                            <span>Explore community gardens</span>
+                        </div>
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- GARDEN PROFILE -->
+            <section class="dashboard-panel garden-profile-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <span>YOUR SPACE</span>
+                        <h2>My Garden</h2>
+                    </div>
+
+                    <i class="bi bi-flower1 panel-heading-icon"></i>
+
+                </div>
+
+
+                <div class="garden-summary">
+
+                    <div class="garden-big-icon">
+                        <i class="bi bi-flower2"></i>
+                    </div>
+
+                    <h3 id="gardenMessage">
+                        Start growing your garden
+                    </h3>
+
+                    <p>
+                        Keep track of your plants and discover
+                        personalized care information.
+                    </p>
+
+                    <a href="garden-calendar.html" class="garden-panel-btn">
+                        Manage My Garden
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- =========================
+             LOWER FEATURE ROW
+        ========================== -->
+
+        <section class="dashboard-feature-row">
+
+
+            <!-- GARDENING TIP -->
+            <div class="feature-card gardening-tip-card">
+
+                <div class="feature-icon">
+                    <i class="bi bi-lightbulb"></i>
+                </div>
+
+                <div>
+                    <span>GARDENING TIP</span>
+
+                    <h3>
+                        Healthy plants start with consistent care.
+                    </h3>
+
+                    <p>
+                        Check your garden calendar regularly
+                        and keep your plants on a simple routine.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- SEASONAL GUIDE -->
+            <a href="seasonal-guide.html" class="feature-card seasonal-card">
+
+                <div class="seasonal-content">
+
+                    <span>THIS SEASON</span>
+
+                    <h3>
+                        Discover seasonal gardening ideas.
+                    </h3>
+
+                    <p>
+                        Explore what you can grow and care for right now.
+                    </p>
+
+                    <strong>
+                        View Seasonal Guide
+                        <i class="bi bi-arrow-right"></i>
+                    </strong>
+
+                </div>
+
+                <i class="bi bi-cloud-sun seasonal-decoration"></i>
+
+            </a>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="dashboard-footer">
+
+            <span>
+                © 2026 Botanical Bliss
+            </span>
+
+            <span>
+                Grow • Care • Bloom
+            </span>
+
+        </footer>
+
     </main>
 
-
-    <!-- DASHBOARD JAVASCRIPT -->
-    ```html
 <script>
-    /* =========================
-       GET LOGGED-IN USER
-    ========================= */
+/* =========================================================
+   GET LOGGED-IN USER
+========================================================= */
 
-    const storedUser =
-        localStorage.getItem("user");
+const storedUser = localStorage.getItem("user");
+const token = localStorage.getItem("token");
 
-    if (!storedUser) {
+if (!storedUser || !token) {
 
-        window.location.href =
-            "login.html";
+    window.location.href = "login.html";
 
-    } else {
+} else {
 
-        const user =
-            JSON.parse(storedUser);
+    let user;
 
-        /* USER NAME */
+    try {
+
+        user = JSON.parse(storedUser);
+
+    } catch (error) {
+
+        console.error("Invalid user data:", error);
+
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
+
+        window.location.href = "login.html";
+    }
+
+
+    /* =====================================================
+       ADMIN USERS MUST USE ADMIN DASHBOARD
+    ===================================================== */
+
+    if (user && user.role === "admin") {
+
+        window.location.href = "admin/admin.html";
+
+    } else if (user) {
+
+
+        /* =====================================================
+           USER INFORMATION
+        ===================================================== */
 
         const userName =
             document.getElementById("userName");
 
-        if (userName) {
-            userName.textContent =
-                user.name;
-        }
+        const topUserName =
+            document.getElementById("topUserName");
 
-        /* USER EMAIL */
+        const sidebarUserName =
+            document.getElementById("sidebarUserName");
 
         const userEmail =
-            document.getElementById("userEmail");
+            document.getElementById("sidebarUserEmail");
+
+
+        const displayName =
+            user.name ||
+            user.username ||
+            "Gardener";
+
+
+        if (userName) {
+            userName.textContent = displayName;
+        }
+
+        if (topUserName) {
+            topUserName.textContent = displayName;
+        }
+
+        if (sidebarUserName) {
+            sidebarUserName.textContent = displayName;
+        }
 
         if (userEmail) {
             userEmail.textContent =
-                user.email;
+                user.email ||
+                "Welcome back";
         }
 
 
-        /* =========================
+        /* =====================================================
            USER-SPECIFIC KEYS
-        ========================= */
+        ===================================================== */
 
         const userId =
             user._id ||
             user.id ||
             user.email;
+
 
         const cartKey =
             `cart_${userId}`;
@@ -279,19 +642,21 @@
             `wishlist_${userId}`;
 
 
-        /* =========================
+        /* =====================================================
            GET USER DATA
-        ========================= */
+        ===================================================== */
 
         const cart =
             JSON.parse(
                 localStorage.getItem(cartKey)
             ) || [];
 
+
         const wishlist =
             JSON.parse(
                 localStorage.getItem(wishlistKey)
             ) || [];
+
 
         const allOrders =
             JSON.parse(
@@ -299,9 +664,9 @@
             ) || [];
 
 
-        /* =========================
+        /* =====================================================
            USER'S ORDERS
-        ========================= */
+        ===================================================== */
 
         const userOrders =
             allOrders.filter(function(order) {
@@ -314,6 +679,7 @@
                     return true;
                 }
 
+
                 if (
                     order.userEmail &&
                     order.userEmail.toLowerCase() ===
@@ -321,6 +687,7 @@
                 ) {
                     return true;
                 }
+
 
                 if (
                     order.customer &&
@@ -331,89 +698,371 @@
                     return true;
                 }
 
+
                 return false;
             });
 
 
-        /* =========================
+        /* =====================================================
            CART COUNT
-        ========================= */
+        ===================================================== */
 
         const cartCount =
             cart.reduce(
                 function(total, item) {
+
                     return total +
                         Number(item.quantity || 0);
+
                 },
                 0
             );
 
 
-        /* =========================
-           UPDATE DASHBOARD COUNTS
-        ========================= */
+        /* =====================================================
+           UPDATE CART COUNTS
+        ===================================================== */
 
-        const dashboardCart =
-            document.getElementById("cartCount");
+        const cartElements = [
 
-        if (dashboardCart) {
-            dashboardCart.textContent =
-                cartCount;
-        }
-
-
-        const dashboardWishlist =
             document.getElementById(
-                "wishlistCount"
-            );
+                "cartCount"
+            ),
 
-        if (dashboardWishlist) {
-            dashboardWishlist.textContent =
-                wishlist.length;
-        }
-
-
-        const dashboardOrders =
             document.getElementById(
-                "orderCount"
-            );
-
-        if (dashboardOrders) {
-            dashboardOrders.textContent =
-                userOrders.length;
-        }
-    }
+                "dashboardCartCount"
+            )
+        ];
 
 
-    /* =========================
-       LOGOUT
-    ========================= */
+        cartElements.forEach(
+            function(element) {
 
-    const logoutButton =
-        document.getElementById(
-            "logoutButton"
-        );
+                if (element) {
 
-    if (logoutButton) {
-
-        logoutButton.addEventListener(
-            "click",
-            function() {
-
-                localStorage.removeItem(
-                    "token"
-                );
-
-                localStorage.removeItem(
-                    "user"
-                );
-
-                window.location.href =
-                    "login.html";
+                    element.textContent =
+                        cartCount;
+                }
             }
         );
+
+
+        /* =====================================================
+           WISHLIST COUNT
+        ===================================================== */
+
+        const wishlistCount =
+            wishlist.length;
+
+
+        const wishlistElements = [
+
+            document.getElementById(
+                "wishlistCount"
+            ),
+
+            document.getElementById(
+                "sidebarWishlistCount"
+            )
+        ];
+
+
+        wishlistElements.forEach(
+            function(element) {
+
+                if (element) {
+
+                    element.textContent =
+                        wishlistCount;
+                }
+            }
+        );
+
+
+        /* =====================================================
+           ORDER COUNT
+        ===================================================== */
+
+        const orderCount =
+            userOrders.length;
+
+
+        const orderElements = [
+
+            document.getElementById(
+                "orderCount"
+            ),
+
+            document.getElementById(
+                "sidebarOrderCount"
+            )
+        ];
+
+
+        orderElements.forEach(
+            function(element) {
+
+                if (element) {
+
+                    element.textContent =
+                        orderCount;
+                }
+            }
+        );
+
+
+        /* =====================================================
+           MY GARDEN PLANTS
+        ===================================================== */
+
+        const myGarden =
+            JSON.parse(
+                localStorage.getItem(
+                    "myGardenPlants"
+                )
+            ) || [];
+
+
+        const plantCount =
+            document.getElementById(
+                "plantCount"
+            );
+
+
+        if (plantCount) {
+
+            plantCount.textContent =
+                myGarden.length;
+        }
+
+
+        const gardenMessage =
+            document.getElementById(
+                "gardenMessage"
+            );
+
+
+        if (
+            gardenMessage &&
+            myGarden.length > 0
+        ) {
+
+            gardenMessage.textContent =
+                `${myGarden.length} plant${
+                    myGarden.length > 1
+                        ? "s"
+                        : ""
+                } in your garden`;
+        }
+
+
+        /* =====================================================
+           PROFILE PICTURE
+           
+           NEW:
+           Read profilePic from the logged-in user's
+           MongoDB-backed user object instead of:
+           
+           profilePic_${userId}
+        ===================================================== */
+
+        const profileImages = [
+
+            document.getElementById(
+                "sidebarProfileImage"
+            ),
+
+            document.getElementById(
+                "topProfileImage"
+            )
+        ];
+
+
+        const savedProfilePicture =
+            user.profilePic || "";
+
+
+        if (savedProfilePicture) {
+
+            profileImages.forEach(
+                function(image) {
+
+                    if (image) {
+
+                        image.src =
+                            savedProfilePicture;
+
+                        image.style.display =
+                            "block";
+                    }
+                }
+            );
+
+        } else {
+
+            /* Keep the default image */
+
+            profileImages.forEach(
+                function(image) {
+
+                    if (image) {
+
+                        image.src =
+                            "images/default-profile.png";
+
+                        image.style.display =
+                            "block";
+                    }
+                }
+            );
+        }
+
+
+        /* =====================================================
+           SIDEBAR
+        ===================================================== */
+
+        const sidebar =
+            document.getElementById(
+                "dashboardSidebar"
+            );
+
+
+        const overlay =
+            document.getElementById(
+                "dashboardOverlay"
+            );
+
+
+        const menuButton =
+            document.getElementById(
+                "dashboardMenuBtn"
+            );
+
+
+        function openSidebar() {
+
+            if (sidebar) {
+
+                sidebar.classList.add(
+                    "sidebar-open"
+                );
+            }
+
+
+            if (overlay) {
+
+                overlay.classList.add(
+                    "overlay-visible"
+                );
+            }
+        }
+
+
+        function closeSidebar() {
+
+            if (sidebar) {
+
+                sidebar.classList.remove(
+                    "sidebar-open"
+                );
+            }
+
+
+            if (overlay) {
+
+                overlay.classList.remove(
+                    "overlay-visible"
+                );
+            }
+        }
+
+
+        if (menuButton) {
+
+            menuButton.addEventListener(
+                "click",
+                openSidebar
+            );
+        }
+
+
+        if (overlay) {
+
+            overlay.addEventListener(
+                "click",
+                closeSidebar
+            );
+        }
+
+
+        /* =====================================================
+           CLOSE SIDEBAR AFTER MOBILE NAVIGATION
+        ===================================================== */
+
+        const sidebarLinks =
+            document.querySelectorAll(
+                ".sidebar-link"
+            );
+
+
+        sidebarLinks.forEach(
+            function(link) {
+
+                link.addEventListener(
+                    "click",
+                    closeSidebar
+                );
+            }
+        );
+
+
+        /* =====================================================
+           LOGOUT
+        ===================================================== */
+
+        const logoutButton =
+            document.getElementById(
+                "logoutButton"
+            );
+
+
+        if (logoutButton) {
+
+            logoutButton.addEventListener(
+                "click",
+                function() {
+
+                    const confirmLogout =
+                        confirm(
+                            "Are you sure you want to logout?"
+                        );
+
+
+                    if (!confirmLogout) {
+                        return;
+                    }
+
+
+                    localStorage.removeItem(
+                        "token"
+                    );
+
+                    localStorage.removeItem(
+                        "user"
+                    );
+
+
+                    window.location.href =
+                        "login.html";
+                }
+            );
+        }
+
     }
+}
 </script>
+
 
 </body>
 </html>

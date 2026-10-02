@@ -3,7 +3,7 @@ const router = express.Router();
 
 const GardenReminder = require("../models/GardenReminder");
 const User = require("../models/User");
-const protect = require("../middleware/authMiddleware");
+const { protect } = require("../middleware/authMiddleware");
 
 
 // CREATE A GARDENING REMINDER

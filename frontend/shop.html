@@ -17,48 +17,230 @@
 
 <body class="shop-page">
 
-    <!-- NAVBAR -->
-    <nav class="home-nav">
+    
+<!-- =========================
+     BOTANICAL BLISS SIDEBAR
+========================= -->
 
-        <a href="home.html" class="home-brand">
-            <i class="bi bi-flower1"></i>
-            <span>Botanical Bliss</span>
+<button class="bb-mobile-menu" id="bbMobileMenu">
+    <i class="bi bi-list"></i>
+</button>
+
+<div class="bb-sidebar-overlay" id="bbSidebarOverlay"></div>
+
+
+<aside class="bb-sidebar" id="bbSidebar">
+
+    <!-- BRAND -->
+    <div class="bb-sidebar-brand">
+
+        <a href="home.html">
+
+            <div class="bb-brand-icon">
+                <i class="bi bi-flower1"></i>
+            </div>
+
+            <div class="bb-brand-text">
+                <strong>Botanical Bliss</strong>
+                <span>Grow • Care • Bloom</span>
+            </div>
+
         </a>
 
-        <div class="home-nav-links">
-            <a href="home.html">Home</a>
-            <a href="shop.html" class="active">Shop</a>
-            <a href="categories.html">Categories</a>
-            <a href="gardening-guide.html">Gardening Guide</a>
-            <a href="garden-gallery.html">Garden Gallery</a>
-            <a href="garden-calendar.html">Garden Calender</a>
-            <a href="seasonal-guide.html">Seasonal Guide</a>
-            
+    </div>
+
+
+    <!-- USER / ACCOUNT -->
+    <a href="dashboard.html" class="bb-user-box">
+
+        <div class="bb-user-avatar">
+            <i class="bi bi-person"></i>
         </div>
 
-        <div class="home-nav-actions">
+        <div class="bb-user-info">
+            <strong>My Garden</strong>
+            <span>Open Dashboard</span>
+        </div>
 
-            <a href="wishlist.html">
+        <i class="bi bi-chevron-right"></i>
 
-               <button class="nav-icon-button"
-               title="Wishlist">
+    </a>
+
+
+    <!-- NAVIGATION -->
+    <nav class="bb-navigation">
+
+        <p class="bb-nav-label">EXPLORE</p>
+
+
+        <a href="home.html" class="bb-nav-link">
+
+            <span class="bb-nav-icon">
+                <i class="bi bi-house-fill"></i>
+            </span>
+
+            <span>Home</span>
+
+        </a>
+
+
+        <!-- ACTIVE PAGE -->
+        <a href="shop.html" class="bb-nav-link bb-active">
+
+            <span class="bb-nav-icon">
+                <i class="bi bi-shop"></i>
+            </span>
+
+            <span>Shop</span>
+
+        </a>
+
+
+        <a href="categories.html" class="bb-nav-link">
+
+            <span class="bb-nav-icon">
+                <i class="bi bi-grid"></i>
+            </span>
+
+            <span>Categories</span>
+
+        </a>
+
+
+        <a href="wishlist.html" class="bb-nav-link">
+
+            <span class="bb-nav-icon">
                 <i class="bi bi-heart"></i>
-            </a>
+            </span>
 
-            <a href="cart.html">
-                <button class="nav-icon-button cart-button" title="Cart">
-                    <i class="bi bi-bag"></i>
-                    <span id="cartCount">0</span>
-                </button>
-            </a>
+            <span>Wishlist</span>
 
-            <a href="dashboard.html" class="profile-button">
+            <small id="bbWishlistCount">0</small>
+
+        </a>
+
+
+        <a href="cart.html" class="bb-nav-link">
+
+            <span class="bb-nav-icon">
+                <i class="bi bi-bag"></i>
+            </span>
+
+            <span>Cart</span>
+
+            <small id="bbCartCount">0</small>
+
+        </a>
+
+
+        <p class="bb-nav-label">MY GARDEN</p>
+
+
+        <a href="garden-calendar.html" class="bb-nav-link">
+
+            <span class="bb-nav-icon">
+                <i class="bi bi-calendar3"></i>
+            </span>
+
+            <span>Garden Calendar</span>
+
+        </a>
+
+
+        <a href="gardening-guide.html" class="bb-nav-link">
+
+            <span class="bb-nav-icon">
+                <i class="bi bi-book"></i>
+            </span>
+
+            <span>Gardening Guide</span>
+
+        </a>
+
+
+        <a href="seasonal-guide.html" class="bb-nav-link">
+
+            <span class="bb-nav-icon">
+                <i class="bi bi-cloud-sun"></i>
+            </span>
+
+            <span>Seasonal Guide</span>
+
+        </a>
+
+
+        <a href="garden-gallery.html" class="bb-nav-link">
+
+            <span class="bb-nav-icon">
+                <i class="bi bi-images"></i>
+            </span>
+
+            <span>Garden Gallery</span>
+
+        </a>
+
+
+        <p class="bb-nav-label">ACCOUNT</p>
+
+
+        <a href="orders.html" class="bb-nav-link">
+
+            <span class="bb-nav-icon">
+                <i class="bi bi-box-seam"></i>
+            </span>
+
+            <span>My Orders</span>
+
+        </a>
+
+
+        <a href="dashboard.html" class="bb-nav-link">
+
+            <span class="bb-nav-icon">
                 <i class="bi bi-person"></i>
-            </a>
+            </span>
 
-        </div>
+            <span>My Profile</span>
+
+        </a>
 
     </nav>
+
+
+    <!-- SIDEBAR BOTTOM -->
+    <div class="bb-sidebar-bottom">
+
+        <div class="bb-sidebar-tip">
+
+            <div class="bb-tip-icon">
+                <i class="bi bi-leaf-fill"></i>
+            </div>
+
+            <div>
+                <strong>Garden Tip</strong>
+
+                <span>
+                    Healthy plants need consistent care.
+                </span>
+            </div>
+
+        </div>
+
+
+        <a href="shop.html" class="bb-explore-button">
+
+            <span>
+                <i class="bi bi-stars"></i>
+                Explore Products
+            </span>
+
+            <i class="bi bi-arrow-up-right"></i>
+
+        </a>
+
+    </div>
+
+</aside>
 
 
     <!-- SHOP HEADER -->
@@ -81,363 +263,218 @@
     <!-- SHOP CONTENT -->
     <main class="shop-container">
 
-        <!-- PRODUCT SEARCH -->
-        <div class="shop-search">
+        <!-- =========================
+     ADVANCED PRODUCT SEARCH
+========================= -->
 
-            <i class="bi bi-search"></i>
+<div class="shop-search-section">
 
-            <input
-                type="text"
-                id="productSearch"
-                placeholder="Search for plants, seeds, tools..."
-                autocomplete="off"
-            >
+    <!-- SEARCH -->
+    <div class="shop-search">
+        <i class="bi bi-search"></i>
 
-        </div>
+        <input
+            type="text"
+            id="productSearch"
+            placeholder="Search plants, seeds, fertilizers, tools..."
+            autocomplete="off"
+        >
 
+        <button
+            type="button"
+            id="clearSearch"
+            class="clear-search-button"
+            title="Clear search"
+        >
+            <i class="bi bi-x"></i>
+        </button>
+    </div>
 
-        <!-- FILTER BAR -->
-        <div class="shop-toolbar">
+    <!-- ADVANCED FILTERS -->
+    <div class="advanced-filter-row">
 
-            <div class="shop-categories">
+        <!-- CATEGORY -->
+        <div class="filter-control">
+            <label for="advancedCategory">
+                Category
+            </label>
 
-                <button class="shop-filter active">
-                    All
-                </button>
+            <select id="advancedCategory">
 
-                <button class="shop-filter">
+                <option value="all">
+                    All Categories
+                </option>
+
+                <option value="Indoor Plants">
                     Plants
-                </button>
+                </option>
 
-                <button class="shop-filter">
+                <option value="Seeds">
                     Seeds
-                </button>
+                </option>
 
-                <button class="shop-filter">
+                <option value="Organic Care">
                     Fertilizers
-                </button>
+                </option>
 
-                <button class="shop-filter">
+                <option value="Gardening Tools">
                     Garden Tools
-                </button>
+                </option>
 
-            </div>
-
-            <div class="product-count">
-                8 Products
-            </div>
-
+            </select>
         </div>
 
+
+        <!-- PRICE -->
+        <div class="filter-control">
+            <label for="priceFilter">
+                Price
+            </label>
+
+            <select id="priceFilter">
+
+                <option value="all">
+                    All Prices
+                </option>
+
+                <option value="0-300">
+                    Under ₹300
+                </option>
+
+                <option value="300-500">
+                    ₹300 – ₹500
+                </option>
+
+                <option value="500-1000">
+                    ₹500 – ₹1,000
+                </option>
+
+                <option value="1000+">
+                    Above ₹1,000
+                </option>
+
+            </select>
+        </div>
+
+
+        <!-- STOCK -->
+        <div class="filter-control">
+            <label for="stockFilter">
+                Availability
+            </label>
+
+            <select id="stockFilter">
+
+                <option value="all">
+                    All Products
+                </option>
+
+                <option value="in-stock">
+                    In Stock
+                </option>
+
+                <option value="low-stock">
+                    Low Stock
+                </option>
+
+                <option value="out-of-stock">
+                    Out of Stock
+                </option>
+
+            </select>
+        </div>
+
+
+        <!-- SORT -->
+        <div class="filter-control">
+            <label for="sortProducts">
+                Sort By
+            </label>
+
+            <select id="sortProducts">
+
+                <option value="default">
+                    Recommended
+                </option>
+
+                <option value="price-low">
+                    Price: Low to High
+                </option>
+
+                <option value="price-high">
+                    Price: High to Low
+                </option>
+
+                <option value="name-az">
+                    Name: A to Z
+                </option>
+
+                <option value="name-za">
+                    Name: Z to A
+                </option>
+
+            </select>
+        </div>
+
+
+        <!-- CLEAR -->
+        <button
+            type="button"
+            id="clearFilters"
+            class="clear-filters-button"
+        >
+            <i class="bi bi-arrow-counterclockwise"></i>
+            Clear
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     EXISTING CATEGORY BAR
+========================= -->
+
+<div class="shop-toolbar">
+
+    <div class="shop-categories">
+
+        <button class="shop-filter active">
+            All
+        </button>
+
+        <button class="shop-filter">
+            Plants
+        </button>
+
+        <button class="shop-filter">
+            Seeds
+        </button>
+
+        <button class="shop-filter">
+            Fertilizers
+        </button>
+
+        <button class="shop-filter">
+            Garden Tools
+        </button>
+
+    </div>
+
+    <div
+        class="product-count"
+        id="productCount"
+    >
+        0 Products
+    </div>
+
+</div>
 
         <!-- PRODUCTS -->
-        <div class="shop-product-grid">
-
-
-            <!-- PRODUCT 1 -->
-            <article class="shop-product-card">
-
-                <div class="shop-product-image plant-image">
-    <span class="product-badge">Popular</span>
-
-    <button class="wishlist-button" type="button" title="Add to Wishlist">
-        <i class="bi bi-heart"></i>
-    </button>
-
-    <img src="images/peace-lily.jpg" alt="Peace Lily">
-</div>
-                <div class="shop-product-info">
-
-                    <p>Indoor Plants</p>
-
-                    <h3>Peace Lily</h3>
-
-                    <div class="shop-product-bottom">
-
-                        <strong>₹399</strong>
-
-                        <button class="add-cart">
-                            <i class="bi bi-plus"></i>
-                            Add
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- PRODUCT 2 -->
-            <article class="shop-product-card">
-
-                <div class="shop-product-image seed-image">
-    <span class="product-badge">New</span>
-
-    <button class="wishlist-button" type="button" title="Add to Wishlist">
-        <i class="bi bi-heart"></i>
-    </button>
-
-    <img src="images/rose-seeds.jpg" alt="Rose Seed Collection">
-</div>
-                <div class="shop-product-info">
-
-                    <p>Seeds</p>
-
-                    <h3>Seed Collection</h3>
-
-                    <div class="shop-product-bottom">
-
-                        <strong>₹199</strong>
-
-                        <button class="add-cart">
-                            <i class="bi bi-plus"></i>
-                            Add
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- PRODUCT 3 -->
-            <article class="shop-product-card">
-
-                <div class="shop-product-image fertilizer-image">
-
-    <button class="wishlist-button" type="button" title="Add to Wishlist">
-        <i class="bi bi-heart"></i>
-    </button>
-
-    <img src="images/organic-plant-food.jpg" alt="Organic Plant Food">
-</div>
-                <div class="shop-product-info">
-
-                    <p>Organic Care</p>
-
-                    <h3>Organic Plant Food</h3>
-
-                    <div class="shop-product-bottom">
-
-                        <strong>₹299</strong>
-
-                        <button class="add-cart">
-                            <i class="bi bi-plus"></i>
-                            Add
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- PRODUCT 4 -->
-            <article class="shop-product-card">
-
-                <div class="shop-product-image tools-image">
-
-    <button class="wishlist-button" type="button" title="Add to Wishlist">
-        <i class="bi bi-heart"></i>
-    </button>
-
-    <img src="images/garden-tool-set.jpg" alt="Garden Tool Set">
-</div>
-
-                <div class="shop-product-info">
-
-                    <p>Gardening Tools</p>
-
-                    <h3>Garden Tool Set</h3>
-
-                    <div class="shop-product-bottom">
-
-                        <strong>₹599</strong>
-
-                        <button class="add-cart">
-                            <i class="bi bi-plus"></i>
-                            Add
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- PRODUCT 5 -->
-            <article class="shop-product-card">
-<div class="shop-product-image plant-image">
-
-    <button class="wishlist-button" type="button" title="Add to Wishlist">
-        <i class="bi bi-heart"></i>
-    </button>
-
-    <img src="images/snake-plant.jpg" alt="Snake Plant">
-</div>
-                     <div class="shop-product-info">
-
-                    <p>Indoor Plants</p>
-
-                    <h3>Snake Plant</h3>
-
-                    <div class="shop-product-bottom">
-
-                        <strong>₹449</strong>
-
-                        <button class="add-cart">
-                            <i class="bi bi-plus"></i>
-                            Add
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- PRODUCT 6 -->
-            <article class="shop-product-card">
-
-                <div class="shop-product-image seed-image">
-
-    <button class="wishlist-button" type="button" title="Add to Wishlist">
-        <i class="bi bi-heart"></i>
-    </button>
-
-    <img src="images/herb-seed-kit.jpg" alt="Herb Seed Kit">
-</div>
-                <div class="shop-product-info">
-
-                    <p>Seeds</p>
-
-                    <h3>Herb Seed Kit</h3>
-
-                    <div class="shop-product-bottom">
-
-                        <strong>₹249</strong>
-
-                        <button class="add-cart">
-                            <i class="bi bi-plus"></i>
-                            Add
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- PRODUCT 7 -->
-            <article class="shop-product-card">
-
-                <div class="shop-product-image fertilizer-image">
-
-    <button class="wishlist-button" type="button" title="Add to Wishlist">
-        <i class="bi bi-heart"></i>
-    </button>
-
-    <img src="images/organic-compost.jpg" alt="Organic Compost">
-</div>
-                <div class="shop-product-info">
-
-                    <p>Organic Care</p>
-
-                    <h3>Organic Compost</h3>
-
-                    <div class="shop-product-bottom">
-
-                        <strong>₹349</strong>
-
-                        <button class="add-cart">
-                            <i class="bi bi-plus"></i>
-                            Add
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- PRODUCT 8 -->
-            <article class="shop-product-card">
-
-               <div class="shop-product-image tools-image">
-    <span class="product-badge">Best Seller</span>
-
-    <button class="wishlist-button" type="button" title="Add to Wishlist">
-        <i class="bi bi-heart"></i>
-    </button>
-
-    <img src="images/pruning-tool-kit.jpg" alt="Pruning Tool Kit">
-</div>
-                <div class="shop-product-info">
-
-                    <p>Gardening Tools</p>
-
-                    <h3>Pruning Tool Kit</h3>
-
-                    <div class="shop-product-bottom">
-
-                        <strong>₹499</strong>
-
-                        <button class="add-cart">
-                            <i class="bi bi-plus"></i>
-                            Add
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-             <!-- PRODUCT 9 -->
-            <article class="shop-product-card">
-
-                <div class="shop-product-image plant-image">
-   
-    <button class="wishlist-button" type="button" title="Add to Wishlist">
-        <i class="bi bi-heart"></i>
-    </button>
-
-    <img src="images/lavender.jpg" alt="Lavender">
-</div>
-                <div class="shop-product-info">
-
-                    <p>Indoor Plants</p>
-
-                    <h3>Lavender</h3>
-
-                    <div class="shop-product-bottom">
-
-                        <strong>₹499</strong>
-
-                        <button class="add-cart">
-                            <i class="bi bi-plus"></i>
-                            Add
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-        </div>
+        <div class="shop-products-grid"></div>
 
     </main>
-
 
     <!-- FOOTER -->
     <footer class="home-footer">
@@ -481,6 +518,212 @@
 
 
     <script src="js/shop.js"></script>
+
+
+
+
+<script>
+
+/* =========================================================
+   BOTANICAL BLISS SIDEBAR
+========================================================= */
+
+const bbSidebar =
+    document.getElementById("bbSidebar");
+
+const bbMobileMenu =
+    document.getElementById("bbMobileMenu");
+
+const bbSidebarOverlay =
+    document.getElementById("bbSidebarOverlay");
+
+
+/* =========================
+   OPEN SIDEBAR
+========================= */
+
+function openBotanicalSidebar() {
+
+    if (bbSidebar) {
+        bbSidebar.classList.add("bb-sidebar-open");
+    }
+
+    if (bbSidebarOverlay) {
+        bbSidebarOverlay.classList.add(
+            "bb-overlay-visible"
+        );
+    }
+
+}
+
+
+/* =========================
+   CLOSE SIDEBAR
+========================= */
+
+function closeBotanicalSidebar() {
+
+    if (bbSidebar) {
+        bbSidebar.classList.remove(
+            "bb-sidebar-open"
+        );
+    }
+
+    if (bbSidebarOverlay) {
+        bbSidebarOverlay.classList.remove(
+            "bb-overlay-visible"
+        );
+    }
+
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+if (bbMobileMenu) {
+
+    bbMobileMenu.addEventListener(
+        "click",
+        openBotanicalSidebar
+    );
+
+}
+
+
+/* =========================
+   OVERLAY
+========================= */
+
+if (bbSidebarOverlay) {
+
+    bbSidebarOverlay.addEventListener(
+        "click",
+        closeBotanicalSidebar
+    );
+
+}
+
+
+/* =========================
+   CLOSE AFTER NAVIGATION
+========================= */
+
+const bbSidebarLinks =
+    document.querySelectorAll(
+        ".bb-nav-link"
+    );
+
+bbSidebarLinks.forEach(function(link) {
+
+    link.addEventListener(
+        "click",
+        closeBotanicalSidebar
+    );
+
+});
+
+
+/* =========================================================
+   CART + WISHLIST COUNTS
+========================================================= */
+
+const bbStoredUser =
+    localStorage.getItem("user");
+
+
+if (bbStoredUser) {
+
+    try {
+
+        const bbUser =
+            JSON.parse(bbStoredUser);
+
+
+        const bbUserId =
+            bbUser._id ||
+            bbUser.id ||
+            bbUser.email;
+
+
+        const bbCartKey =
+            `cart_${bbUserId}`;
+
+
+        const bbWishlistKey =
+            `wishlist_${bbUserId}`;
+
+
+        const bbCart =
+            JSON.parse(
+                localStorage.getItem(bbCartKey)
+            ) || [];
+
+
+        const bbWishlist =
+            JSON.parse(
+                localStorage.getItem(bbWishlistKey)
+            ) || [];
+
+
+        /* CART COUNT */
+
+        const bbCartCount =
+            bbCart.reduce(
+                function(total, item) {
+
+                    return total +
+                        Number(
+                            item.quantity || 0
+                        );
+
+                },
+                0
+            );
+
+
+        const bbCartElement =
+            document.getElementById(
+                "bbCartCount"
+            );
+
+
+        if (bbCartElement) {
+
+            bbCartElement.textContent =
+                bbCartCount;
+
+        }
+
+
+        /* WISHLIST COUNT */
+
+        const bbWishlistElement =
+            document.getElementById(
+                "bbWishlistCount"
+            );
+
+
+        if (bbWishlistElement) {
+
+            bbWishlistElement.textContent =
+                bbWishlist.length;
+
+        }
+
+
+    } catch (error) {
+
+        console.log(
+            "Sidebar user data could not be loaded."
+        );
+
+    }
+
+}
+
+</script>
 
 </body>
 

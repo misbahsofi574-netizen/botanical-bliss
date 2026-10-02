@@ -2,429 +2,1145 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Garden Calendar | Botanical Bliss</title>
 
     <!-- Bootstrap Icons -->
     <link
         rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
 
     <!-- Main CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <!-- Weekly Accordion Styling -->
+    <style>
+
+        /* =========================================
+           WEEKLY GUIDE INTRO
+        ========================================== */
+
+        .weekly-guide-intro {
+            margin-bottom: 25px;
+        }
+
+        .weekly-guide-intro h2 {
+            margin-bottom: 8px;
+        }
+
+        .weekly-guide-intro p {
+            margin-bottom: 0;
+        }
+
+
+        /* =========================================
+           WEEKLY ACCORDION
+        ========================================== */
+
+        .weekly-garden-week {
+            margin-top: 12px;
+            border: 1px solid #e1ebe2;
+            border-radius: 16px;
+            background: #ffffff;
+            overflow: hidden;
+            transition: 0.25s ease;
+        }
+
+        .weekly-garden-week:first-of-type {
+            margin-top: 18px;
+        }
+
+        .weekly-garden-week:hover {
+            border-color: #cbdcca;
+        }
+
+
+        /* =========================================
+           WEEK HEADER / DROPDOWN BUTTON
+        ========================================== */
+
+        .weekly-garden-week-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 18px;
+            border: none;
+            background: transparent;
+            color: #315d3d;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .weekly-garden-week-header:hover {
+            background: #f8fbf8;
+        }
+
+        .weekly-garden-week-icon {
+            width: 42px;
+            height: 42px;
+            min-width: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: #e7f2e8;
+            color: #4e7856;
+            font-size: 18px;
+        }
+
+        .weekly-garden-week-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .weekly-garden-week-title {
+            margin: 0;
+            color: #315d3d;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .weekly-garden-week-subtitle {
+            margin: 3px 0 0;
+            color: #89958c;
+            font-size: 12px;
+        }
+
+        .weekly-garden-week-arrow {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #f2f7f2;
+            color: #587660;
+            font-size: 14px;
+            transition: transform 0.25s ease;
+        }
+
+
+        /* =========================================
+           OPEN ACCORDION
+        ========================================== */
+
+        .weekly-garden-week.open {
+            border-color: #cbdcca;
+            box-shadow: 0 5px 18px rgba(49, 93, 61, 0.06);
+        }
+
+        .weekly-garden-week.open
+        .weekly-garden-week-header {
+            background: #f8fbf8;
+        }
+
+        .weekly-garden-week.open
+        .weekly-garden-week-arrow {
+            transform: rotate(180deg);
+            background: #e7f2e8;
+            color: #315d3d;
+        }
+
+
+        /* =========================================
+           WEEK TASK CONTENT
+        ========================================== */
+
+        .weekly-garden-week-content {
+            display: none;
+            padding: 0 18px 18px;
+            border-top: 1px solid #edf2ed;
+            background: #ffffff;
+        }
+
+        .weekly-garden-week.open
+        .weekly-garden-week-content {
+            display: block;
+        }
+
+        .weekly-garden-week-content
+        .garden-task {
+            margin-top: 9px;
+            margin-bottom: 0;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================== */
+
+        @media (max-width: 600px) {
+
+            .weekly-garden-week-header {
+                padding: 14px;
+            }
+
+            .weekly-garden-week-icon {
+                width: 38px;
+                height: 38px;
+                min-width: 38px;
+                font-size: 16px;
+            }
+
+            .weekly-garden-week-title {
+                font-size: 14px;
+            }
+
+            .weekly-garden-week-subtitle {
+                font-size: 11px;
+            }
+
+            .weekly-garden-week-content {
+                padding: 0 14px 14px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body class="shop-page">
 
-    <!-- ================================
-         NAVBAR
-    ================================= -->
 
-    <!-- NAVBAR -->
+    <!-- =========================================
+         MOBILE MENU
+    ========================================== -->
 
-<nav class="home-nav">
-
-    <a href="home.html" class="home-brand">
-
-        <i class="bi bi-flower1"></i>
-
-        <span>Botanical Bliss</span>
-
-    </a>
+    <button
+        class="bb-mobile-menu"
+        id="bbMobileMenu"
+        type="button"
+    >
+        <i class="bi bi-list"></i>
+    </button>
 
 
-    <div class="home-nav-links">
+    <!-- MOBILE OVERLAY -->
 
-        <a href="home.html">
-            Home
-        </a>
-
-        <a href="shop.html">
-            Shop
-        </a>
-
-        <a href="categories.html">
-            Categories
-        </a>
-
-        <a href="gardening-guide.html">
-            Gardening Guide
-        </a>
-
-        <a href="garden-calendar.html" class="active">
-            Garden Calendar
-        </a>
-
-        <a href="order-success.html#about-us">
-            About Us
-        </a>
-
-         <a href="garden-gallery.html">Garden Gallery</a>
-            
-            <a href="seasonal-guide.html">Seasonal Guide</a>
-            
-
-    </div>
+    <div
+        class="bb-sidebar-overlay"
+        id="bbSidebarOverlay"
+    ></div>
 
 
-    <div class="home-nav-actions">
+    <!-- =========================================
+         BOTANICAL BLISS SIDEBAR
+    ========================================== -->
+
+    <aside
+        class="bb-sidebar"
+        id="bbSidebar"
+    >
+
+        <!-- BRAND -->
 
         <a
-            href="cart.html">
+            href="home.html"
+            class="bb-sidebar-brand"
+        >
 
-            <button class="nav-icon-button cart-button"
-            title="Cart">
-            <i class="bi bi-bag"></i>
+            <div class="bb-brand-icon">
+                <i class="bi bi-flower1"></i>
+            </div>
 
-            <span id="cartCount">0</span>
-        </button>
+            <div class="bb-brand-text">
+
+                <strong>
+                    Botanical Bliss
+                </strong>
+
+                <span>
+                    Grow • Care • Bloom
+                </span>
+
+            </div>
+
         </a>
 
+
+        <!-- USER / DASHBOARD -->
 
         <a
-            href="dashboard.html">
-            <button
-            class="profile-button"
-            title="Profile">
+            href="dashboard.html"
+            class="bb-user-box"
+        >
 
-            <i class="bi bi-person"></i>
-            </button>
+            <div class="bb-user-avatar">
+                <i class="bi bi-person"></i>
+            </div>
+
+            <div>
+
+                <strong>
+                    My Garden
+                </strong>
+
+                <span>
+                    Open Dashboard
+                </span>
+
+            </div>
+
+            <i class="bi bi-chevron-right"></i>
 
         </a>
 
-    </div>
 
-</nav>
+        <!-- =====================================
+             NAVIGATION
+        ====================================== -->
 
-    <!-- HEADER -->
+        <nav class="bb-navigation">
 
-<section class="shop-header">
 
-    <div>
+            <!-- EXPLORE -->
 
-        <p>BOTANICAL BLISS</p>
+            <div class="bb-nav-section">
 
-        <h1>Garden Calendar</h1>
+                <span class="bb-nav-label">
+                    EXPLORE
+                </span>
 
-        <span>
-            Plan your gardening activities and discover
-            useful seasonal tips throughout the year.
-        </span>
 
-    </div>
+                <a
+                    href="home.html"
+                    class="bb-nav-link"
+                >
+                    <i class="bi bi-house"></i>
+                    <span>Home</span>
+                </a>
 
-</section>
-    
 
-    <!-- ================================
-         MONTH SELECTOR
-    ================================= -->
+                <a
+                    href="shop.html"
+                    class="bb-nav-link"
+                >
+                    <i class="bi bi-bag"></i>
+                    <span>Shop</span>
+                </a>
+
+
+                <a
+                    href="categories.html"
+                    class="bb-nav-link"
+                >
+                    <i class="bi bi-grid"></i>
+                    <span>Categories</span>
+                </a>
+
+
+                <a
+                    href="wishlist.html"
+                    class="bb-nav-link"
+                >
+                    <i class="bi bi-heart"></i>
+                    <span>Wishlist</span>
+
+                    <small id="bbWishlistCount">
+                        0
+                    </small>
+
+                </a>
+
+
+                <a
+                    href="cart.html"
+                    class="bb-nav-link"
+                >
+                    <i class="bi bi-bag-check"></i>
+                    <span>Cart</span>
+
+                    <small id="bbCartCount">
+                        0
+                    </small>
+
+                </a>
+
+            </div>
+
+
+            <!-- MY GARDEN -->
+
+            <div class="bb-nav-section">
+
+                <span class="bb-nav-label">
+                    MY GARDEN
+                </span>
+
+
+                <a
+                    href="garden-calendar.html"
+                    class="bb-nav-link bb-active"
+                >
+                    <i class="bi bi-calendar3"></i>
+                    <span>Garden Calendar</span>
+                </a>
+
+
+                <a
+                    href="gardening-guide.html"
+                    class="bb-nav-link"
+                >
+                    <i class="bi bi-book"></i>
+                    <span>Gardening Guide</span>
+                </a>
+
+
+                <a
+                    href="seasonal-guide.html"
+                    class="bb-nav-link"
+                >
+                    <i class="bi bi-cloud-sun"></i>
+                    <span>Seasonal Guide</span>
+                </a>
+
+
+                <a
+                    href="garden-gallery.html"
+                    class="bb-nav-link"
+                >
+                    <i class="bi bi-images"></i>
+                    <span>Garden Gallery</span>
+                </a>
+
+            </div>
+
+
+            <!-- ACCOUNT -->
+
+            <div class="bb-nav-section">
+
+                <span class="bb-nav-label">
+                    ACCOUNT
+                </span>
+
+
+                <a
+                    href="orders.html"
+                    class="bb-nav-link"
+                >
+                    <i class="bi bi-box-seam"></i>
+                    <span>My Orders</span>
+                </a>
+
+
+                <a
+                    href="dashboard.html"
+                    class="bb-nav-link"
+                >
+                    <i class="bi bi-person-circle"></i>
+                    <span>My Profile</span>
+                </a>
+
+            </div>
+
+        </nav>
+
+
+        <!-- =====================================
+             SIDEBAR BOTTOM
+        ====================================== -->
+
+        <div class="bb-sidebar-bottom">
+
+
+            <div class="bb-sidebar-tip">
+
+                <div class="bb-tip-icon">
+                    <i class="bi bi-leaf"></i>
+                </div>
+
+                <div>
+
+                    <strong>
+                        Garden Tip
+                    </strong>
+
+                    <span>
+                        Healthy plants need consistent care.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="shop.html"
+                class="bb-explore-button"
+            >
+                <i class="bi bi-flower2"></i>
+                Explore Products
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================
+         GARDEN CALENDAR HEADER
+    ========================================== -->
+
+    <section class="shop-header">
+
+        <div>
+
+            <p>
+                BOTANICAL BLISS
+            </p>
+
+            <h1>
+                Garden Calendar
+            </h1>
+
+            <span>
+                Plan your gardening activities and discover
+                useful seasonal tips throughout the year.
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         GARDEN CALENDAR
+    ========================================== -->
 
     <section class="garden-calendar-section">
 
-<div id="gardenReminder" class="garden-reminder">
-    <div class="garden-reminder-icon">
-        <i class="bi bi-bell"></i>
-    </div>
 
-    <div class="garden-reminder-content">
-        <h3>Gardening Reminder</h3>
-        <p id="gardenReminderText"></p>
-    </div>
+        <!-- REMINDER -->
 
-    <button id="closeGardenReminder" title="Close reminder">
-        <i class="bi bi-x-lg"></i>
-    </button>
-</div>
+        <div
+            id="gardenReminder"
+            class="garden-reminder"
+        >
+
+            <div class="garden-reminder-icon">
+                <i class="bi bi-bell"></i>
+            </div>
+
+            <div class="garden-reminder-content">
+
+                <h3>
+                    Gardening Reminder
+                </h3>
+
+                <p id="gardenReminderText"></p>
+
+            </div>
+
+            <button
+                id="closeGardenReminder"
+                title="Close reminder"
+                type="button"
+            >
+                <i class="bi bi-x-lg"></i>
+            </button>
+
+        </div>
+
 
         <div class="calendar-container">
 
-            <div class="calendar-intro">
+
+            <!-- INTRO -->
+
+            <div class="calendar-intro weekly-guide-intro">
 
                 <h2>
-                    Your Monthly Gardening Guide
+                    Your Weekly Gardening Guide
                 </h2>
 
                 <p>
-                    Select a month to discover what you can do
-                    in your garden.
+                    Select a month and open a week to
+                    discover useful gardening activities.
                 </p>
 
             </div>
 
-        
 
-<!-- =========================
-     MY GARDEN
-========================= -->
+            <!-- MY GARDEN -->
 
-<div class="my-garden-section">
+            <div class="my-garden-section">
 
-    <div class="my-garden-header">
-        <div>
-            <h3>My Garden</h3>
-            <p>Keep track of the plants you're growing.</p>
-        </div>
+                <div class="my-garden-header">
 
-        <span id="plantCount">0 Plants</span>
-    </div>
+                    <div>
 
-    <div class="add-plant-form">
+                        <h3>
+                            My Garden
+                        </h3>
 
-        <input
-            type="text"
-            id="plantNameInput"
-            placeholder="e.g. Peace Lily"
-        >
+                        <p>
+                            Keep track of the plants you're growing.
+                        </p>
 
-        <select id="plantTypeInput">
-            <option value="">Select plant type</option>
-            <option value="Indoor Plant">Indoor Plant</option>
-            <option value="Flower">Flower</option>
-            <option value="Herb">Herb</option>
-            <option value="Vegetable">Vegetable</option>
-            <option value="Other">Other</option>
-        </select>
+                    </div>
 
-        <button id="addPlantButton">
-            <i class="bi bi-plus-lg"></i>
-            Add Plant
-        </button>
+                    <span id="plantCount">
+                        0 Plants
+                    </span>
 
-    </div>
+                </div>
 
-    <div id="myGardenPlants" class="my-garden-plants">
-    </div>
 
-</div>
+                <div class="add-plant-form">
 
+                    <input
+                        type="text"
+                        id="plantNameInput"
+                        placeholder="e.g. Peace Lily"
+                    >
+
+
+                    <select id="plantTypeInput">
+
+                        <option value="">
+                            Select plant type
+                        </option>
+
+                        <option value="Indoor Plant">
+                            Indoor Plant
+                        </option>
+
+                        <option value="Flower">
+                            Flower
+                        </option>
+
+                        <option value="Herb">
+                            Herb
+                        </option>
+
+                        <option value="Vegetable">
+                            Vegetable
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        id="addPlantButton"
+                        type="button"
+                    >
+                        <i class="bi bi-plus-lg"></i>
+                        Add Plant
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="myGardenPlants"
+                    class="my-garden-plants"
+                ></div>
+
+            </div>
+
+
+            <!-- MONTH SELECTOR -->
 
             <div class="month-selector">
 
-                <button class="month-button active" data-month="January">
+
+                <button
+                    class="month-button active"
+                    data-month="January"
+                    type="button"
+                >
                     January
                 </button>
 
-                <button class="month-button" data-month="February">
+
+                <button
+                    class="month-button"
+                    data-month="February"
+                    type="button"
+                >
                     February
                 </button>
 
-                <button class="month-button" data-month="March">
+
+                <button
+                    class="month-button"
+                    data-month="March"
+                    type="button"
+                >
                     March
                 </button>
 
-                <button class="month-button" data-month="April">
+
+                <button
+                    class="month-button"
+                    data-month="April"
+                    type="button"
+                >
                     April
                 </button>
 
-                <button class="month-button" data-month="May">
+
+                <button
+                    class="month-button"
+                    data-month="May"
+                    type="button"
+                >
                     May
                 </button>
 
-                <button class="month-button" data-month="June">
+
+                <button
+                    class="month-button"
+                    data-month="June"
+                    type="button"
+                >
                     June
                 </button>
 
-                <button class="month-button" data-month="July">
+
+                <button
+                    class="month-button"
+                    data-month="July"
+                    type="button"
+                >
                     July
                 </button>
 
-                <button class="month-button" data-month="August">
+
+                <button
+                    class="month-button"
+                    data-month="August"
+                    type="button"
+                >
                     August
                 </button>
 
-                <button class="month-button" data-month="September">
+
+                <button
+                    class="month-button"
+                    data-month="September"
+                    type="button"
+                >
                     September
                 </button>
 
-                <button class="month-button" data-month="October">
+
+                <button
+                    class="month-button"
+                    data-month="October"
+                    type="button"
+                >
                     October
                 </button>
 
-                <button class="month-button" data-month="November">
+
+                <button
+                    class="month-button"
+                    data-month="November"
+                    type="button"
+                >
                     November
                 </button>
 
-                <button class="month-button" data-month="December">
+
+                <button
+                    class="month-button"
+                    data-month="December"
+                    type="button"
+                >
                     December
                 </button>
 
             </div>
 
 
-            <!-- ================================
-                 MONTH DETAILS
-            ================================= -->
+            <!-- WEEKLY DETAILS -->
 
-            <div id="calendarContent" class="calendar-content">
+            <div
+                id="calendarContent"
+                class="calendar-content"
+            >
 
                 <div class="calendar-icon">
                     <i class="bi bi-calendar3"></i>
                 </div>
 
+
                 <h2 id="calendarMonth">
                     January
                 </h2>
 
+
                 <p id="calendarDescription">
-                    Start the year by planning your garden and
-                    preparing your soil for the coming season.
+                    Start the year by planning your garden,
+                    preparing your soil and getting ready
+                    for the new growing season.
                 </p>
+
 
                 <div
                     id="gardenTasks"
-                    class="garden-tasks">
-                </div>
+                    class="garden-tasks"
+                ></div>
 
             </div>
 
         </div>
-        <!-- ================================
-     MY GARDENING TASKS
-================================= -->
-<div class="my-garden-section">
-
-    <h3>My Gardening Tasks</h3>
-
-    <p class="my-garden-subtitle">
-        Add your own gardening reminders and keep track of your tasks.
-    </p>
-
-    <div class="garden-task-form">
-
-    <input
-        type="text"
-        id="personalTaskInput"
-        placeholder="e.g. Repot my Peace Lily"
-    >
-
-    <input
-        type="date"
-        id="personalTaskDate"
-    >
-
-    <input
-        type="time"
-        id="personalTaskTime"
-    >
-
-    <button id="addPersonalTask">
-        <i class="bi bi-plus-lg"></i>
-        Add Task
-    </button>
 
 
-</div>
+        <!-- =====================================
+             MY GARDENING TASKS
+        ====================================== -->
 
-<div id="personalTasks" class="personal-tasks"></div>
+        <div class="my-garden-section">
 
+            <h3>
+                My Gardening Tasks
+            </h3>
 
-        
-
-        <!-- FOOTER -->
-
-<footer class="home-footer">
-
-    <div class="footer-brand">
-
-        <a href="home.html" class="home-brand">
-
-            <i class="bi bi-flower1"></i>
-
-            <span>Botanical Bliss</span>
-
-        </a>
-
-        <p>
-            Grow something beautiful.
-        </p>
-
-    </div>
+            <p class="my-garden-subtitle">
+                Add your own gardening reminders and keep
+                track of your tasks.
+            </p>
 
 
-    <div class="footer-links">
+            <div class="garden-task-form">
 
-        <div>
 
-            <h4>Explore</h4>
+                <input
+                    type="text"
+                    id="personalTaskInput"
+                    placeholder="e.g. Repot my Peace Lily"
+                >
 
-            <a href="shop.html">
-                Shop
+
+                <input
+                    type="date"
+                    id="personalTaskDate"
+                >
+
+
+                <input
+                    type="time"
+                    id="personalTaskTime"
+                >
+
+
+                <button
+                    id="addPersonalTask"
+                    type="button"
+                >
+                    <i class="bi bi-plus-lg"></i>
+                    Add Task
+                </button>
+
+            </div>
+
+
+            <div
+                id="personalTasks"
+                class="personal-tasks"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="home-footer">
+
+
+        <div class="footer-brand">
+
+            <a
+                href="home.html"
+                class="home-brand"
+            >
+
+                <i class="bi bi-flower1"></i>
+
+                <span>
+                    Botanical Bliss
+                </span>
+
             </a>
 
-            <a href="categories.html">
-                Categories
-            </a>
-
-            <a href="gardening-guide.html">
-                Gardening Guide
-            </a>
-
-            <a href="garden-calendar.html">
-                Garden Calendar
-            </a>
+            <p>
+                Grow something beautiful.
+            </p>
 
         </div>
 
 
-        <div>
+        <div class="footer-links">
 
-            <h4>Support</h4>
 
-            <a href="orders.html#contact-us">
-                Contact Us
-            </a>
+            <div>
 
-            <a href="faq.html">
-                FAQs
-            </a>
+                <h4>
+                    Explore
+                </h4>
 
-            <a href="shipping.html">
-                Shipping
-            </a>
+                <a href="shop.html">
+                    Shop
+                </a>
+
+                <a href="categories.html">
+                    Categories
+                </a>
+
+                <a href="gardening-guide.html">
+                    Gardening Guide
+                </a>
+
+                <a href="garden-calendar.html">
+                    Garden Calendar
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Support
+                </h4>
+
+                <a href="orders.html#contact-us">
+                    Contact Us
+                </a>
+
+                <a href="faq.html">
+                    FAQs
+                </a>
+
+                <a href="shipping.html">
+                    Shipping
+                </a>
+
+            </div>
 
         </div>
 
-    </div>
+
+        <div class="footer-bottom">
+
+            © 2026 Botanical Bliss.
+            All rights reserved.
+
+        </div>
+
+    </footer>
 
 
-    <div class="footer-bottom">
+    <!-- =========================================
+         SIDEBAR JAVASCRIPT
+    ========================================== -->
 
-        © 2026 Botanical Bliss.
-        All rights reserved.
+    <script>
 
-    </div>
+        const bbSidebar =
+            document.getElementById("bbSidebar");
 
-</footer>
+        const bbMobileMenu =
+            document.getElementById("bbMobileMenu");
 
-<script>
-    function updateCartCount() {
+        const bbSidebarOverlay =
+            document.getElementById("bbSidebarOverlay");
 
-        const cart =
-            JSON.parse(localStorage.getItem("cart")) || [];
 
-        const count =
-            cart.reduce(
-                (total, item) =>
-                    total + Number(item.quantity || 0),
-                0
+        function openSidebar() {
+
+            if (!bbSidebar || !bbSidebarOverlay) {
+                return;
+            }
+
+            bbSidebar.classList.add(
+                "bb-sidebar-open"
             );
 
-        const cartCount =
-            document.getElementById("cartCount");
+            bbSidebarOverlay.classList.add(
+                "bb-overlay-visible"
+            );
 
-        if (cartCount) {
-            cartCount.textContent = count;
         }
 
-    }
 
-    updateCartCount();
-</script>
-<script src="js/garden-calendar.js"></script>
+        function closeSidebar() {
+
+            if (!bbSidebar || !bbSidebarOverlay) {
+                return;
+            }
+
+            bbSidebar.classList.remove(
+                "bb-sidebar-open"
+            );
+
+            bbSidebarOverlay.classList.remove(
+                "bb-overlay-visible"
+            );
+
+        }
+
+
+        if (bbMobileMenu) {
+
+            bbMobileMenu.addEventListener(
+                "click",
+                openSidebar
+            );
+
+        }
+
+
+        if (bbSidebarOverlay) {
+
+            bbSidebarOverlay.addEventListener(
+                "click",
+                closeSidebar
+            );
+
+        }
+
+
+        document
+            .querySelectorAll(".bb-nav-link")
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    closeSidebar
+                );
+
+            });
+
+
+        /* =========================================
+           USER-SPECIFIC CART & WISHLIST COUNTS
+        ========================================== */
+
+        function updateSidebarCounts() {
+
+            const user =
+                JSON.parse(
+                    localStorage.getItem("user")
+                );
+
+
+            const cartCount =
+                document.getElementById(
+                    "bbCartCount"
+                );
+
+            const wishlistCount =
+                document.getElementById(
+                    "bbWishlistCount"
+                );
+
+
+            if (!user) {
+
+                if (cartCount) {
+                    cartCount.textContent = "0";
+                }
+
+                if (wishlistCount) {
+                    wishlistCount.textContent = "0";
+                }
+
+                return;
+
+            }
+
+
+            const userId =
+                user._id ||
+                user.id ||
+                user.email;
+
+
+            const cartKey =
+                `cart_${userId}`;
+
+            const wishlistKey =
+                `wishlist_${userId}`;
+
+
+            const cart =
+                JSON.parse(
+                    localStorage.getItem(cartKey)
+                ) || [];
+
+
+            const wishlist =
+                JSON.parse(
+                    localStorage.getItem(wishlistKey)
+                ) || [];
+
+
+            let cartTotal = 0;
+
+
+            cart.forEach(item => {
+
+                cartTotal +=
+                    Number(
+                        item.quantity || 0
+                    );
+
+            });
+
+
+            if (cartCount) {
+                cartCount.textContent =
+                    cartTotal;
+            }
+
+
+            if (wishlistCount) {
+                wishlistCount.textContent =
+                    wishlist.length;
+            }
+
+        }
+
+
+        updateSidebarCounts();
+
+    </script>
+
+
+    <!-- =========================================
+         GARDEN CALENDAR JAVASCRIPT
+    ========================================== -->
+
+    <script src="js/garden-calendar.js"></script>
+
+
 </body>
-</html>
 
-    
+</html>

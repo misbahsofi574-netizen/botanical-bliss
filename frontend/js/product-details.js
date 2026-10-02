@@ -1,143 +1,9 @@
 /* =========================================
-   BOTANICAL BLISS
-   PRODUCT DETAILS
-========================================= */
-
-
-/* =========================================
    PRODUCT DATA
 ========================================= */
 
-const products = [
-
-    {
-        name: "Peace Lily",
-        category: "Indoor Plants",
-        price: 399,
-        image: "images/peace-lily.jpg",
-        description:
-            "A beautiful indoor plant known for its elegant white flowers and air-purifying qualities.",
-        features: [
-            "Easy to grow indoors",
-            "Low maintenance",
-            "Helps improve indoor air quality"
-        ]
-    },
-
-    {
-        name: "Seed Collection",
-        category: "Seeds",
-        price: 199,
-        image: "images/rose-seeds.jpg",
-        description:
-            "A carefully selected collection of rose seeds for growing beautiful and colourful roses at home.",
-        features: [
-            "Suitable for home gardens",
-            "Beautiful flowering plants",
-            "Easy to sow"
-        ]
-    },
-
-    {
-        name: "Organic Plant Food",
-        category: "Organic Care",
-        price: 299,
-        image: "images/organic-plant-food.jpg",
-        description:
-            "Organic plant food designed to provide essential nutrients and support healthy plant growth.",
-        features: [
-            "Organic formula",
-            "Supports healthy growth",
-            "Suitable for garden plants"
-        ]
-    },
-
-    {
-        name: "Garden Tool Set",
-        category: "Gardening Tools",
-        price: 599,
-        image: "images/garden-tool-set.jpg",
-        description:
-            "A practical collection of essential gardening tools for everyday planting and garden care.",
-        features: [
-            "Essential gardening tools",
-            "Useful for everyday gardening",
-            "Suitable for beginners"
-        ]
-    },
-
-    {
-        name: "Snake Plant",
-        category: "Indoor Plants",
-        price: 449,
-        image: "images/snake-plant.jpg",
-        description:
-            "A hardy and stylish indoor plant that requires minimal care and adds a fresh touch to your space.",
-        features: [
-            "Very low maintenance",
-            "Suitable for indoors",
-            "Tolerates low light"
-        ]
-    },
-
-    {
-        name: "Herb Seed Kit",
-        category: "Seeds",
-        price: 249,
-        image: "images/herb-seed-kit.jpg",
-        description:
-            "A convenient seed kit for growing fresh herbs at home and adding greenery to your garden.",
-        features: [
-            "Great for home gardening",
-            "Fresh herbs at home",
-            "Beginner friendly"
-        ]
-    },
-
-    {
-        name: "Organic Compost",
-        category: "Organic Care",
-        price: 349,
-        image: "images/organic-compost.jpg",
-        description:
-            "Rich organic compost that helps improve soil quality and provides nutrients for healthy plants.",
-        features: [
-            "Improves soil quality",
-            "Organic and natural",
-            "Supports plant growth"
-        ]
-    },
-
-    {
-        name: "Pruning Tool Kit",
-        category: "Gardening Tools",
-        price: 499,
-        image: "images/pruning-tool-kit.jpg",
-        description:
-            "A useful pruning tool kit designed to help keep plants healthy, neat and well maintained.",
-        features: [
-            "Useful for pruning",
-            "Suitable for regular garden care",
-            "Easy to use"
-        ]
-    },
-
-    {
-    name: "Lavender",
-    category: "Indoor Plants",
-    price: 499,
-    image: "images/lavender.jpg",
-    description:
-        "A beautiful and fragrant plant that adds colour and a calming natural touch to your home or garden.",
-    features: [
-        "Beautiful purple flowers",
-        "Pleasant natural fragrance",
-        "Suitable for home gardening"
-    ]
-}
-
-];
-
+let products = [];
+let currentProduct = null;
 
 /* =========================================
    GET PRODUCT FROM URL
@@ -148,50 +14,261 @@ const urlParams =
 
 const productName =
     urlParams.get("product") || "Peace Lily";
-/* =========================================
-   QUANTITY
-========================================= */
 
-let quantity = 1;
 
 
 /* =========================================
    DISPLAY PRODUCT
 ========================================= */
 
-function displayProduct() {
+async function displayProduct() {
 
     const container =
         document.getElementById("productDetails");
-
 
     if (!container) {
         return;
     }
 
+    try {
 
-    const product =
-        products.find(function(item) {
+        /* FETCH PRODUCTS FROM MONGODB */
 
-            return item.name === productName;
+        const response = await fetch(
+            "http://localhost:5000/api/products"
+        );
 
-        });
+        const data = await response.json();
 
+        if (!response.ok) {
 
-    /* PRODUCT NOT FOUND */
+            console.error(
+                "Failed to load product:",
+                data
+            );
 
-    if (!product) {
+            container.innerHTML = `
+                <div class="product-not-found">
+
+                    <i class="bi bi-flower1"></i>
+
+                    <h2>
+                        Unable to Load Product
+                    </h2>
+
+                    <p>
+                        Please try again later.
+                    </p>
+
+                    <a href="shop.html">
+                        Back to Shop
+                    </a>
+
+                </div>
+            `;
+
+            return;
+        }
+
+        /* SAVE PRODUCTS */
+
+        products = data;
+
+        /* FIND SELECTED PRODUCT */
+
+        const product =
+            products.find(function (item) {
+
+                return item.name === productName;
+
+            });
+
+        /* PRODUCT NOT FOUND */
+
+        if (!product) {
+
+            container.innerHTML = `
+                <div class="product-not-found">
+
+                    <i class="bi bi-flower1"></i>
+
+                    <h2>
+                        Product Not Found
+                    </h2>
+
+                    <p>
+                        Please return to the shop
+                        and select a product.
+                    </p>
+
+                    <a href="shop.html">
+                        Back to Shop
+                    </a>
+
+                </div>
+            `;
+
+            return;
+        }
+
+        /* SAVE CURRENT PRODUCT */
+
+        currentProduct = product;
+
+        /* DISPLAY PRODUCT */
 
         container.innerHTML = `
 
+            <div class="product-detail-card">
+
+                <!-- IMAGE -->
+
+                <div class="product-detail-image">
+
+                    <img
+                        src="${product.image}"
+                        alt="${product.name}"
+                    >
+
+                </div>
+
+
+                <!-- INFORMATION -->
+
+                <div class="product-detail-info">
+
+                    <span class="product-category">
+                        ${product.category}
+                    </span>
+
+                    <h1>
+                        ${product.name}
+                    </h1>
+
+                    <div class="product-price">
+                        ₹${product.price}
+                    </div>
+
+                    <p class="product-description">
+                        ${product.description}
+                    </p>
+
+
+                    <!-- FEATURES -->
+
+                    <h3>
+                        Product Features
+                    </h3>
+
+                    <ul class="product-features">
+
+                        <li>
+                            <i class="bi bi-check-circle"></i>
+                            Quality gardening product
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check-circle"></i>
+                            Suitable for gardening needs
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check-circle"></i>
+                            Easy to use
+                        </li>
+
+                    </ul>
+
+
+                    <!-- QUANTITY -->
+
+                    <div class="quantity-section">
+
+                        <span>
+                            Quantity:
+                        </span>
+
+                        <div class="quantity-controls">
+
+                            <button
+                                type="button"
+                                onclick="decreaseQuantity()"
+                            >
+                                −
+                            </button>
+
+                            <span id="quantity">
+                                1
+                            </span>
+
+                            <button
+                                type="button"
+                                onclick="increaseQuantity()"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BUTTONS -->
+
+                    <a
+                        href="shop.html"
+                        class="back-to-shop"
+                    >
+                        <i class="bi bi-arrow-left"></i>
+                        Back to Shop
+                    </a>
+
+                    <div class="product-buttons">
+
+                        <button
+                            type="button"
+                            class="add-cart-btn"
+                            onclick="addToCart()"
+                        >
+                            <i class="bi bi-bag-plus"></i>
+                            Add to Cart
+                        </button>
+
+                        <button
+                            type="button"
+                            class="wishlist-btn"
+                            onclick="addToWishlist()"
+                        >
+                            <i class="bi bi-heart"></i>
+                            Add to Wishlist
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        `;
+
+    } catch (error) {
+
+        console.error(
+            "Product loading error:",
+            error
+        );
+
+        container.innerHTML = `
             <div class="product-not-found">
 
                 <i class="bi bi-flower1"></i>
 
-                <h2>Product Not Found</h2>
+                <h2>
+                    Unable to Load Product
+                </h2>
 
                 <p>
-                    Please return to the shop and select a product.
+                    Please check your connection
+                    and try again.
                 </p>
 
                 <a href="shop.html">
@@ -199,150 +276,8 @@ function displayProduct() {
                 </a>
 
             </div>
-
         `;
-
-        return;
     }
-
-
-    /* DISPLAY PRODUCT */
-
-    container.innerHTML = `
-
-        <div class="product-detail-card">
-
-
-            <!-- IMAGE -->
-
-            <div class="product-detail-image">
-
-                <img
-                    src="${product.image}"
-                    alt="${product.name}"
-                >
-
-            </div>
-
-
-            <!-- INFORMATION -->
-
-            <div class="product-detail-info">
-
-                <span class="product-category">
-                    ${product.category}
-                </span>
-
-
-                <h1>
-                    ${product.name}
-                </h1>
-
-
-                <div class="product-price">
-                    ₹${product.price}
-                </div>
-
-
-                <p class="product-description">
-                    ${product.description}
-                </p>
-
-
-                <!-- FEATURES -->
-
-                <h3>
-                    Product Features
-                </h3>
-
-
-                <ul class="product-features">
-
-                    ${product.features.map(function(feature) {
-
-                        return `
-                            <li>
-                                <i class="bi bi-check-circle"></i>
-                                ${feature}
-                            </li>
-                        `;
-
-                    }).join("")}
-
-                </ul>
-
-
-                <!-- QUANTITY -->
-
-                <div class="quantity-section">
-
-                    <span>
-                        Quantity:
-                    </span>
-
-                    <div class="quantity-controls">
-
-                        <button
-                            type="button"
-                            onclick="decreaseQuantity()">
-                            −
-                        </button>
-
-                        <span id="quantity">
-                            1
-                        </span>
-
-                        <button
-                            type="button"
-                            onclick="increaseQuantity()">
-                            +
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <!-- BUTTONS -->
-
-                <a href="shop.html" class="back-to-shop">
-    <i class="bi bi-arrow-left"></i>
-    Back to Shop
-</a>
-
-                <div class="product-buttons">
-
-                    <button
-                        type="button"
-                        class="add-cart-btn"
-                        onclick="addToCart()">
-
-                        <i class="bi bi-bag-plus"></i>
-
-                        Add to Cart
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="wishlist-btn"
-                        onclick="addToWishlist()">
-
-                        <i class="bi bi-heart"></i>
-
-                        Add to Wishlist
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    `;
-
 }
 
 

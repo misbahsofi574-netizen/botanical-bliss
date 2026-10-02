@@ -278,13 +278,41 @@ async function displayGardenPosts() {
             return;
         }
 
+         posts.forEach(post => {
 
-        posts.forEach(post => {
+    const currentUser = JSON.parse(
+        localStorage.getItem("user")
+    );
 
-            const postElement = document.createElement("div");
+    const currentUserId =
+        currentUser?._id ||
+        currentUser?.id;
 
-            postElement.className = "community-post";
+    const postOwnerId =
+        typeof post.user === "object"
+            ? post.user._id
+            : post.user;
 
+    const isOwner =
+        currentUserId &&
+        postOwnerId &&
+        currentUserId.toString() === postOwnerId.toString();
+
+    const deleteButton = isOwner
+        ? `
+            <button
+                onclick="deleteGardenPost('${post._id}')"
+                class="garden-action delete-action"
+                type="button"
+                title="Delete your post"
+            >
+                <i class="bi bi-trash"></i>
+            </button>
+        `
+        : "";
+
+    const postElement = document.createElement("div");
+    postElement.className = "community-post";
 
             postElement.innerHTML = `
 
@@ -335,14 +363,8 @@ async function displayGardenPosts() {
                 <i class="bi bi-send"></i>
             </button>
 
-            <button
-                onclick="deleteGardenPost('${post._id}')"
-                class="garden-action delete-action"
-                type="button"
-            >
-                <i class="bi bi-trash"></i>
-            </button>
-
+            ${deleteButton}
+            
         </div>
 
 

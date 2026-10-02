@@ -1,6 +1,11 @@
 const GardenPost = require("../models/GardenPost");
 const User = require("../models/User");
 
+
+/* =========================================================
+   CREATE GARDEN POST
+========================================================= */
+
 const createGardenPost = async (req, res) => {
     try {
         const { image, caption } = req.body;
@@ -11,20 +16,20 @@ const createGardenPost = async (req, res) => {
             });
         }
 
-       const loggedInUser = await User.findById(req.user.id);
+        const loggedInUser = await User.findById(req.user.id);
 
-if (!loggedInUser) {
-    return res.status(404).json({
-        message: "User not found"
-    });
-}
+        if (!loggedInUser) {
+            return res.status(404).json({
+                message: "User not found"
+            });
+        }
 
-const newPost = new GardenPost({
-    user: loggedInUser._id,
-    userName: loggedInUser.name,
-    image,
-    caption
-});
+        const newPost = new GardenPost({
+            user: loggedInUser._id,
+            userName: loggedInUser.name,
+            image,
+            caption
+        });
 
         const savedPost = await newPost.save();
 
@@ -42,40 +47,38 @@ const newPost = new GardenPost({
     }
 };
 
+
 /* =========================================================
    GET ALL GARDEN POSTS
 ========================================================= */
 
 const getGardenPosts = async (req, res) => {
     try {
-
         const posts = await GardenPost.find()
             .sort({ createdAt: -1 });
 
         res.status(200).json(posts);
 
     } catch (error) {
-
         console.error("Get garden posts error:", error);
 
         res.status(500).json({
             message: "Failed to fetch garden posts"
         });
-
     }
 };
+
+
 /* =========================================================
    LIKE GARDEN POST
 ========================================================= */
 
 const likeGardenPost = async (req, res) => {
-
     try {
-
         const postId = req.params.id;
         const userId = req.user.id;
 
-        // First find the post
+        // Find the post first
         const post = await GardenPost.findById(postId);
 
         if (!post) {
@@ -107,38 +110,29 @@ const likeGardenPost = async (req, res) => {
 
         const updatedPost =
             await GardenPost.findOneAndUpdate(
-
                 {
                     _id: postId,
-
                     likedBy: {
                         $ne: userId
                     }
                 },
-
                 {
                     $addToSet: {
                         likedBy: userId
                     },
-
                     $inc: {
                         likes: 1
                     }
                 },
-
-                {
-                    new: true
-                }
+                { returnDocument: "after" }
             );
 
         // If no document was updated,
         // the user has already liked this post.
         if (!updatedPost) {
-
             return res.status(400).json({
                 message: "You have already liked this post."
             });
-
         }
 
         res.status(200).json({
@@ -147,7 +141,6 @@ const likeGardenPost = async (req, res) => {
         });
 
     } catch (error) {
-
         console.error(
             "Like garden post error:",
             error
@@ -174,7 +167,11 @@ const deleteGardenPost = async (req, res) => {
             });
         }
 
-        if (post.user.toString() !== req.user.id.toString()) {
+        // Only the owner of the post can delete it
+        const isOwner =
+            post.user.toString() === req.user.id.toString();
+
+        if (!isOwner) {
             return res.status(403).json({
                 message: "You can only delete your own posts"
             });
@@ -187,13 +184,21 @@ const deleteGardenPost = async (req, res) => {
         });
 
     } catch (error) {
-        console.error("Delete garden post error:", error);
+        console.error(
+            "Delete garden post error:",
+            error
+        );
 
         res.status(500).json({
             message: "Failed to delete garden post"
         });
     }
 };
+
+
+/* =========================================================
+   EXPORT CONTROLLERS
+========================================================= */
 
 module.exports = {
     createGardenPost,

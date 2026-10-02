@@ -1,3 +1,4 @@
+
 const API_URL = "https://botanical-bliss-52ra.onrender.com/api/auth";
 
 
@@ -13,15 +14,19 @@ function togglePassword(inputId, button) {
     if (input.type === "password") {
 
         input.type = "text";
+
         icon.classList.remove("bi-eye");
         icon.classList.add("bi-eye-slash");
 
     } else {
 
         input.type = "password";
+
         icon.classList.remove("bi-eye-slash");
         icon.classList.add("bi-eye");
+
     }
+
 }
 
 
@@ -37,9 +42,15 @@ if (registerForm) {
 
         event.preventDefault();
 
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value;
+        const name =
+            document.getElementById("name").value.trim();
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        const password =
+            document.getElementById("password").value;
+
         const confirmPassword =
             document.getElementById("confirmPassword").value;
 
@@ -51,10 +62,13 @@ if (registerForm) {
 
         if (password !== confirmPassword) {
 
-            message.textContent = "Passwords do not match.";
+            message.textContent =
+                "Passwords do not match.";
+
             message.style.color = "#b42318";
 
             return;
+
         }
 
 
@@ -62,7 +76,9 @@ if (registerForm) {
 
         try {
 
-            message.textContent = "Creating your account...";
+            message.textContent =
+                "Creating your account...";
+
             message.style.color = "#315d3d";
 
 
@@ -98,18 +114,31 @@ if (registerForm) {
                 registerForm.reset();
 
 
-                setTimeout(() => {
+                setTimeout(function () {
 
-                    window.location.href = "login.html";
+                    if (data.user.role === "admin") {
+
+                        window.location.href =
+                            "admin/admin.html";
+
+                    } else {
+
+                        window.location.href =
+                            "dashboard.html";
+
+                    }
 
                 }, 1500);
+
 
             } else {
 
                 message.textContent =
-                    data.message || "Registration failed.";
+                    data.message ||
+                    "Registration failed.";
 
                 message.style.color = "#b42318";
+
             }
 
 
@@ -121,42 +150,63 @@ if (registerForm) {
                 "Unable to connect to the server.";
 
             message.style.color = "#b42318";
+
         }
 
     });
+
 }
+
+
 /* =========================
    LOGIN
 ========================= */
 
-const loginForm = document.getElementById("loginForm");
+const loginForm =
+    document.getElementById("loginForm");
 
 if (loginForm) {
+
     loginForm.addEventListener("submit", async function (event) {
+
         event.preventDefault();
 
-        const email = document
-            .getElementById("loginEmail")
-            .value
-            .trim();
 
-        const password = document
-            .getElementById("loginPassword")
-            .value;
+        const email =
+            document
+                .getElementById("loginEmail")
+                .value
+                .trim();
 
-        const message = document.getElementById("loginMessage");
+
+        const password =
+            document
+                .getElementById("loginPassword")
+                .value;
+
+
+        const message =
+            document.getElementById("loginMessage");
+
 
         try {
-            message.textContent = "Signing you in...";
-            message.style.color = "#315d3d";
+
+            message.textContent =
+                "Signing you in...";
+
+            message.style.color =
+                "#315d3d";
+
 
             const response = await fetch(
                 `${API_URL}/login`,
                 {
                     method: "POST",
+
                     headers: {
                         "Content-Type": "application/json"
                     },
+
                     body: JSON.stringify({
                         email: email,
                         password: password
@@ -164,31 +214,59 @@ if (loginForm) {
                 }
             );
 
+
             const data = await response.json();
+
 
             if (response.ok) {
 
-                localStorage.setItem("token", data.token);
+                localStorage.setItem(
+                    "token",
+                    data.token
+                );
+
 
                 localStorage.setItem(
                     "user",
                     JSON.stringify(data.user)
                 );
 
-                message.textContent = "Login successful!";
-                message.style.color = "#315d3d";
+
+                message.textContent =
+                    "Login successful!";
+
+                message.style.color =
+                    "#315d3d";
+
 
                 setTimeout(function () {
-                    window.location.href = "dashboard.html";
+
+                    if (data.user.role === "admin") {
+
+                        window.location.href =
+                            "admin/admin.html";
+
+                    } else {
+
+                        window.location.href =
+                            "dashboard.html";
+
+                    }
+
                 }, 1000);
+
 
             } else {
 
                 message.textContent =
-                    data.message || "Invalid email or password.";
+                    data.message ||
+                    "Invalid email or password.";
 
-                message.style.color = "#b42318";
+                message.style.color =
+                    "#b42318";
+
             }
+
 
         } catch (error) {
 
@@ -197,7 +275,11 @@ if (loginForm) {
             message.textContent =
                 "Unable to connect to the server.";
 
-            message.style.color = "#b42318";
+            message.style.color =
+                "#b42318";
+
         }
+
     });
+
 }

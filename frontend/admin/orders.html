@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Manage Orders | Botanical Bliss</title>
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Admin CSS -->
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="admin-sidebar">
+
+        <div class="sidebar-brand">
+
+            <a href="admin.html">
+
+                <i class="bi bi-flower1"></i>
+
+                <span>
+                    Botanical Bliss
+                </span>
+
+            </a>
+
+            <p>
+                Admin Panel
+            </p>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="admin.html">
+
+                <i class="bi bi-grid-1x2"></i>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a href="#">
+
+                <i class="bi bi-box-seam"></i>
+
+                <span>
+                    Products
+                </span>
+
+            </a>
+
+
+            <a
+                href="orders.html"
+                class="active"
+            >
+
+                <i class="bi bi-receipt"></i>
+
+                <span>
+                    Orders
+                </span>
+
+            </a>
+
+
+            <a href="users.html">
+
+                <i class="bi bi-people"></i>
+
+                <span>
+                    Users
+                </span>
+
+            </a>
+
+
+            <a href="garden-gallery-admin.html">
+
+                <i class="bi bi-images"></i>
+
+                <span>
+                    Garden Gallery
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="../home.html"
+                class="visit-website"
+            >
+
+                <i class="bi bi-box-arrow-up-right"></i>
+
+                <span>
+                    Visit Website
+                </span>
+
+            </a>
+
+
+            <button
+                id="adminLogout"
+                class="logout-btn"
+            >
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                <span>
+                    Logout
+                </span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="admin-main">
+
+
+        <!-- HEADER -->
+
+        <header class="admin-header">
+
+            <div>
+
+                <p class="header-label">
+                    STORE MANAGEMENT
+                </p>
+
+                <h1>
+                    Manage Orders
+                </h1>
+
+            </div>
+
+
+            <div class="admin-profile">
+
+                <div class="profile-icon">
+
+                    <i class="bi bi-person"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        Administrator
+                    </strong>
+
+                    <span>
+                        Store Admin
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ORDERS SECTION -->
+<div class="section-heading">
+
+    <div>
+
+        <p>
+            ORDER MANAGEMENT
+        </p>
+
+        <h2>
+            All Orders
+        </h2>
+
+    </div>
+
+    <div class="orders-summary">
+
+        <div class="orders-count-box">
+            <span>Total Orders</span>
+            <strong id="ordersCount">0</strong>
+        </div>
+
+        <button
+            type="button"
+            id="refreshOrdersBtn"
+            class="refresh-orders-btn"
+            title="Refresh orders"
+        >
+            <i class="bi bi-arrow-clockwise"></i>
+            Refresh
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="orders-toolbar">
+
+    <div class="orders-search">
+
+        <i class="bi bi-search"></i>
+
+        <input
+            type="text"
+            id="orderSearchInput"
+            placeholder="Search by order ID or customer name..."
+            autocomplete="off"
+        >
+
+    </div>
+
+
+    <div class="orders-filter">
+
+        <i class="bi bi-funnel"></i>
+
+        <select id="orderStatusFilter">
+
+            <option value="all">
+                All Statuses
+            </option>
+
+            <option value="Placed">
+                Placed
+            </option>
+
+            <option value="Processing">
+                Processing
+            </option>
+
+            <option value="Shipped">
+                Shipped
+            </option>
+
+            <option value="Delivered">
+                Delivered
+            </option>
+
+            <option value="Cancelled">
+                Cancelled
+            </option>
+
+        </select>
+
+    </div>
+
+</div>
+            <div class="orders-table-wrapper">
+
+                <table class="orders-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Order ID
+                            </th>
+
+                            <th>
+                                Customer
+                            </th>
+
+                            <th>
+                                Amount
+                            </th>
+
+                            <th>
+                                Payment
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="ordersBody">
+
+                        <tr>
+
+                            <td
+                                colspan="7"
+                                class="orders-loading"
+                            >
+                                Loading orders...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+    <!-- ORDER DETAILS MODAL -->
+
+<div
+    id="orderModal"
+    class="order-modal"
+>
+
+    <div class="order-modal-content">
+
+
+        <!-- Modal Header -->
+
+        <div class="order-modal-header">
+
+            <div>
+
+                <p>
+                    ORDER DETAILS
+                </p>
+
+                <h2 id="modalOrderId">
+                    Order
+                </h2>
+
+            </div>
+
+
+            <button
+                id="closeOrderModal"
+                class="close-modal-btn"
+            >
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+        </div>
+
+
+
+        <!-- Customer Information -->
+
+        <div class="order-detail-section">
+<div class="order-section-title">
+
+    <div>
+        <h3>
+            Customer & Delivery Information
+        </h3>
+
+        <p>
+            Contact and delivery details used for this order
+        </p>
+    </div>
+
+</div>
+
+
+            <div class="order-detail-grid">
+
+                <div>
+
+                    <span>
+                        Full Name
+                    </span>
+
+                    <strong id="modalCustomerName">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Email
+                    </span>
+
+                    <strong id="modalCustomerEmail">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Phone
+                    </span>
+
+                    <strong id="modalCustomerPhone">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        City
+                    </span>
+
+                    <strong id="modalCustomerCity">
+                        —
+                    </strong>
+
+                </div>
+
+<div class="full-width delivery-address-box">
+
+    <span>
+        <i class="bi bi-geo-alt"></i>
+        Delivery Address
+    </span>
+
+    <strong id="modalCustomerAddress">
+        —
+    </strong>
+
+</div>
+
+
+                <div>
+
+                    <span>
+                        Pincode
+                    </span>
+
+                    <strong id="modalCustomerPincode">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Order Items -->
+
+        <div class="order-detail-section">
+
+            <h3>
+                Products
+            </h3>
+
+
+            <div
+                id="modalOrderItems"
+                class="modal-order-items"
+            >
+
+                <!-- Products will appear here -->
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Payment Information -->
+
+        <div class="order-detail-section">
+
+            <h3>
+                Payment Information
+            </h3>
+
+
+            <div class="order-detail-grid">
+
+                <div>
+
+                    <span>
+                        Payment Method
+                    </span>
+
+                    <strong id="modalPaymentMethod">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Payment Status
+                    </span>
+
+                    <strong id="modalPaymentStatus">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Total Amount
+                    </span>
+
+                    <strong id="modalTotalAmount">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Order Status -->
+<!-- Order Status -->
+
+<div class="order-detail-section">
+
+    <h3>
+        Order Status
+    </h3>
+
+
+    <div class="current-order-status">
+
+        <span>
+            Current Status
+        </span>
+
+        <strong id="modalOrderStatus">
+            —
+        </strong>
+
+    </div>
+
+    <!-- ORDER STATUS TIMELINE -->
+
+<div class="order-status-timeline">
+
+    <div class="timeline-step" data-status="Placed">
+
+        <div class="timeline-icon">
+            <i class="bi bi-check2"></i>
+        </div>
+
+        <div class="timeline-content">
+            <strong>Order Placed</strong>
+            <span>Order has been received</span>
+        </div>
+
+    </div>
+
+
+    <div class="timeline-line"></div>
+
+
+    <div class="timeline-step" data-status="Processing">
+
+        <div class="timeline-icon">
+            <i class="bi bi-box-seam"></i>
+        </div>
+
+        <div class="timeline-content">
+            <strong>Processing</strong>
+            <span>Order is being prepared</span>
+        </div>
+
+    </div>
+
+
+    <div class="timeline-line"></div>
+
+
+    <div class="timeline-step" data-status="Shipped">
+
+        <div class="timeline-icon">
+            <i class="bi bi-truck"></i>
+        </div>
+
+        <div class="timeline-content">
+            <strong>Shipped</strong>
+            <span>Order is on the way</span>
+        </div>
+
+    </div>
+
+
+    <div class="timeline-line"></div>
+
+
+    <div class="timeline-step" data-status="Delivered">
+
+        <div class="timeline-icon">
+            <i class="bi bi-house-check"></i>
+        </div>
+
+        <div class="timeline-content">
+            <strong>Delivered</strong>
+            <span>Order delivered successfully</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div
+    id="cancelledOrderNotice"
+    class="cancelled-order-notice"
+    style="display: none;"
+>
+
+    <i class="bi bi-x-circle"></i>
+
+    <div>
+        <strong>Order Cancelled</strong>
+        <span>This order has been cancelled.</span>
+    </div>
+
+</div>
+
+
+    <div class="status-update-area">
+
+        <label for="orderStatusSelect">
+            Update Status
+        </label>
+
+
+        <div class="status-update-controls">
+
+            <select id="orderStatusSelect">
+
+                <option value="Placed">
+                    Placed
+                </option>
+
+                <option value="Processing">
+                    Processing
+                </option>
+
+                <option value="Shipped">
+                    Shipped
+                </option>
+
+                <option value="Delivered">
+                    Delivered
+                </option>
+
+                <option value="Cancelled">
+                    Cancelled
+                </option>
+
+            </select>
+
+
+            <button
+                id="updateStatusBtn"
+                type="button"
+            >
+
+                <i class="bi bi-check2"></i>
+
+                Update Status
+
+            </button>
+
+        </div>
+
+
+        <p
+            id="statusUpdateMessage"
+            class="status-update-message"
+        ></p>
+
+    </div>
+
+      </div>
+    </div>
+
+</div>
+
+    <!-- Orders JavaScript -->
+
+    <script src="orders.js"></script>
+
+</body>
+
+</html>

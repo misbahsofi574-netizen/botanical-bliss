@@ -9,6 +9,8 @@ dns.setServers(["8.8.8.8"]);
 
 
 const authRoutes = require("./routes/authRoutes");
+const adminRoutes = require("./routes/adminRoutes");
+const productRoutes = require("./routes/productRoutes");
 const orderRoutes = require("./routes/orderroutes");
 const gardenReminderRoutes = require("./routes/gardenReminder");
 const gardenPostRoutes = require("./routes/gardenPostRoutes");
@@ -39,7 +41,8 @@ app.use("/api/garden-reminders", gardenReminderRoutes);
 app.use("/api/garden-posts", gardenPostRoutes);
 app.use("/api/payment", paymentRoutes);
 app.use("/api/orders", orderRoutes);
-
+app.use("/api/admin", adminRoutes);
+app.use("/api/products", productRoutes);
 
 // Home/Test route
 app.get("/", (req, res) => {
@@ -56,49 +59,60 @@ app.listen(PORT, () => {
 });
 
 
-
 cron.schedule("* * * * *", async () => {
-
     try {
-
+        // Get current date and time in India
         const now = new Date();
 
-        const currentDate = now.toISOString().split("T")[0];
+        const indiaDate = new Intl.DateTimeFormat("en-CA", {
+            timeZone: "Asia/Kolkata",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit"
+        }).format(now);
 
-        const currentTime =
-            now.toTimeString().slice(0, 5);
+        const indiaTime = new Intl.DateTimeFormat("en-GB", {
+            timeZone: "Asia/Kolkata",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false
+        }).format(now);
 
+        // Find today's unsent reminders whose scheduled time
+        // has already arrived.
         const reminders = await GardenReminder.find({
-            date: currentDate,
-            time: currentTime,
+            date: indiaDate,
+            time: { $lte: indiaTime },
             sent: false
         });
 
         for (const reminder of reminders) {
+            try {
+                await sendGardenReminder(
+                    reminder.email,
+                    reminder.task,
+                    reminder.date,
+                    reminder.time
+                );
 
-            await sendGardenReminder(
-                reminder.email,
-                reminder.task,
-                reminder.date,
-                reminder.time
-            );
+                reminder.sent = true;
+                await reminder.save();
 
-            reminder.sent = true;
-
-            await reminder.save();
-
-            console.log(
-                `Garden reminder email sent to ${reminder.email}`
-            );
+                console.log(
+                    `Garden reminder email sent to ${reminder.email} for ${reminder.date} ${reminder.time}`
+                );
+            } catch (emailError) {
+                console.error(
+                    `Failed to send garden reminder to ${reminder.email}:`,
+                    emailError.message
+                );
+            }
         }
 
     } catch (error) {
-
         console.error(
             "Garden reminder scheduler error:",
             error.message
         );
-
     }
-
 });

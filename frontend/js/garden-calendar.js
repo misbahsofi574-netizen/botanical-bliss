@@ -1,128 +1,656 @@
 console.log("GARDEN CALENDAR JS LOADED");
 
+
 /* =========================================
-   MONTH DATA
+   WEEKLY GARDENING DATA
 ========================================= */
 
 const monthData = {
 
     January: {
-        description: "Start the year by planning your garden and preparing your soil for the coming season.",
-        tasks: [
-            "Plan your garden layout",
-            "Prepare and enrich the soil",
-            "Remove weeds and dead plants",
-            "Start seeds for suitable seasonal plants"
+        description:
+            "Start the year by planning your garden, preparing your soil and getting ready for the new growing season.",
+
+        weeks: [
+
+            {
+                title: "Week 1",
+                focus: "Garden Planning",
+                tasks: [
+                    "Plan your garden layout",
+                    "Decide which plants you want to grow",
+                    "Check your existing gardening supplies",
+                    "Make a list of seeds and tools you need"
+                ]
+            },
+
+            {
+                title: "Week 2",
+                focus: "Soil Preparation",
+                tasks: [
+                    "Prepare and loosen the soil",
+                    "Add organic compost",
+                    "Remove weeds and dead plant material",
+                    "Check that pots have proper drainage"
+                ]
+            },
+
+            {
+                title: "Week 3",
+                focus: "Seed Preparation",
+                tasks: [
+                    "Start seeds suitable for the season",
+                    "Label newly planted seeds",
+                    "Keep seed trays in suitable light",
+                    "Check soil moisture regularly"
+                ]
+            },
+
+            {
+                title: "Week 4",
+                focus: "Garden Maintenance",
+                tasks: [
+                    "Inspect plants for pests",
+                    "Remove damaged leaves",
+                    "Clean gardening tools",
+                    "Review your garden plan for February"
+                ]
+            }
+
         ]
     },
+
 
     February: {
-        description: "February is a good time to prepare for spring planting and care for growing plants.",
-        tasks: [
-            "Plant suitable vegetables and herbs",
-            "Add organic compost to the soil",
-            "Check plants for pests",
-            "Water plants regularly"
+        description:
+            "Prepare your garden for active growth by planting suitable vegetables, herbs and flowering plants.",
+
+        weeks: [
+
+            {
+                title: "Week 1",
+                focus: "Planting",
+                tasks: [
+                    "Plant suitable seasonal vegetables",
+                    "Plant herbs in containers or garden beds",
+                    "Check seedling growth",
+                    "Give new plants gentle watering"
+                ]
+            },
+
+            {
+                title: "Week 2",
+                focus: "Soil Care",
+                tasks: [
+                    "Add organic compost to garden beds",
+                    "Loosen compacted soil",
+                    "Remove weeds around plants",
+                    "Check soil drainage"
+                ]
+            },
+
+            {
+                title: "Week 3",
+                focus: "Plant Health",
+                tasks: [
+                    "Check plants for pests",
+                    "Remove yellow or damaged leaves",
+                    "Inspect new growth",
+                    "Water plants according to their needs"
+                ]
+            },
+
+            {
+                title: "Week 4",
+                focus: "Garden Maintenance",
+                tasks: [
+                    "Clean plant containers",
+                    "Trim damaged growth",
+                    "Check support for climbing plants",
+                    "Prepare plants for warmer weather"
+                ]
+            }
+
         ]
     },
+
 
     March: {
-        description: "Give your garden extra attention as temperatures begin to rise.",
-        tasks: [
-            "Plant flowering plants",
-            "Grow herbs and vegetables",
-            "Increase watering when needed",
-            "Remove damaged leaves"
+        description:
+            "Give your garden extra attention as temperatures begin to rise and plants enter an active growing period.",
+
+        weeks: [
+
+            {
+                title: "Week 1",
+                focus: "Flowering Plants",
+                tasks: [
+                    "Plant suitable flowering plants",
+                    "Remove faded flowers",
+                    "Check plants for healthy new growth",
+                    "Give plants suitable sunlight"
+                ]
+            },
+
+            {
+                title: "Week 2",
+                focus: "Herbs & Vegetables",
+                tasks: [
+                    "Grow suitable herbs",
+                    "Plant seasonal vegetables",
+                    "Thin overcrowded seedlings",
+                    "Add compost around established plants"
+                ]
+            },
+
+            {
+                title: "Week 3",
+                focus: "Watering",
+                tasks: [
+                    "Check soil moisture regularly",
+                    "Increase watering when needed",
+                    "Water plants during cooler parts of the day",
+                    "Avoid leaving soil constantly wet"
+                ]
+            },
+
+            {
+                title: "Week 4",
+                focus: "Plant Health",
+                tasks: [
+                    "Remove damaged leaves",
+                    "Inspect plants for pests",
+                    "Clean plant leaves",
+                    "Check plants for signs of stress"
+                ]
+            }
+
         ]
     },
+
 
     April: {
-        description: "Protect your plants from increasing heat and maintain proper watering.",
-        tasks: [
-            "Water plants in the morning or evening",
-            "Add mulch around plants",
-            "Protect delicate plants from strong sunlight",
-            "Check regularly for pests"
+        description:
+            "Protect your plants from increasing heat and maintain proper watering and soil moisture.",
+
+        weeks: [
+
+            {
+                title: "Week 1",
+                focus: "Watering",
+                tasks: [
+                    "Water plants in the morning or evening",
+                    "Check soil moisture before watering",
+                    "Give newly planted plants extra attention",
+                    "Avoid unnecessary overwatering"
+                ]
+            },
+
+            {
+                title: "Week 2",
+                focus: "Mulching",
+                tasks: [
+                    "Add mulch around garden plants",
+                    "Keep mulch away from plant stems",
+                    "Check soil moisture under mulch",
+                    "Remove unwanted weeds"
+                ]
+            },
+
+            {
+                title: "Week 3",
+                focus: "Sun Protection",
+                tasks: [
+                    "Protect delicate plants from strong sunlight",
+                    "Move sensitive potted plants if necessary",
+                    "Check leaves for sun damage",
+                    "Provide suitable shade when required"
+                ]
+            },
+
+            {
+                title: "Week 4",
+                focus: "Pest Check",
+                tasks: [
+                    "Inspect leaves for pests",
+                    "Check the underside of leaves",
+                    "Remove damaged plant parts",
+                    "Keep the garden clean"
+                ]
+            }
+
         ]
     },
+
 
     May: {
-        description: "Hot weather requires careful watering and protection for your garden.",
-        tasks: [
-            "Water plants regularly",
-            "Use mulch to retain soil moisture",
-            "Provide shade for sensitive plants",
-            "Avoid overwatering"
+        description:
+            "Hot weather requires careful watering, moisture management and protection for sensitive plants.",
+
+        weeks: [
+
+            {
+                title: "Week 1",
+                focus: "Water Management",
+                tasks: [
+                    "Water plants regularly",
+                    "Check soil moisture before watering",
+                    "Water deeply when appropriate",
+                    "Avoid watering during peak afternoon heat"
+                ]
+            },
+
+            {
+                title: "Week 2",
+                focus: "Moisture Protection",
+                tasks: [
+                    "Use mulch to retain soil moisture",
+                    "Remove weeds competing for water",
+                    "Check pots for drying soil",
+                    "Inspect plants for heat stress"
+                ]
+            },
+
+            {
+                title: "Week 3",
+                focus: "Plant Protection",
+                tasks: [
+                    "Provide shade for sensitive plants",
+                    "Move delicate containers if necessary",
+                    "Check leaves for heat damage",
+                    "Keep plants away from excessive reflected heat"
+                ]
+            },
+
+            {
+                title: "Week 4",
+                focus: "Garden Health",
+                tasks: [
+                    "Check plants for pests",
+                    "Remove dead or damaged leaves",
+                    "Avoid overwatering",
+                    "Prepare the garden for the monsoon season"
+                ]
+            }
+
         ]
     },
+
 
     June: {
-        description: "The monsoon season is a great opportunity for planting and natural garden growth.",
-        tasks: [
-            "Plant suitable monsoon crops",
-            "Improve soil drainage",
-            "Remove standing water",
-            "Check plants for fungal growth"
+        description:
+            "The monsoon season brings an opportunity for planting, but drainage and moisture management become important.",
+
+        weeks: [
+
+            {
+                title: "Week 1",
+                focus: "Monsoon Preparation",
+                tasks: [
+                    "Improve soil drainage",
+                    "Clear blocked drainage areas",
+                    "Remove standing water",
+                    "Check pots after heavy rain"
+                ]
+            },
+
+            {
+                title: "Week 2",
+                focus: "Monsoon Planting",
+                tasks: [
+                    "Plant suitable monsoon crops",
+                    "Plant suitable herbs",
+                    "Give new plants enough space",
+                    "Add compost where needed"
+                ]
+            },
+
+            {
+                title: "Week 3",
+                focus: "Rainwater Management",
+                tasks: [
+                    "Check plants after heavy rain",
+                    "Remove excess water from containers",
+                    "Check roots for waterlogging",
+                    "Keep garden pathways clear"
+                ]
+            },
+
+            {
+                title: "Week 4",
+                focus: "Fungal Protection",
+                tasks: [
+                    "Check plants for fungal growth",
+                    "Remove affected leaves",
+                    "Improve air circulation around plants",
+                    "Avoid unnecessary watering during rainy days"
+                ]
+            }
+
         ]
     },
+
 
     July: {
-        description: "Keep your garden healthy during the rainy season by managing moisture and pests.",
-        tasks: [
-            "Monitor plants after heavy rain",
-            "Remove excess water",
-            "Add compost when needed",
-            "Check leaves for diseases"
+        description:
+            "Keep your garden healthy during the rainy season by managing moisture, drainage and plant diseases.",
+
+        weeks: [
+
+            {
+                title: "Week 1",
+                focus: "Rain Check",
+                tasks: [
+                    "Monitor plants after heavy rain",
+                    "Remove excess water",
+                    "Check containers for blocked drainage",
+                    "Inspect soil for waterlogging"
+                ]
+            },
+
+            {
+                title: "Week 2",
+                focus: "Soil & Compost",
+                tasks: [
+                    "Add compost when needed",
+                    "Remove weeds",
+                    "Loosen compacted soil carefully",
+                    "Check garden beds for erosion"
+                ]
+            },
+
+            {
+                title: "Week 3",
+                focus: "Disease Prevention",
+                tasks: [
+                    "Check leaves for diseases",
+                    "Remove damaged leaves",
+                    "Improve air circulation",
+                    "Avoid keeping foliage unnecessarily wet"
+                ]
+            },
+
+            {
+                title: "Week 4",
+                focus: "Pest Management",
+                tasks: [
+                    "Inspect plants for pests",
+                    "Check the underside of leaves",
+                    "Remove badly affected plant parts",
+                    "Keep the garden clean"
+                ]
+            }
+
         ]
     },
+
 
     August: {
-        description: "Continue caring for plants during the rainy season and maintain good drainage.",
-        tasks: [
-            "Prune damaged branches",
-            "Remove weeds",
-            "Check soil drainage",
-            "Inspect plants for pests"
+        description:
+            "Continue caring for plants during the rainy season while maintaining drainage, cleanliness and healthy growth.",
+
+        weeks: [
+
+            {
+                title: "Week 1",
+                focus: "Pruning",
+                tasks: [
+                    "Prune damaged branches",
+                    "Remove dead leaves",
+                    "Remove unhealthy plant growth",
+                    "Keep plants well ventilated"
+                ]
+            },
+
+            {
+                title: "Week 2",
+                focus: "Weed Control",
+                tasks: [
+                    "Remove weeds from garden beds",
+                    "Clear weeds around containers",
+                    "Check for fast-growing unwanted plants",
+                    "Add mulch where suitable"
+                ]
+            },
+
+            {
+                title: "Week 3",
+                focus: "Drainage",
+                tasks: [
+                    "Check soil drainage",
+                    "Clear blocked drainage holes",
+                    "Remove standing water",
+                    "Inspect pots after rainfall"
+                ]
+            },
+
+            {
+                title: "Week 4",
+                focus: "Pest Inspection",
+                tasks: [
+                    "Inspect plants for pests",
+                    "Check leaves and stems",
+                    "Remove damaged plant parts",
+                    "Monitor new plant growth"
+                ]
+            }
+
         ]
     },
+
 
     September: {
-        description: "Prepare your garden for the transition from monsoon to the next growing season.",
-        tasks: [
-            "Clean garden beds",
-            "Add organic compost",
-            "Plant suitable seasonal flowers",
-            "Remove unhealthy plant parts"
+        description:
+            "Prepare your garden for the transition from monsoon to the next growing season.",
+
+        weeks: [
+
+            {
+                title: "Week 1",
+                focus: "Garden Cleaning",
+                tasks: [
+                    "Clean garden beds",
+                    "Remove dead plant material",
+                    "Remove weeds",
+                    "Clean gardening tools"
+                ]
+            },
+
+            {
+                title: "Week 2",
+                focus: "Soil Improvement",
+                tasks: [
+                    "Add organic compost",
+                    "Improve soil structure",
+                    "Check drainage",
+                    "Prepare beds for seasonal planting"
+                ]
+            },
+
+            {
+                title: "Week 3",
+                focus: "Seasonal Planting",
+                tasks: [
+                    "Plant suitable seasonal flowers",
+                    "Start suitable vegetable seeds",
+                    "Check seedling health",
+                    "Give newly planted plants proper care"
+                ]
+            },
+
+            {
+                title: "Week 4",
+                focus: "Plant Maintenance",
+                tasks: [
+                    "Remove unhealthy plant parts",
+                    "Inspect plants for pests",
+                    "Trim damaged growth",
+                    "Review your garden before October"
+                ]
+            }
+
         ]
     },
+
 
     October: {
-        description: "October is ideal for preparing the garden for cooler weather and seasonal flowering plants.",
-        tasks: [
-            "Plant winter-season flowers",
-            "Prepare vegetable beds",
-            "Add compost to the soil",
-            "Prune overgrown plants"
+        description:
+            "Prepare the garden for cooler weather and seasonal flowering and vegetable plants.",
+
+        weeks: [
+
+            {
+                title: "Week 1",
+                focus: "Winter Preparation",
+                tasks: [
+                    "Prepare vegetable beds",
+                    "Add compost to the soil",
+                    "Remove weeds",
+                    "Plan winter-season plants"
+                ]
+            },
+
+            {
+                title: "Week 2",
+                focus: "Flower Planting",
+                tasks: [
+                    "Plant suitable winter flowers",
+                    "Prepare flower containers",
+                    "Give new plants suitable sunlight",
+                    "Remove faded flowers"
+                ]
+            },
+
+            {
+                title: "Week 3",
+                focus: "Vegetable Garden",
+                tasks: [
+                    "Plant suitable winter vegetables",
+                    "Check seedlings",
+                    "Provide support for growing plants",
+                    "Keep garden beds clean"
+                ]
+            },
+
+            {
+                title: "Week 4",
+                focus: "Pruning & Care",
+                tasks: [
+                    "Prune overgrown plants",
+                    "Remove damaged branches",
+                    "Check plants for pests",
+                    "Add compost where required"
+                ]
+            }
+
         ]
     },
+
 
     November: {
-        description: "Enjoy the cooler weather and focus on growing vegetables, herbs and flowers.",
-        tasks: [
-            "Plant winter vegetables",
-            "Grow herbs",
-            "Water plants according to their needs",
-            "Remove weeds regularly"
+        description:
+            "Enjoy the cooler weather and focus on growing vegetables, herbs and seasonal flowers.",
+
+        weeks: [
+
+            {
+                title: "Week 1",
+                focus: "Winter Vegetables",
+                tasks: [
+                    "Plant suitable winter vegetables",
+                    "Check vegetable seedlings",
+                    "Remove competing weeds",
+                    "Add compost when required"
+                ]
+            },
+
+            {
+                title: "Week 2",
+                focus: "Herb Garden",
+                tasks: [
+                    "Grow suitable herbs",
+                    "Harvest mature herbs",
+                    "Trim overgrown stems",
+                    "Check herbs for pests"
+                ]
+            },
+
+            {
+                title: "Week 3",
+                focus: "Watering",
+                tasks: [
+                    "Water plants according to their needs",
+                    "Check soil before watering",
+                    "Avoid unnecessary overwatering",
+                    "Pay attention to container plants"
+                ]
+            },
+
+            {
+                title: "Week 4",
+                focus: "Garden Maintenance",
+                tasks: [
+                    "Remove weeds regularly",
+                    "Remove dead leaves",
+                    "Inspect plants for pests",
+                    "Clean garden tools"
+                ]
+            }
+
         ]
     },
 
+
     December: {
-        description: "End the year by maintaining your garden and planning for the next gardening season.",
-        tasks: [
-            "Clean garden tools",
-            "Remove dead leaves",
-            "Protect sensitive plants from cold",
-            "Plan next year's garden"
+        description:
+            "End the year by maintaining your garden, protecting sensitive plants and planning for the next season.",
+
+        weeks: [
+
+            {
+                title: "Week 1",
+                focus: "Garden Cleaning",
+                tasks: [
+                    "Remove dead leaves",
+                    "Clean garden beds",
+                    "Remove unhealthy plant material",
+                    "Clean gardening tools"
+                ]
+            },
+
+            {
+                title: "Week 2",
+                focus: "Cold Protection",
+                tasks: [
+                    "Protect sensitive plants from cold",
+                    "Move delicate containers if necessary",
+                    "Check plants for cold stress",
+                    "Avoid unnecessary watering"
+                ]
+            },
+
+            {
+                title: "Week 3",
+                focus: "Plant Maintenance",
+                tasks: [
+                    "Check winter plants",
+                    "Remove damaged leaves",
+                    "Inspect plants for pests",
+                    "Maintain suitable soil moisture"
+                ]
+            },
+
+            {
+                title: "Week 4",
+                focus: "Plan Next Year",
+                tasks: [
+                    "Review your gardening activities",
+                    "Make a list of successful plants",
+                    "Plan next year's garden",
+                    "Prepare a list of seeds and supplies"
+                ]
+            }
+
         ]
     }
 
@@ -147,17 +675,19 @@ const gardenTasks =
 
 
 /* =========================================
-   COMPLETED MONTHLY TASKS
+   COMPLETED WEEKLY TASKS
 ========================================= */
 
 let completedTasks =
     JSON.parse(
-        localStorage.getItem("completedGardenTasks")
+        localStorage.getItem(
+            "completedGardenTasks"
+        )
     ) || {};
 
 
 /* =========================================
-   DISPLAY MONTH
+   DISPLAY MONTH / WEEKLY ACCORDION
 ========================================= */
 
 function displayMonth(month) {
@@ -168,25 +698,49 @@ function displayMonth(month) {
         return;
     }
 
-    calendarMonth.textContent = month;
+
+    calendarMonth.textContent =
+        month;
 
     calendarDescription.textContent =
         data.description;
 
     gardenTasks.innerHTML = "";
 
-    const completed =
-        completedTasks[month]
-            ? completedTasks[month].length
-            : 0;
 
-    const total = data.tasks.length;
+    /* =====================================
+       COUNT ALL TASKS
+    ====================================== */
+
+    let totalTasks = 0;
+
+    data.weeks.forEach(week => {
+
+        totalTasks +=
+            week.tasks.length;
+
+    });
+
+
+    const completedMonthTasks =
+        completedTasks[month] || [];
+
+
+    const completed =
+        completedMonthTasks.length;
+
 
     const percentage =
-        Math.round((completed / total) * 100);
+        totalTasks === 0
+            ? 0
+            : Math.round(
+                (completed / totalTasks) * 100
+            );
 
 
-    /* PROGRESS */
+    /* =====================================
+       PROGRESS
+    ====================================== */
 
     const progressBox =
         document.createElement("div");
@@ -195,104 +749,286 @@ function displayMonth(month) {
         "garden-progress";
 
     progressBox.innerHTML = `
+
         <div class="progress-info">
-            <span>Gardening Progress</span>
+
+            <span>
+                Gardening Progress
+            </span>
 
             <strong>
-                ${completed} of ${total} completed
+                ${completed} of ${totalTasks} completed
             </strong>
+
         </div>
 
         <div class="progress-bar">
+
             <div
                 class="progress-fill"
                 style="width: ${percentage}%"
             ></div>
+
         </div>
+
     `;
 
-    gardenTasks.appendChild(progressBox);
+    gardenTasks.appendChild(
+        progressBox
+    );
 
 
-    /* MONTHLY TASKS */
+    /* =====================================
+       WEEKLY ACCORDION
+    ====================================== */
 
-    data.tasks.forEach((task, index) => {
+    let globalTaskIndex = 0;
 
-        const taskItem =
-            document.createElement("div");
 
-        taskItem.className =
-            "garden-task";
+    data.weeks.forEach(
+        (week, weekIndex) => {
 
-        const isCompleted =
-            completedTasks[month] &&
-            completedTasks[month].includes(index);
+            const weekBox =
+                document.createElement("div");
 
-        if (isCompleted) {
-            taskItem.classList.add("completed");
-        }
+            weekBox.className =
+                "weekly-garden-week";
 
-        taskItem.innerHTML = `
-            <button
-                class="garden-task-check"
-                type="button"
-            >
-                <i class="bi ${
-                    isCompleted
-                        ? "bi-check-circle-fill"
-                        : "bi-circle"
-                }"></i>
-            </button>
 
-            <span>${task}</span>
-        `;
+            /* ---------------------------------
+               OPEN FIRST WEEK BY DEFAULT
+            --------------------------------- */
 
-        const checkButton =
-            taskItem.querySelector(
-                ".garden-task-check"
+            if (weekIndex === 0) {
+
+                weekBox.classList.add(
+                    "open"
+                );
+
+            }
+
+
+            /* ---------------------------------
+               WEEK HEADER
+            --------------------------------- */
+
+            const weekHeader =
+                document.createElement("button");
+
+            weekHeader.type =
+                "button";
+
+            weekHeader.className =
+                "weekly-garden-week-header";
+
+            weekHeader.innerHTML = `
+
+                <div class="weekly-garden-week-icon">
+
+                    <i class="bi bi-calendar-week"></i>
+
+                </div>
+
+
+                <div class="weekly-garden-week-info">
+
+                    <h3 class="weekly-garden-week-title">
+                        ${week.title}
+                    </h3>
+
+                    <p class="weekly-garden-week-subtitle">
+                        ${week.focus}
+                    </p>
+
+                </div>
+
+
+                <div class="weekly-garden-week-arrow">
+
+                    <i class="bi bi-chevron-down"></i>
+
+                </div>
+
+            `;
+
+
+            /* ---------------------------------
+               WEEK CONTENT
+            --------------------------------- */
+
+            const weekContent =
+                document.createElement("div");
+
+            weekContent.className =
+                "weekly-garden-week-content";
+
+
+            week.tasks.forEach(
+                task => {
+
+                    const taskIndex =
+                        globalTaskIndex;
+
+
+                    const isCompleted =
+                        completedMonthTasks.includes(
+                            taskIndex
+                        );
+
+
+                    const taskItem =
+                        document.createElement("div");
+
+
+                    taskItem.className =
+                        "garden-task";
+
+
+                    if (isCompleted) {
+
+                        taskItem.classList.add(
+                            "completed"
+                        );
+
+                    }
+
+
+                    taskItem.innerHTML = `
+
+                        <button
+                            class="garden-task-check"
+                            type="button"
+                            aria-label="Mark task complete"
+                        >
+
+                            <i class="bi ${
+                                isCompleted
+                                    ? "bi-check-circle-fill"
+                                    : "bi-circle"
+                            }"></i>
+
+                        </button>
+
+
+                        <span>
+                            ${task}
+                        </span>
+
+                    `;
+
+
+                    const checkButton =
+                        taskItem.querySelector(
+                            ".garden-task-check"
+                        );
+
+
+                    checkButton.addEventListener(
+                        "click",
+                        event => {
+
+                            event.stopPropagation();
+
+                            toggleTask(
+                                month,
+                                taskIndex
+                            );
+
+                        }
+                    );
+
+
+                    weekContent.appendChild(
+                        taskItem
+                    );
+
+
+                    globalTaskIndex++;
+
+                }
             );
 
-        checkButton.addEventListener(
-            "click",
-            () => {
-                toggleTask(month, index);
-            }
-        );
 
-        gardenTasks.appendChild(taskItem);
+            weekBox.appendChild(
+                weekHeader
+            );
 
-    });
+            weekBox.appendChild(
+                weekContent
+            );
+
+
+            /* ---------------------------------
+               ACCORDION CLICK
+            --------------------------------- */
+
+            weekHeader.addEventListener(
+                "click",
+                () => {
+
+                    weekBox.classList.toggle(
+                        "open"
+                    );
+
+                }
+            );
+
+
+            gardenTasks.appendChild(
+                weekBox
+            );
+
+        }
+    );
 
 }
 
 
 /* =========================================
-   TOGGLE MONTHLY TASK
+   TOGGLE WEEKLY TASK
 ========================================= */
 
-function toggleTask(month, index) {
+function toggleTask(
+    month,
+    index
+) {
 
     if (!completedTasks[month]) {
+
         completedTasks[month] = [];
+
     }
 
+
     const position =
-        completedTasks[month].indexOf(index);
+        completedTasks[month].indexOf(
+            index
+        );
+
 
     if (position === -1) {
 
-        completedTasks[month].push(index);
+        completedTasks[month].push(
+            index
+        );
 
     } else {
 
-        completedTasks[month].splice(position, 1);
+        completedTasks[month].splice(
+            position,
+            1
+        );
 
     }
 
+
     localStorage.setItem(
         "completedGardenTasks",
-        JSON.stringify(completedTasks)
+        JSON.stringify(
+            completedTasks
+        )
     );
+
 
     displayMonth(month);
 
@@ -303,32 +1039,39 @@ function toggleTask(month, index) {
    MONTH BUTTONS
 ========================================= */
 
-monthButtons.forEach(button => {
+monthButtons.forEach(
+    button => {
 
-    button.addEventListener(
-        "click",
-        () => {
+        button.addEventListener(
+            "click",
+            () => {
 
-            monthButtons.forEach(
-                monthButton => {
 
-                    monthButton.classList.remove(
-                        "active"
-                    );
+                monthButtons.forEach(
+                    monthButton => {
 
-                }
-            );
+                        monthButton.classList.remove(
+                            "active"
+                        );
 
-            button.classList.add("active");
+                    }
+                );
 
-            displayMonth(
-                button.dataset.month
-            );
 
-        }
-    );
+                button.classList.add(
+                    "active"
+                );
 
-});
+
+                displayMonth(
+                    button.dataset.month
+                );
+
+            }
+        );
+
+    }
+);
 
 
 /* =========================================
@@ -336,273 +1079,442 @@ monthButtons.forEach(button => {
 ========================================= */
 
 const personalTaskInput =
-    document.getElementById("personalTaskInput");
+    document.getElementById(
+        "personalTaskInput"
+    );
 
 const personalTaskDate =
-    document.getElementById("personalTaskDate");
+    document.getElementById(
+        "personalTaskDate"
+    );
 
 const personalTaskTime =
-    document.getElementById("personalTaskTime");
+    document.getElementById(
+        "personalTaskTime"
+    );
 
 const addPersonalTask =
-    document.getElementById("addPersonalTask");
+    document.getElementById(
+        "addPersonalTask"
+    );
 
 const personalTasks =
-    document.getElementById("personalTasks");
+    document.getElementById(
+        "personalTasks"
+    );
 
-    console.log("Task Input:", personalTaskInput);
-console.log("Task Date:", personalTaskDate);
-console.log("Task Time:", personalTaskTime);
-console.log("Add Button:", addPersonalTask);
-console.log("Task Container:", personalTasks);
 
-const currentUser = JSON.parse(localStorage.getItem("user"));
-const userTaskKey = currentUser
-    ? `gardenPersonalTasks_${currentUser._id || currentUser.id || currentUser.email}`
-    : "gardenPersonalTasks";
+/* =========================================
+   USER-SPECIFIC PERSONAL TASKS
+========================================= */
+
+const currentUser =
+    JSON.parse(
+        localStorage.getItem("user")
+    );
+
+
+const userTaskKey =
+    currentUser
+        ? `gardenPersonalTasks_${
+            currentUser._id ||
+            currentUser.id ||
+            currentUser.email
+        }`
+        : "gardenPersonalTasks";
+
 
 let savedTasks =
-    JSON.parse(localStorage.getItem(userTaskKey)) || [];
+    JSON.parse(
+        localStorage.getItem(
+            userTaskKey
+        )
+    ) || [];
 
 
-// Convert old tasks into the new format
-savedTasks = savedTasks.map(task => {
+/* =========================================
+   CONVERT OLD TASK FORMAT
+========================================= */
 
-    if (typeof task === "string") {
-        return {
-            task: task,
-            date: "",
-            time: ""
-        };
-    }
+savedTasks =
+    savedTasks.map(
+        task => {
 
-    return task;
-});
+            if (
+                typeof task === "string"
+            ) {
+
+                return {
+                    task: task,
+                    date: "",
+                    time: ""
+                };
+
+            }
+
+            return task;
+
+        }
+    );
 
 
-// Display personal tasks
+/* =========================================
+   DISPLAY PERSONAL TASKS
+========================================= */
+
 function displayPersonalTasks() {
 
     personalTasks.innerHTML = "";
 
-    savedTasks.forEach((task, index) => {
 
-        const taskItem = document.createElement("div");
+    savedTasks.forEach(
+        (task, index) => {
 
-        taskItem.className = "personal-task";
-
-        let scheduleText = "";
-
-        if (task.date && task.time) {
-
-            scheduleText = `
-                <small>
-                    <i class="bi bi-calendar-event"></i>
-                    ${task.date} at ${task.time}
-                </small>
-            `;
-
-        } else {
-
-            scheduleText = `
-                <small>
-                    No reminder scheduled
-                </small>
-            `;
-        }
+            const taskItem =
+                document.createElement(
+                    "div"
+                );
 
 
-        taskItem.innerHTML = `
+            taskItem.className =
+                "personal-task";
 
-            <div class="personal-task-content">
 
-                <i class="bi bi-check-circle"></i>
+            let scheduleText = "";
 
-                <div>
 
-                    <span>${task.task}</span>
+            if (
+                task.date &&
+                task.time
+            ) {
 
-                    ${scheduleText}
+                scheduleText = `
+
+                    <small>
+
+                        <i class="bi bi-calendar-event"></i>
+
+                        ${task.date}
+                        at
+                        ${task.time}
+
+                    </small>
+
+                `;
+
+            } else {
+
+                scheduleText = `
+
+                    <small>
+                        No reminder scheduled
+                    </small>
+
+                `;
+
+            }
+
+
+            taskItem.innerHTML = `
+
+                <div class="personal-task-content">
+
+                    <i class="bi bi-check-circle"></i>
+
+                    <div>
+
+                        <span>
+                            ${task.task}
+                        </span>
+
+                        ${scheduleText}
+
+                    </div>
 
                 </div>
 
-            </div>
+
+                <button
+                    class="delete-personal-task"
+                    data-index="${index}"
+                    title="Delete task"
+                    type="button"
+                >
+
+                    <i class="bi bi-trash"></i>
+
+                </button>
+
+            `;
 
 
-            <button
-                class="delete-personal-task"
-                data-index="${index}"
-                title="Delete task"
-            >
+            personalTasks.appendChild(
+                taskItem
+            );
 
-                <i class="bi bi-trash"></i>
+        }
+    );
 
-            </button>
-
-        `;
-
-
-        personalTasks.appendChild(taskItem);
-
-    });
 }
 
 
+/* =========================================
+   ADD PERSONAL TASK
+========================================= */
 
-// Add a new personal task
+addPersonalTask.addEventListener(
+    "click",
+    async () => {
 
-// Add a new personal task
-addPersonalTask.addEventListener("click", async () => {
+        const task =
+            personalTaskInput.value.trim();
 
-    const task = personalTaskInput.value.trim();
-    const date = personalTaskDate.value;
-    const time = personalTaskTime.value;
+        const date =
+            personalTaskDate.value;
 
-    if (task === "") {
-        alert("Please enter a task.");
-        return;
-    }
-
-    if (date === "") {
-        alert("Please select a date.");
-        return;
-    }
-
-    if (time === "") {
-        alert("Please select a time.");
-        return;
-    }
+        const time =
+            personalTaskTime.value;
 
 
-    // Check if user is logged in
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-        alert("Please login before scheduling a reminder.");
-        window.location.href = "login.html";
-        return;
-    }
-
-
-    // Save reminder to backend
-    try {
-
-        const response = await fetch(
-            "https://botanical-bliss-52ra.onrender.com/api/garden-reminders",
-            {
-                method: "POST",
-
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                },
-
-                body: JSON.stringify({
-                    task: task,
-                    date: date,
-                    time: time
-                })
-            }
-        );
-
-
-        const data = await response.json();
-
-
-        if (!response.ok) {
+        if (task === "") {
 
             alert(
-                data.message ||
-                "Failed to schedule gardening reminder."
+                "Please enter a task."
             );
 
+            return;
+
+        }
+
+
+        if (date === "") {
+
+            alert(
+                "Please select a date."
+            );
+
+            return;
+
+        }
+
+
+        if (time === "") {
+
+            alert(
+                "Please select a time."
+            );
+
+            return;
+
+        }
+
+
+        /* =================================
+           LOGIN CHECK
+        ================================== */
+
+        const token =
+            localStorage.getItem(
+                "token"
+            );
+
+
+        if (!token) {
+
+            alert(
+                "Please login before scheduling a reminder."
+            );
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        /* =================================
+           SAVE REMINDER TO BACKEND
+        ================================== */
+
+        try {
+
+            const response =
+                await fetch(
+                    "https://botanical-bliss-52ra.onrender.com/api/garden-reminders",
+                    {
+                        method: "POST",
+
+                        headers: {
+
+                            "Content-Type":
+                                "application/json",
+
+                            "Authorization":
+                                `Bearer ${token}`
+
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                task: task,
+                                date: date,
+                                time: time
+
+                            })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (!response.ok) {
+
+                alert(
+                    data.message ||
+                    "Failed to schedule gardening reminder."
+                );
+
+                return;
+
+            }
+
+
+            /* =============================
+               SAVE LOCALLY
+            ============================== */
+
+            const newTask = {
+
+                task: task,
+                date: date,
+                time: time
+
+            };
+
+
+            savedTasks.push(
+                newTask
+            );
+
+
+            localStorage.setItem(
+                userTaskKey,
+                JSON.stringify(
+                    savedTasks
+                )
+            );
+
+
+            /* =============================
+               CLEAR INPUTS
+            ============================== */
+
+            personalTaskInput.value =
+                "";
+
+            personalTaskDate.value =
+                "";
+
+            personalTaskTime.value =
+                "";
+
+
+            displayPersonalTasks();
+
+
+            alert(
+                "Gardening task scheduled successfully!\n" +
+                "You will receive an email reminder at the scheduled time."
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Reminder scheduling error:",
+                error
+            );
+
+
+            alert(
+                "Unable to connect to the server. " +
+                "Please make sure Botanical Bliss server is running."
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   ENTER KEY
+========================================= */
+
+personalTaskInput.addEventListener(
+    "keypress",
+    event => {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            addPersonalTask.click();
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   DELETE PERSONAL TASK
+========================================= */
+
+personalTasks.addEventListener(
+    "click",
+    event => {
+
+        const deleteButton =
+            event.target.closest(
+                ".delete-personal-task"
+            );
+
+
+        if (!deleteButton) {
             return;
         }
 
 
-        // Save locally for displaying in Garden Calendar
-        const newTask = {
-            task: task,
-            date: date,
-            time: time
-        };
+        const index =
+            Number(
+                deleteButton.dataset.index
+            );
 
-        savedTasks.push(newTask);
+
+        savedTasks.splice(
+            index,
+            1
+        );
+
 
         localStorage.setItem(
-    userTaskKey,
-    JSON.stringify(savedTasks)
-);
-
-
-        // Clear inputs
-        personalTaskInput.value = "";
-        personalTaskDate.value = "";
-        personalTaskTime.value = "";
+            userTaskKey,
+            JSON.stringify(
+                savedTasks
+            )
+        );
 
 
         displayPersonalTasks();
 
-
-        alert(
-            "Gardening task scheduled successfully! 🌱\n" +
-            "You will receive an email reminder at the scheduled time."
-        );
-
-
-    } catch (error) {
-
-        console.error(
-            "Reminder scheduling error:",
-            error
-        );
-
-        alert(
-            "Unable to connect to the server. " +
-            "Please make sure Botanical Bliss server is running."
-        );
-
     }
-
-});
-
-// Press Enter to add task
-personalTaskInput.addEventListener("keypress", event => {
-
-    if (event.key === "Enter") {
-
-        addPersonalTask.click();
-
-    }
-
-});
-
-
-// Delete personal task
-personalTasks.addEventListener("click", event => {
-
-    const deleteButton =
-        event.target.closest(".delete-personal-task");
-
-
-    if (!deleteButton) return;
-
-
-    const index =
-        Number(deleteButton.dataset.index);
-
-
-    savedTasks.splice(index, 1);
-
-
-    localStorage.setItem(
-    userTaskKey,
-    JSON.stringify(savedTasks)
 );
-
-    displayPersonalTasks();
-
-});
 
 
 /* =========================================
@@ -634,30 +1546,53 @@ const plantCount =
         "plantCount"
     );
 
+
+/* =========================================
+   USER-SPECIFIC GARDEN
+========================================= */
+
+const gardenUserKey =
+    currentUser
+        ? `myGardenPlants_${
+            currentUser._id ||
+            currentUser.id ||
+            currentUser.email
+        }`
+        : "myGardenPlants";
+
+
 let myGarden =
     JSON.parse(
         localStorage.getItem(
-            "myGardenPlants"
+            gardenUserKey
         )
     ) || [];
 
-    
-// Remove duplicate plants from existing saved data
-myGarden = myGarden.filter(
-    (plant, index, self) =>
-        index ===
-        self.findIndex(
-            p =>
-                p.name.toLowerCase() ===
-                plant.name.toLowerCase()
-        )
+
+/* =========================================
+   REMOVE DUPLICATE PLANTS
+========================================= */
+
+myGarden =
+    myGarden.filter(
+        (plant, index, self) =>
+
+            index ===
+            self.findIndex(
+                p =>
+                    p.name.toLowerCase() ===
+                    plant.name.toLowerCase()
+            )
+    );
+
+
+localStorage.setItem(
+    gardenUserKey,
+    JSON.stringify(
+        myGarden
+    )
 );
 
-// Save cleaned garden data
-localStorage.setItem(
-    userTaskKey,
-    JSON.stringify(savedTasks)
-);
 
 /* =========================================
    PERSONALIZED CARE DATA
@@ -725,6 +1660,7 @@ function displayMyGarden() {
 
     myGardenPlants.innerHTML = "";
 
+
     plantCount.textContent =
         `${myGarden.length} ${
             myGarden.length === 1
@@ -733,25 +1669,33 @@ function displayMyGarden() {
         }`;
 
 
-    if (myGarden.length === 0) {
+    if (
+        myGarden.length === 0
+    ) {
 
         myGardenPlants.innerHTML = `
+
             <div class="empty-garden">
 
                 <i class="bi bi-flower1"></i>
 
-                <p>Your garden is empty.</p>
+                <p>
+                    Your garden is empty.
+                </p>
 
                 <span>
                     Add your first plant above.
                 </span>
 
             </div>
+
         `;
+
 
         displayPlantCare();
 
         return;
+
     }
 
 
@@ -759,19 +1703,27 @@ function displayMyGarden() {
         (plant, index) => {
 
             const plantCard =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
+
 
             plantCard.className =
                 "garden-plant-card";
 
+
             plantCard.innerHTML = `
+
                 <div class="plant-icon">
                     <i class="bi bi-flower1"></i>
                 </div>
 
+
                 <div class="plant-info">
 
-                    <h4>${plant.name}</h4>
+                    <h4>
+                        ${plant.name}
+                    </h4>
 
                     <span>
                         ${plant.type}
@@ -779,14 +1731,20 @@ function displayMyGarden() {
 
                 </div>
 
+
                 <button
                     class="remove-plant"
                     data-index="${index}"
                     title="Remove plant"
+                    type="button"
                 >
+
                     <i class="bi bi-trash3"></i>
+
                 </button>
+
             `;
+
 
             myGardenPlants.appendChild(
                 plantCard
@@ -813,50 +1771,76 @@ function addPlant() {
     const type =
         plantTypeInput.value;
 
+
     if (name === "") {
+
         alert(
             "Please enter a plant name."
         );
+
         return;
+
     }
 
+
     if (type === "") {
+
         alert(
             "Please select a plant type."
         );
+
         return;
+
     }
 
-    // Check if the plant already exists
-    const alreadyExists = myGarden.some(
-        plant =>
-            plant.name.toLowerCase() ===
-            name.toLowerCase()
-    );
+
+    const alreadyExists =
+        myGarden.some(
+            plant =>
+                plant.name.toLowerCase() ===
+                name.toLowerCase()
+        );
+
 
     if (alreadyExists) {
+
         alert(
             "This plant is already in your garden."
         );
+
         return;
+
     }
 
-    // Add new plant
+
     myGarden.push({
+
         name: name,
         type: type
+
     });
 
+
     localStorage.setItem(
-        "myGardenPlants",
-        JSON.stringify(myGarden)
+        gardenUserKey,
+        JSON.stringify(
+            myGarden
+        )
     );
 
-    plantNameInput.value = "";
-    plantTypeInput.value = "";
+
+    plantNameInput.value =
+        "";
+
+    plantTypeInput.value =
+        "";
+
 
     displayMyGarden();
+
 }
+
+
 addPlantButton.addEventListener(
     "click",
     addPlant
@@ -867,8 +1851,12 @@ plantNameInput.addEventListener(
     "keypress",
     event => {
 
-        if (event.key === "Enter") {
+        if (
+            event.key === "Enter"
+        ) {
+
             addPlant();
+
         }
 
     }
@@ -888,6 +1876,7 @@ myGardenPlants.addEventListener(
                 ".remove-plant"
             );
 
+
         if (!removeButton) {
             return;
         }
@@ -906,8 +1895,10 @@ myGardenPlants.addEventListener(
 
 
         localStorage.setItem(
-            "myGardenPlants",
-            JSON.stringify(myGarden)
+            gardenUserKey,
+            JSON.stringify(
+                myGarden
+            )
         );
 
 
@@ -916,121 +1907,190 @@ myGardenPlants.addEventListener(
     }
 );
 
+
+/* =========================================
+   DISPLAY PERSONALIZED CARE
+========================================= */
+
 function displayPlantCare() {
 
-    const calendarSection = document.querySelector(
-        ".garden-calendar-section"
-    );
+    const calendarSection =
+        document.querySelector(
+            ".garden-calendar-section"
+        );
+
 
     if (!calendarSection) {
-        console.log("Garden calendar section not found.");
         return;
     }
 
-    // Remove old care section
-    const oldSection = document.getElementById(
-        "personalizedCareSection"
-    );
+
+    const oldSection =
+        document.getElementById(
+            "personalizedCareSection"
+        );
+
 
     if (oldSection) {
         oldSection.remove();
     }
 
-    // No plants = nothing to show
-    if (myGarden.length === 0) {
-        console.log("No plants in My Garden.");
+
+    if (
+        myGarden.length === 0
+    ) {
         return;
     }
 
-    console.log("Creating Care For Your Garden section...");
 
-    const section = document.createElement("div");
+    const section =
+        document.createElement(
+            "div"
+        );
 
-    section.id = "personalizedCareSection";
-    section.className = "personalized-care-section";
+
+    section.id =
+        "personalizedCareSection";
+
+
+    section.className =
+        "personalized-care-section";
+
 
     section.innerHTML = `
+
         <div class="personalized-care-header">
+
             <div>
-                <h3>Care For Your Garden</h3>
+
+                <h3>
+                    Care For Your Garden
+                </h3>
+
                 <p>
                     Personalized care suggestions
                     based on the plants you're growing.
                 </p>
+
             </div>
 
             <i class="bi bi-heart"></i>
+
         </div>
 
+
         <div class="plant-care-list"></div>
+
     `;
 
-    const careList = section.querySelector(
-        ".plant-care-list"
+
+    const careList =
+        section.querySelector(
+            ".plant-care-list"
+        );
+
+
+    myGarden.forEach(
+        (plant, plantIndex) => {
+
+            const tasks =
+                plantCareData[
+                    plant.name
+                ] ||
+                plantCareData.default;
+
+
+            const plantBox =
+                document.createElement(
+                    "div"
+                );
+
+
+            plantBox.className =
+                "plant-care-box";
+
+
+            plantBox.innerHTML = `
+
+                <div class="plant-care-title">
+
+                    <div class="plant-care-icon">
+
+                        <i class="bi bi-flower1"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h4>
+                            ${plant.name}
+                        </h4>
+
+                        <span>
+                            ${plant.type}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="care-tasks">
+
+                    ${tasks.map(
+                        (task, taskIndex) => `
+
+                            <label class="care-task">
+
+                                <input
+                                    type="checkbox"
+                                    class="care-checkbox"
+                                    data-plant="${plantIndex}"
+                                    data-task="${taskIndex}"
+                                >
+
+                                <span>
+                                    ${task}
+                                </span>
+
+                            </label>
+
+                        `
+                    ).join("")}
+
+                </div>
+
+            `;
+
+
+            careList.appendChild(
+                plantBox
+            );
+
+        }
     );
 
-    myGarden.forEach((plant, plantIndex) => {
 
-        const tasks =
-            plantCareData[plant.name] ||
-            plantCareData.default;
+    const myGardenSection =
+        document.querySelector(
+            ".my-garden-section"
+        );
 
-        const plantBox =
-            document.createElement("div");
 
-        plantBox.className =
-            "plant-care-box";
+    if (myGardenSection) {
 
-        plantBox.innerHTML = `
-            <div class="plant-care-title">
+        myGardenSection.after(
+            section
+        );
 
-                <div class="plant-care-icon">
-                    <i class="bi bi-flower1"></i>
-                </div>
+    }
 
-                <div>
-                    <h4>${plant.name}</h4>
-                    <span>${plant.type}</span>
-                </div>
-
-            </div>
-
-            <div class="care-tasks">
-
-                ${tasks.map((task, taskIndex) => `
-                    <label class="care-task">
-
-                        <input
-                            type="checkbox"
-                            class="care-checkbox"
-                            data-plant="${plantIndex}"
-                            data-task="${taskIndex}"
-                        >
-
-                        <span>${task}</span>
-
-                    </label>
-                `).join("")}
-
-            </div>
-        `;
-
-        careList.appendChild(plantBox);
-    });
-
-    // Put Care For Your Garden AFTER My Garden
-   const myGardenSection = document.querySelector(".my-garden-section");
-
-if (myGardenSection) {
-    myGardenSection.after(section);
-}
 
     restoreCareTasks();
 
-    console.log(
-        "Care For Your Garden added successfully."
-    );
 }
+
 
 /* =========================================
    SAVE CARE TASKS
@@ -1115,79 +2175,162 @@ function restoreCareTasks() {
 
 
 /* =========================================
-   INITIAL DISPLAY
+   GARDEN TASK REMINDER SYSTEM
 ========================================= */
-
-
-displayPersonalTasks();
-
-displayMyGarden();
-
-// ===============================
-// GARDEN TASK REMINDER SYSTEM
-// ===============================
 
 function checkGardenReminders() {
 
-    const now = new Date();
+    const now =
+        new Date();
 
-    savedTasks.forEach(task => {
 
-        if (!task.date || !task.time || task.reminded) {
-            return;
-        }
+    let reminderShown = false;
 
-        const taskDateTime =
-            new Date(`${task.date}T${task.time}`);
 
-        if (now >= taskDateTime) {
+    savedTasks.forEach(
+        task => {
 
-            const reminderBox =
-                document.getElementById("gardenReminder");
+            if (
+                !task.date ||
+                !task.time ||
+                task.reminded ||
+                reminderShown
+            ) {
+                return;
+            }
 
-            const reminderText =
-                document.getElementById("gardenReminderText");
 
-            if (reminderBox && reminderText) {
+            const taskDateTime =
+                new Date(
+                    `${task.date}T${task.time}`
+                );
 
-                reminderText.textContent =
-                    `It's time to: ${task.task}`;
 
-                reminderBox.classList.add("show");
+            if (
+                now >= taskDateTime
+            ) {
+
+                const reminderBox =
+                    document.getElementById(
+                        "gardenReminder"
+                    );
+
+
+                const reminderText =
+                    document.getElementById(
+                        "gardenReminderText"
+                    );
+
+
+                if (
+                    reminderBox &&
+                    reminderText
+                ) {
+
+                    reminderText.textContent =
+                        `It's time to: ${task.task}`;
+
+
+                    reminderBox.classList.add(
+                        "show"
+                    );
+
+                }
+
+
+                const taskIndex =
+                    savedTasks.indexOf(
+                        task
+                    );
+
+
+                if (
+                    taskIndex !== -1
+                ) {
+
+                    savedTasks.splice(
+                        taskIndex,
+                        1
+                    );
+
+                }
+
+
+                reminderShown = true;
 
             }
 
-            const taskIndex =
-    savedTasks.indexOf(task);
+        }
+    );
 
-if (taskIndex !== -1) {
 
-    savedTasks.splice(taskIndex, 1);
+    localStorage.setItem(
+        userTaskKey,
+        JSON.stringify(
+            savedTasks
+        )
+    );
+
 
     displayPersonalTasks();
 
 }
 
-        }
 
-    });
-
-    localStorage.setItem(
-        "gardenPersonalTasks",
-        JSON.stringify(savedTasks)
-    );
-}
+/* =========================================
+   CLOSE REMINDER
+========================================= */
 
 const closeGardenReminder =
-    document.getElementById("closeGardenReminder");
+    document.getElementById(
+        "closeGardenReminder"
+    );
 
-closeGardenReminder.addEventListener("click", () => {
 
-    const reminderBox =
-        document.getElementById("gardenReminder");
+if (closeGardenReminder) {
 
-    reminderBox.classList.remove("show");
+    closeGardenReminder.addEventListener(
+        "click",
+        () => {
 
-});
+            const reminderBox =
+                document.getElementById(
+                    "gardenReminder"
+                );
 
-setInterval(checkGardenReminders, 10000);
+
+            if (reminderBox) {
+
+                reminderBox.classList.remove(
+                    "show"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   CHECK REMINDERS
+========================================= */
+
+setInterval(
+    checkGardenReminders,
+    10000
+);
+
+
+/* =========================================
+   INITIAL DISPLAY
+========================================= */
+
+displayMonth(
+    "January"
+);
+
+displayPersonalTasks();
+
+displayMyGarden();

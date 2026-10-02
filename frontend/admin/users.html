@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Users | Botanical Bliss</title>
+
+    <!-- Bootstrap Icons -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Admin CSS -->
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="admin-sidebar">
+
+        <div class="sidebar-brand">
+
+            <a href="admin.html">
+
+                <i class="bi bi-flower1"></i>
+
+                <span>
+                    Botanical Bliss
+                </span>
+
+            </a>
+
+            <p>
+                Admin Panel
+            </p>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="admin.html">
+
+                <i class="bi bi-grid-1x2"></i>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a href="#">
+
+                <i class="bi bi-box-seam"></i>
+
+                <span>
+                    Products
+                </span>
+
+            </a>
+
+
+            <a href="orders.html">
+
+                <i class="bi bi-receipt"></i>
+
+                <span>
+                    Orders
+                </span>
+
+            </a>
+
+
+            <a
+                href="users.html"
+                class="active"
+            >
+
+                <i class="bi bi-people"></i>
+
+                <span>
+                    Users
+                </span>
+
+            </a>
+
+
+            <a href="garden-gallery-admin.html">
+
+                <i class="bi bi-images"></i>
+
+                <span>
+                    Garden Gallery
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="../home.html"
+                class="visit-website"
+            >
+
+                <i class="bi bi-box-arrow-up-right"></i>
+
+                <span>
+                    Visit Website
+                </span>
+
+            </a>
+
+
+            <button
+                id="adminLogout"
+                class="logout-btn"
+            >
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                <span>
+                    Logout
+                </span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="admin-main">
+
+
+        <!-- HEADER -->
+
+        <header class="admin-header">
+
+            <div>
+
+                <p class="header-label">
+                    STORE MANAGEMENT
+                </p>
+
+                <h1>
+                    Users
+                </h1>
+
+            </div>
+
+
+            <div class="admin-profile">
+
+                <div class="profile-icon">
+
+                    <i class="bi bi-person"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        Administrator
+                    </strong>
+
+                    <span>
+                        Store Admin
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- USERS SECTION -->
+
+        <section class="admin-section">
+
+<div class="section-heading">
+
+    <div>
+
+        <p>
+            CUSTOMER MANAGEMENT
+        </p>
+
+        <h2>
+            Registered Users
+        </h2>
+
+    </div>
+
+
+    <div class="users-summary">
+
+        <div class="users-count-box">
+
+            <span>
+                Total Users
+            </span>
+
+            <strong id="usersCount">
+                0
+            </strong>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="refreshUsersBtn"
+            class="refresh-orders-btn"
+            title="Refresh users"
+        >
+
+            <i class="bi bi-arrow-clockwise"></i>
+
+            Refresh
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="users-toolbar">
+
+    <div class="users-search">
+
+        <i class="bi bi-search"></i>
+
+        <input
+            type="text"
+            id="userSearchInput"
+            placeholder="Search by name or email..."
+            autocomplete="off"
+        >
+
+    </div>
+
+
+    <div class="users-filter">
+
+        <i class="bi bi-funnel"></i>
+
+        <select id="userRoleFilter">
+
+            <option value="all">
+                All Roles
+            </option>
+
+            <option value="user">
+                Users
+            </option>
+
+            <option value="admin">
+                Administrators
+            </option>
+
+        </select>
+
+    </div>
+
+</div>
+
+            <div class="orders-table-wrapper">
+
+                <table class="orders-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Name
+                            </th>
+
+                            <th>
+                                Email
+                            </th>
+
+                            <th>
+                                Role
+                            </th>
+<th>
+    Registered
+</th>
+
+<th>
+    Action
+</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="usersBody">
+
+                        <tr>
+
+                            <td
+                                colspan="5"
+                                class="orders-loading"
+                            >
+                                Loading users...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+<!-- USER DETAILS MODAL -->
+
+<div
+    id="userModal"
+    class="user-modal"
+>
+
+    <div class="user-modal-content">
+
+        <div class="user-modal-header">
+
+            <div>
+
+                <p>
+                    USER DETAILS
+                </p>
+
+                <h2>
+                    Customer Profile
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="closeUserModal"
+                class="close-modal-btn"
+            >
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+        </div>
+
+
+        <div class="user-profile-preview">
+
+            <div
+                id="modalUserAvatar"
+                class="modal-user-avatar"
+            >
+                U
+            </div>
+
+
+            <div>
+
+                <strong id="modalUserName">
+                    User
+                </strong>
+
+                <span id="modalUserRole">
+                    User
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="user-detail-grid">
+
+            <div>
+
+                <span>
+                    Email Address
+                </span>
+
+                <strong id="modalUserEmail">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Registered On
+                </span>
+
+                <strong id="modalUserRegistered">
+                    —
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+    <!-- Users JavaScript -->
+
+    <script src="users.js"></script>
+
+</body>
+
+</html>

@@ -9,7 +9,7 @@ const {
     getAllOrders
 } = require("../controllers/ordercontroller");
 
-const protect = require("../middleware/authMiddleware");
+const { protect } = require("../middleware/authMiddleware");
 
 
 /* ==========================================

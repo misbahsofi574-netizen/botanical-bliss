@@ -1,4 +1,4 @@
-<html>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,99 +8,214 @@
 
     <title>My Orders | Botanical Bliss</title>
 
-    <!-- Bootstrap Icons -->
     <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     >
 
-    <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="shop-page">
 
-    <!-- =========================
-         NAVBAR
-    ========================== -->
+    <!-- =========================================
+         BOTANICAL BLISS SIDEBAR
+    ========================================== -->
 
-    <nav class="home-nav">
+    <button class="bb-mobile-menu" id="bbMobileMenu">
+        <i class="bi bi-list"></i>
+    </button>
 
-        <a href="home.html" class="home-brand">
-            <i class="bi bi-flower1"></i>
-            <span>Botanical Bliss</span>
+    <div class="bb-sidebar-overlay" id="bbSidebarOverlay"></div>
+
+    <aside class="bb-sidebar" id="bbSidebar">
+
+        <!-- BRAND -->
+        <a href="home.html" class="bb-sidebar-brand">
+
+            <div class="bb-brand-icon">
+                <i class="bi bi-flower1"></i>
+            </div>
+
+            <div class="bb-brand-text">
+                <strong>Botanical Bliss</strong>
+                <span>Grow • Care • Bloom</span>
+            </div>
+
         </a>
 
-        <div class="home-nav-links">
 
-            <a href="home.html">Home</a>
+        <!-- USER -->
+        <a href="dashboard.html" class="bb-user-box">
 
-            <a href="shop.html">Shop</a>
-
-            <a href="categories.html">Categories</a>
-
-            <a href="gardening-guide.html">
-                Gardening Guide
-            </a>
-             <a href="garden-gallery.html">Garden Gallery</a>
-            <a href="garden-calendar.html">Garden Calender</a>
-            <a href="seasonal-guide.html">Seasonal Guide</a>
-             <a href="shipping.html">Shipping</a>
-            
-        </div>
-
-        <div class="home-nav-actions">
-
-            
-            
-
-
-            <!-- Wishlist -->
-            <a
-                href="wishlist.html">
-
-                <button
-                    class="nav-icon-button"
-                    title="Wishlist"
-                    type="button"
-                >
-                    <i class="bi bi-heart"></i>
-                </button>
-
-            </a>
-
-
-            <!-- Cart -->
-            <a href="cart.html">
-
-                <button
-                    class="nav-icon-button cart-button"
-                    title="Cart"
-                    type="button"
-                >
-                    <i class="bi bi-bag"></i>
-                    <span id="cartCount">0</span>
-                </button>
-
-            </a>
-
-
-            <!-- Profile -->
-            <a
-                href="dashboard.html"
-                class="profile-button"
-            >
+            <div class="bb-user-avatar">
                 <i class="bi bi-person"></i>
+            </div>
+
+            <div>
+                <strong>My Garden</strong>
+                <span>Open Dashboard</span>
+            </div>
+
+            <i class="bi bi-chevron-right"></i>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+        <nav class="bb-navigation">
+
+            <!-- EXPLORE -->
+            <div class="bb-nav-section">
+
+                <span class="bb-nav-label">
+                    EXPLORE
+                </span>
+
+                <a href="home.html" class="bb-nav-link">
+                    <i class="bi bi-house"></i>
+                    <span>Home</span>
+                </a>
+
+                <a href="shop.html" class="bb-nav-link">
+                    <i class="bi bi-bag"></i>
+                    <span>Shop</span>
+                </a>
+
+                <a href="categories.html" class="bb-nav-link">
+                    <i class="bi bi-grid"></i>
+                    <span>Categories</span>
+                </a>
+
+                <a href="wishlist.html" class="bb-nav-link">
+
+                    <i class="bi bi-heart"></i>
+
+                    <span>Wishlist</span>
+
+                    <small id="bbWishlistCount">0</small>
+
+                </a>
+
+                <a href="cart.html" class="bb-nav-link">
+
+                    <i class="bi bi-bag-check"></i>
+
+                    <span>Cart</span>
+
+                    <small id="bbCartCount">0</small>
+
+                </a>
+
+            </div>
+
+
+            <!-- MY GARDEN -->
+            <div class="bb-nav-section">
+
+                <span class="bb-nav-label">
+                    MY GARDEN
+                </span>
+
+                <a href="garden-calendar.html" class="bb-nav-link">
+
+                    <i class="bi bi-calendar3"></i>
+
+                    <span>Garden Calendar</span>
+
+                </a>
+
+                <a href="gardening-guide.html" class="bb-nav-link">
+
+                    <i class="bi bi-book"></i>
+
+                    <span>Gardening Guide</span>
+
+                </a>
+
+                <a href="seasonal-guide.html" class="bb-nav-link">
+
+                    <i class="bi bi-cloud-sun"></i>
+
+                    <span>Seasonal Guide</span>
+
+                </a>
+
+                <a href="garden-gallery.html" class="bb-nav-link">
+
+                    <i class="bi bi-images"></i>
+
+                    <span>Garden Gallery</span>
+
+                </a>
+
+            </div>
+
+
+            <!-- ACCOUNT -->
+            <div class="bb-nav-section">
+
+                <span class="bb-nav-label">
+                    ACCOUNT
+                </span>
+
+                <a href="orders.html" class="bb-nav-link bb-active">
+
+                    <i class="bi bi-box-seam"></i>
+
+                    <span>My Orders</span>
+
+                </a>
+
+                <a href="dashboard.html" class="bb-nav-link">
+
+                    <i class="bi bi-person-circle"></i>
+
+                    <span>My Profile</span>
+
+                </a>
+
+            </div>
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+        <div class="bb-sidebar-bottom">
+
+            <div class="bb-sidebar-tip">
+
+                <div class="bb-tip-icon">
+                    <i class="bi bi-leaf"></i>
+                </div>
+
+                <div>
+                    <strong>Garden Tip</strong>
+
+                    <span>
+                        Healthy plants need consistent care.
+                    </span>
+                </div>
+
+            </div>
+
+
+            <a href="shop.html" class="bb-explore-button">
+
+                <i class="bi bi-flower2"></i>
+
+                Explore Products
+
             </a>
 
         </div>
 
-    </nav>
+    </aside>
 
 
-    <!-- =========================
+    <!-- =========================================
          ORDERS HEADER
-    ========================== -->
+    ========================================== -->
 
     <section class="shop-header">
 
@@ -123,9 +238,9 @@
     </section>
 
 
-    <!-- =========================
+    <!-- =========================================
          ORDERS
-    ========================== -->
+    ========================================== -->
 
     <main class="orders-container">
 
@@ -138,122 +253,328 @@
     </main>
 
 
-    <!-- =========================
-     FOOTER
-========================== -->
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
 
-<footer class="home-footer" id="site-footer">
+    <footer class="home-footer" id="site-footer">
 
+        <div class="footer-brand">
 
-<div class="footer-brand">
+            <a href="home.html" class="home-brand">
 
-    <a href="home.html" class="home-brand">
+                <i class="bi bi-flower1"></i>
 
-        <i class="bi bi-flower1"></i>
+                <span>
+                    Botanical Bliss
+                </span>
 
-        <span>
-            Botanical Bliss
-        </span>
+            </a>
 
-    </a>
+            <p>
+                Grow something beautiful.
+            </p>
 
-    <p>
-        Grow something beautiful.
-    </p>
-
-</div>
-
-
-<div class="footer-links">
-
-    <div>
-
-        <h4>
-            Explore
-        </h4>
-
-        <a href="shop.html">
-            Shop
-        </a>
-
-        <a href="categories.html">
-            Categories
-        </a>
-
-        <a href="gardening-guide.html">
-            Gardening Guide
-        </a>
-
-    </div>
+        </div>
 
 
-    <div>
+        <div class="footer-links">
 
-        <h4>
-            Support
-        </h4>
+            <div>
 
-        <a href="faq.html">
-            FAQs
-        </a>
+                <h4>
+                    Explore
+                </h4>
 
-        <a href="shipping.html">
-            Shipping
-        </a>
+                <a href="shop.html">
+                    Shop
+                </a>
 
-    </div>
+                <a href="categories.html">
+                    Categories
+                </a>
 
+                <a href="gardening-guide.html">
+                    Gardening Guide
+                </a>
 
-    <div id="about-us">
-
-        <h4>
-            About Us
-        </h4>
-
-        <p>
-            Botanical Bliss is a gardening platform
-            created to make gardening easier, more
-            enjoyable and accessible for everyone.
-        </p>
-
-    </div>
+            </div>
 
 
-    <div id="contact-us">
+            <div>
 
-        <h4>
-            Contact Us
-        </h4>
+                <h4>
+                    Support
+                </h4>
 
-        <a href="mailto:botanicalbliss@gmail.com">
-            <i class="bi bi-envelope"></i>
-            botanicalbliss@gmail.com
-        </a>
+                <a href="faq.html">
+                    FAQs
+                </a>
 
-        <p>
-            <i class="bi bi-clock"></i>
-            We are here to help.
-        </p>
+                <a href="shipping.html">
+                    Shipping
+                </a>
 
-    </div>
-
-</div>
+            </div>
 
 
-<div class="footer-bottom">
+            <div id="about-us">
 
-    © 2026 Botanical Bliss.
-    All rights reserved.
+                <h4>
+                    About Us
+                </h4>
 
-</div>
+                <p>
+                    Botanical Bliss is a gardening platform
+                    created to make gardening easier, more
+                    enjoyable and accessible for everyone.
+                </p>
+
+            </div>
 
 
-</footer>
+            <div id="contact-us">
 
-    <!-- Orders JavaScript -->
+                <h4>
+                    Contact Us
+                </h4>
+
+                <a href="mailto:botanicalbliss@gmail.com">
+
+                    <i class="bi bi-envelope"></i>
+
+                    botanicalbliss@gmail.com
+
+                </a>
+
+                <p>
+
+                    <i class="bi bi-clock"></i>
+
+                    We are here to help.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 Botanical Bliss.
+            All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================
+         ORDERS JAVASCRIPT
+    ========================================== -->
+
     <script src="js/orders.js"></script>
+
+
+    <!-- =========================================
+         SIDEBAR JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+        /* =========================================
+           SIDEBAR
+        ========================================== */
+
+        const bbSidebar =
+            document.getElementById("bbSidebar");
+
+        const bbMobileMenu =
+            document.getElementById("bbMobileMenu");
+
+        const bbSidebarOverlay =
+            document.getElementById("bbSidebarOverlay");
+
+
+        function openSidebar() {
+
+            bbSidebar.classList.add(
+                "bb-sidebar-open"
+            );
+
+            bbSidebarOverlay.classList.add(
+                "bb-overlay-visible"
+            );
+
+        }
+
+
+        function closeSidebar() {
+
+            bbSidebar.classList.remove(
+                "bb-sidebar-open"
+            );
+
+            bbSidebarOverlay.classList.remove(
+                "bb-overlay-visible"
+            );
+
+        }
+
+
+        if (bbMobileMenu) {
+
+            bbMobileMenu.addEventListener(
+                "click",
+                openSidebar
+            );
+
+        }
+
+
+        if (bbSidebarOverlay) {
+
+            bbSidebarOverlay.addEventListener(
+                "click",
+                closeSidebar
+            );
+
+        }
+
+
+        document
+            .querySelectorAll(".bb-nav-link")
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    closeSidebar
+                );
+
+            });
+
+
+
+        /* =========================================
+           USER-SPECIFIC CART & WISHLIST COUNTS
+        ========================================== */
+
+        function updateSidebarCounts() {
+
+            const user =
+                JSON.parse(
+                    localStorage.getItem("user")
+                );
+
+
+            if (!user) {
+
+                const cartCount =
+                    document.getElementById(
+                        "bbCartCount"
+                    );
+
+                const wishlistCount =
+                    document.getElementById(
+                        "bbWishlistCount"
+                    );
+
+
+                if (cartCount) {
+
+                    cartCount.textContent = "0";
+
+                }
+
+
+                if (wishlistCount) {
+
+                    wishlistCount.textContent = "0";
+
+                }
+
+                return;
+
+            }
+
+
+            const userId =
+                user._id ||
+                user.id ||
+                user.email;
+
+
+            const cartKey =
+                `cart_${userId}`;
+
+            const wishlistKey =
+                `wishlist_${userId}`;
+
+
+            const cart =
+                JSON.parse(
+                    localStorage.getItem(cartKey)
+                ) || [];
+
+
+            const wishlist =
+                JSON.parse(
+                    localStorage.getItem(wishlistKey)
+                ) || [];
+
+
+            /* CART */
+
+            let cartTotal = 0;
+
+
+            cart.forEach(item => {
+
+                cartTotal +=
+                    Number(
+                        item.quantity || 0
+                    );
+
+            });
+
+
+            const cartCount =
+                document.getElementById(
+                    "bbCartCount"
+                );
+
+
+            if (cartCount) {
+
+                cartCount.textContent =
+                    cartTotal;
+
+            }
+
+
+            /* WISHLIST */
+
+            const wishlistCount =
+                document.getElementById(
+                    "bbWishlistCount"
+                );
+
+
+            if (wishlistCount) {
+
+                wishlistCount.textContent =
+                    wishlist.length;
+
+            }
+
+        }
+
+
+        updateSidebarCounts();
+
+    </script>
 
 </body>
 
 </html>
-
