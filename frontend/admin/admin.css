@@ -4506,3 +4506,1173 @@ body {
     transition: width 0.5s ease;
 
 }
+
+
+/* =========================================================
+   BOTANICAL BLISS ADMIN DASHBOARD
+   FINAL MOBILE RESPONSIVE OVERRIDES
+========================================================= */
+
+@media (max-width: 750px) {
+
+    /* =====================================================
+       PREVENT HORIZONTAL PAGE OVERFLOW
+    ===================================================== */
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+
+    /* =====================================================
+       MOBILE SIDEBAR
+       Convert desktop sidebar into bottom navigation
+    ===================================================== */
+
+    .admin-sidebar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: auto;
+
+        width: 100%;
+        height: 68px;
+
+        padding: 7px 8px;
+
+        border-right: none;
+        border-top: 1px solid #e1e6e1;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        background: #ffffff;
+
+        box-shadow: 0 -5px 20px rgba(40, 60, 45, 0.08);
+
+        z-index: 1000;
+    }
+
+
+    /* Hide desktop branding and label */
+
+    .admin-brand,
+    .admin-label {
+        display: none;
+    }
+
+
+    /* Navigation takes remaining width */
+
+    .admin-nav {
+        flex: 1;
+
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: repeat(5, 1fr);
+
+        gap: 3px;
+
+        align-items: center;
+    }
+
+
+    .admin-nav-item {
+        width: 100%;
+        min-width: 0;
+
+        height: 52px;
+
+        padding: 6px 3px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 3px;
+
+        border-radius: 9px;
+
+        text-align: center;
+
+        font-size: 9px;
+
+        white-space: nowrap;
+    }
+
+
+    .admin-nav-item i {
+        width: auto;
+
+        font-size: 18px;
+
+        line-height: 1;
+    }
+
+
+    .admin-nav-item span {
+        display: block;
+
+        max-width: 100%;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+    }
+
+
+    .admin-nav-item.active {
+        background: #edf3ed;
+    }
+
+
+    /* Bottom actions stay separate */
+
+    .sidebar-bottom {
+        width: auto;
+
+        margin: 0;
+
+        padding: 0;
+
+        display: flex;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        gap: 3px;
+
+        border-top: none;
+    }
+
+
+    .sidebar-bottom .admin-nav-item {
+        width: 52px;
+
+        flex-shrink: 0;
+    }
+
+
+    .sidebar-bottom .admin-nav-item span {
+        display: none;
+    }
+
+
+    /* =====================================================
+       MAIN CONTENT
+       Full width on mobile
+    ===================================================== */
+
+    .admin-main {
+        width: 100%;
+
+        margin-left: 0;
+
+        min-height: calc(100vh - 68px);
+
+        padding: 20px 14px 95px;
+
+        overflow-x: hidden;
+    }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    .admin-header {
+        width: 100%;
+
+        margin-bottom: 20px;
+
+        gap: 10px;
+    }
+
+
+    .admin-header h1 {
+        font-size: 23px;
+    }
+
+
+    .header-small {
+        font-size: 10px;
+    }
+
+
+    .admin-profile {
+        gap: 0;
+    }
+
+
+    .admin-profile div:last-child {
+        display: none;
+    }
+
+
+    .admin-profile-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    /* =====================================================
+       WELCOME CARD
+    ===================================================== */
+
+    .admin-welcome {
+        width: 100%;
+
+        min-height: 130px;
+
+        padding: 21px;
+
+        margin-bottom: 22px;
+
+        border-radius: 15px;
+
+        gap: 12px;
+    }
+
+
+    .admin-welcome h2 {
+        font-size: 19px;
+
+        line-height: 1.3;
+    }
+
+
+    .admin-welcome p:last-of-type {
+        font-size: 12px;
+
+        line-height: 1.5;
+    }
+
+
+    .welcome-store-btn {
+        width: 42px;
+        height: 42px;
+
+        min-width: 42px;
+
+        margin-right: 0;
+
+        font-size: 17px;
+    }
+
+
+    /* =====================================================
+       KPI CARDS
+       2 CARDS PER ROW
+    ===================================================== */
+
+    .stats-grid {
+        width: 100%;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+
+        margin-bottom: 26px;
+    }
+
+
+    .stat-card {
+        width: 100%;
+
+        min-width: 0;
+
+        min-height: 112px;
+
+        padding: 14px;
+
+        gap: 10px;
+
+        border-radius: 13px;
+
+        overflow: hidden;
+    }
+
+
+    .stat-icon {
+        width: 38px;
+        height: 38px;
+
+        min-width: 38px;
+
+        border-radius: 10px;
+
+        font-size: 15px;
+    }
+
+
+    .stat-content {
+        min-width: 0;
+
+        overflow: hidden;
+    }
+
+
+    .stat-card p {
+        font-size: 10px;
+
+        white-space: nowrap;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+    }
+
+
+    .stat-card h3 {
+        font-size: 19px;
+
+        white-space: nowrap;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+    }
+
+
+    .stat-subtext {
+        display: none;
+    }
+
+
+    /* =====================================================
+       COMMON SECTION HEADINGS
+    ===================================================== */
+
+    .section-heading {
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 10px;
+
+        margin-bottom: 14px;
+    }
+
+
+    .section-heading h2,
+    .section-heading h3 {
+        font-size: 18px;
+
+        line-height: 1.3;
+    }
+
+
+    .section-heading p {
+        font-size: 11px;
+
+        line-height: 1.5;
+    }
+
+
+    .section-action,
+    .view-all-btn {
+        min-height: 38px;
+
+        display: inline-flex;
+
+        align-items: center;
+
+        padding: 8px 10px;
+
+        font-size: 11px;
+    }
+
+
+    /* =====================================================
+       SALES OVERVIEW
+    ===================================================== */
+
+    .sales-overview-section {
+        width: 100%;
+
+        margin-bottom: 27px;
+    }
+
+
+    .sales-overview-header {
+        width: 100%;
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+
+    .sales-period-selector {
+        width: 100%;
+
+        display: flex;
+
+        padding: 3px;
+
+        gap: 3px;
+    }
+
+
+    .sales-period-btn {
+        flex: 1;
+
+        min-height: 40px;
+
+        padding: 8px 5px;
+
+        font-size: 11px;
+    }
+
+
+    .sales-summary {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 8px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .sales-summary-item {
+        width: 100%;
+
+        min-width: 0;
+
+        padding: 10px;
+
+        border-radius: 10px;
+    }
+
+
+    .sales-summary-item span {
+        font-size: 9px;
+    }
+
+
+    .sales-summary-item strong {
+        font-size: 13px;
+    }
+
+
+    .sales-revenue-change {
+        font-size: 10px;
+
+        white-space: nowrap;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+    }
+
+
+    /* =====================================================
+       SALES CHART
+    ===================================================== */
+
+    .sales-chart-card {
+        width: 100%;
+
+        border-radius: 14px;
+    }
+
+
+    .sales-chart-header {
+        width: 100%;
+
+        padding: 15px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+
+    .sales-chart-header h4 {
+        font-size: 13px;
+    }
+
+
+    .sales-chart-header span {
+        font-size: 10px;
+    }
+
+
+    .chart-legend {
+        width: 100%;
+
+        justify-content: flex-start;
+
+        gap: 14px;
+    }
+
+
+    .chart-legend span {
+        font-size: 9px;
+    }
+
+
+    .sales-chart-wrapper {
+        width: 100%;
+
+        height: 230px;
+
+        padding: 12px;
+    }
+
+
+    .sales-chart-wrapper canvas {
+        max-width: 100% !important;
+    }
+
+
+    .sales-last-updated {
+        padding: 0 14px 13px;
+
+        font-size: 10px;
+    }
+
+
+    /* =====================================================
+       ORDER STATUS
+    ===================================================== */
+
+    .order-status-section {
+        width: 100%;
+
+        margin-bottom: 27px;
+    }
+
+
+    .order-status-section .section-heading {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .order-status-grid {
+        width: 100%;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+    }
+
+
+    .status-summary-card {
+        width: 100%;
+
+        min-width: 0;
+
+        min-height: 105px;
+
+        padding: 13px;
+
+        gap: 9px;
+
+        border-radius: 13px;
+    }
+
+
+    .status-summary-icon {
+        width: 37px;
+        height: 37px;
+
+        min-width: 37px;
+
+        border-radius: 10px;
+
+        font-size: 16px;
+    }
+
+
+    .status-summary-content {
+        min-width: 0;
+    }
+
+
+    .status-summary-content span {
+        font-size: 10px;
+    }
+
+
+    .status-summary-content strong {
+        font-size: 19px;
+    }
+
+
+    .status-summary-content small {
+        font-size: 9px;
+
+        line-height: 1.3;
+    }
+
+
+    /* =====================================================
+       BEST SELLING + INVENTORY
+    ===================================================== */
+
+    .dashboard-two-column {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+        margin-bottom: 27px;
+    }
+
+
+    .dashboard-panel {
+        width: 100%;
+
+        min-width: 0;
+
+        overflow: hidden;
+    }
+
+
+    .best-selling-list,
+    .inventory-alert-list {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+
+    .best-selling-item {
+        width: 100%;
+
+        min-width: 0;
+
+        gap: 9px;
+
+        padding: 10px;
+
+        border-radius: 12px;
+    }
+
+
+    .best-selling-rank {
+        width: 25px;
+        height: 25px;
+
+        min-width: 25px;
+
+        font-size: 10px;
+    }
+
+
+    .best-selling-image {
+        width: 46px;
+        height: 46px;
+
+        min-width: 46px;
+
+        border-radius: 10px;
+    }
+
+
+    .best-selling-info {
+        min-width: 0;
+
+        flex: 1;
+    }
+
+
+    .best-selling-info strong {
+        max-width: 100%;
+
+        font-size: 12px;
+    }
+
+
+    .best-selling-info span {
+        font-size: 10px;
+    }
+
+
+    .best-selling-revenue {
+        display: flex;
+
+        min-width: 55px;
+    }
+
+
+    .best-selling-revenue strong {
+        font-size: 11px;
+    }
+
+
+    .best-selling-revenue span {
+        font-size: 9px;
+    }
+
+
+    .inventory-alert-item {
+        width: 100%;
+
+        min-width: 0;
+
+        gap: 8px;
+
+        padding: 10px;
+
+        border-radius: 12px;
+    }
+
+
+    .inventory-alert-icon {
+        width: 35px;
+        height: 35px;
+
+        min-width: 35px;
+
+        font-size: 15px;
+    }
+
+
+    .inventory-alert-info {
+        min-width: 0;
+    }
+
+
+    .inventory-alert-info strong {
+        font-size: 11px;
+    }
+
+
+    .inventory-alert-info span {
+        font-size: 9px;
+    }
+
+
+    .inventory-stock {
+        min-width: 40px;
+    }
+
+
+    .inventory-stock strong {
+        font-size: 13px;
+    }
+
+
+    .inventory-stock span {
+        font-size: 9px;
+    }
+
+
+    .inventory-action {
+        width: 34px;
+        height: 34px;
+
+        min-width: 34px;
+    }
+
+
+    /* =====================================================
+       INVENTORY SUMMARY
+    ===================================================== */
+
+    .inventory-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 8px;
+    }
+
+
+    .inventory-summary-item {
+        min-width: 0;
+
+        padding: 9px;
+
+        gap: 8px;
+    }
+
+
+    .inventory-summary-icon {
+        width: 30px;
+        height: 30px;
+
+        min-width: 30px;
+    }
+
+
+    .inventory-summary-item strong {
+        font-size: 15px;
+    }
+
+
+    .inventory-summary-item span {
+        font-size: 9px;
+    }
+
+
+    /* =====================================================
+       RECENT USERS
+    ===================================================== */
+
+    .recent-users-section {
+        width: 100%;
+
+        margin-top: 0;
+    }
+
+
+    .recent-users-wrapper {
+        width: 100%;
+
+        max-width: 100%;
+
+        overflow-x: auto;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    .recent-users-table {
+        min-width: 650px;
+    }
+
+
+    /* =====================================================
+       CATEGORY OVERVIEW
+    ===================================================== */
+
+    .category-overview-section {
+        width: 100%;
+
+        margin-bottom: 27px;
+    }
+
+
+    .category-product-grid {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+
+    .category-product-card {
+        width: 100%;
+
+        min-height: 115px;
+
+        padding: 15px;
+    }
+
+
+    .category-card-icon {
+        width: 38px;
+        height: 38px;
+
+        min-width: 38px;
+
+        font-size: 16px;
+    }
+
+
+    .category-card-content strong {
+        font-size: 23px;
+    }
+
+
+    /* =====================================================
+       QUICK ACTIONS
+    ===================================================== */
+
+    .quick-actions {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+
+    .quick-card {
+        width: 100%;
+
+        min-height: 76px;
+
+        padding: 13px;
+
+        gap: 10px;
+
+        border-radius: 12px;
+    }
+
+
+    .quick-card > i:first-child {
+        width: 36px;
+        height: 36px;
+
+        min-width: 36px;
+    }
+
+
+    .quick-card strong {
+        font-size: 12px;
+    }
+
+
+    .quick-card span {
+        font-size: 9px;
+
+        line-height: 1.4;
+    }
+
+
+    /* =====================================================
+       RECENT ORDERS
+    ===================================================== */
+
+    .orders-table-wrapper {
+        width: 100%;
+
+        max-width: 100%;
+
+        overflow-x: auto;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    .orders-table {
+        min-width: 680px;
+    }
+
+
+    /* =====================================================
+       GENERAL BUTTON TOUCH TARGETS
+    ===================================================== */
+
+    .admin-nav-item,
+    .view-all-btn,
+    .section-action,
+    .sales-period-btn,
+    .welcome-store-btn,
+    .quick-card,
+    .inventory-action,
+    .user-view-action {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+
+    .view-all-btn,
+    .section-action {
+        min-height: 38px;
+    }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL PHONES
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .admin-main {
+        padding: 17px 11px 94px;
+    }
+
+
+    .admin-header h1 {
+        font-size: 21px;
+    }
+
+
+    /* Keep exactly 2 KPI cards per row */
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 8px;
+    }
+
+
+    .stat-card {
+        min-height: 105px;
+
+        padding: 11px;
+
+        gap: 8px;
+    }
+
+
+    .stat-icon {
+        width: 34px;
+        height: 34px;
+
+        min-width: 34px;
+
+        font-size: 14px;
+    }
+
+
+    .stat-card p {
+        font-size: 9px;
+    }
+
+
+    .stat-card h3 {
+        font-size: 17px;
+    }
+
+
+    .admin-welcome {
+        padding: 18px;
+
+        min-height: 120px;
+    }
+
+
+    .admin-welcome h2 {
+        font-size: 17px;
+    }
+
+
+    .admin-welcome p:last-of-type {
+        font-size: 11px;
+    }
+
+
+    .sales-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 7px;
+    }
+
+
+    .sales-summary-item {
+        padding: 9px;
+    }
+
+
+    .sales-chart-wrapper {
+        height: 210px;
+
+        padding: 8px;
+    }
+
+
+    .order-status-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 8px;
+    }
+
+
+    .status-summary-card {
+        min-height: 100px;
+
+        padding: 10px;
+
+        gap: 7px;
+    }
+
+
+    .status-summary-icon {
+        width: 34px;
+        height: 34px;
+
+        min-width: 34px;
+
+        font-size: 14px;
+    }
+
+
+    .status-summary-content strong {
+        font-size: 17px;
+    }
+
+
+    .status-summary-content small {
+        display: none;
+    }
+
+
+    .best-selling-revenue {
+        display: none;
+    }
+
+
+    .best-selling-image {
+        width: 43px;
+        height: 43px;
+
+        min-width: 43px;
+    }
+
+
+    .best-selling-info strong {
+        font-size: 11px;
+    }
+
+
+    .best-selling-info span {
+        font-size: 9px;
+    }
+
+
+    .inventory-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+
+    .inventory-alert-item {
+        padding: 9px;
+    }
+
+
+    .inventory-stock {
+        display: none;
+    }
+
+
+    .section-heading h2,
+    .section-heading h3 {
+        font-size: 17px;
+    }
+
+
+    .section-action,
+    .view-all-btn {
+        min-height: 36px;
+
+        padding: 7px 9px;
+
+        font-size: 10px;
+    }
+
+
+    .quick-card {
+        min-height: 72px;
+    }
+
+}
