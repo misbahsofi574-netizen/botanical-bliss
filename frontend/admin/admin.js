@@ -103,9 +103,8 @@ async function loadDashboardStats(period = "7days") {
             return;
 
         }
-
 const response = await fetch(
-    `http://localhost:5000/api/admin/dashboard?period=${encodeURIComponent(period)}`,
+    `https://botanical-bliss-52ra.onrender.com/api/admin/dashboard?period=${encodeURIComponent(period)}`,
     {
         headers: {
             Authorization:
@@ -714,10 +713,10 @@ async function loadCategoryProductCounts() {
 
 
     try {
-
-        const response = await fetch(
-            "http://localhost:5000/api/products"
-        );
+const response = await fetch(
+    "https://botanical-bliss-52ra.onrender.com/api/products"
+);
+        
 
 
         if (!response.ok) {
@@ -943,9 +942,8 @@ async function loadRecentOrders() {
         if (!token) {
             return;
         }
-
-        const response = await fetch(
-            "http://localhost:5000/api/admin/recent-orders",
+const response = await fetch(
+    "https://botanical-bliss-52ra.onrender.com/api/admin/recent-orders",
             {
                 headers: {
                     Authorization:
