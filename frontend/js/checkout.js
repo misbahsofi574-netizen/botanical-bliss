@@ -1,19 +1,19 @@
 
 /* =========================================================
-   BOTANICAL BLISS CHECKOUT
+   API CONFIGURATION
 ========================================================= */
 
-
-/* =========================================================
-   API
-========================================================= */
+const API_BASE_URL =
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+        ? "http://localhost:5000"
+        : "https://botanical-bliss-52ra.onrender.com";
 
 const AUTH_API =
-    "http://localhost:5000/api/auth";
+    `${API_BASE_URL}/api/auth`;
 
 const ORDERS_API =
-    "http://localhost:5000/api/orders";
-
+    `${API_BASE_URL}/api/orders`;
 
 /* =========================================================
    GET CURRENT USER

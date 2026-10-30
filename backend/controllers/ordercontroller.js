@@ -96,6 +96,10 @@ const createOrder = async (req, res) => {
     }
 };
 
+console.log("RECEIVED ORDER ITEMS:", JSON.stringify(items, null, 2));
+console.log("FIRST ITEM QUANTITY:", items[0]?.quantity);
+console.log("QUANTITY TYPE:", typeof items[0]?.quantity);
+
 
 /* ==========================================
    GET CURRENT USER ORDERS

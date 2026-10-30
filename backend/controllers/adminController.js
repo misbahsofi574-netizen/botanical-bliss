@@ -712,10 +712,10 @@ const lowStockList = await Product.find({
 
             /* Revenue */
 
-totalRevenue,
-todayRevenue,
-monthRevenue,
-previousMonthRevenue,
+               totalRevenue,
+               todayRevenue,
+               monthRevenue,
+               previousMonthRevenue,
 
             /* Inventory */
 
