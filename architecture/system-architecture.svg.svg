@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#52616B"/></marker>
+  <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#203040" flood-opacity=".12"/></filter>
+</defs>
+<rect width="100%" height="100%" fill="#FAFCFA"/>
+<text x="800" y="48" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#193B2A">BOTANICAL BLISS</text>
+<text x="800" y="76" text-anchor="middle" font-family="Arial" font-size="16" fill="#61736A">High-Level System Architecture • Based on inspected project structure and server configuration</text>
+
+<path d="M310 215 V250 H800 V285" fill="none" stroke="#52616B" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M1290 215 V250 H800 V285" fill="none" stroke="#52616B" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M800 415 V490" fill="none" stroke="#52616B" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M800 615 V690" fill="none" stroke="#52616B" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M800 810 V865" fill="none" stroke="#52616B" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M360 765 H430" fill="none" stroke="#52616B" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M220 840 V875" fill="none" stroke="#52616B" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M1170 752 H1240" fill="none" stroke="#52616B" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="820" y="455" font-family="Arial" font-size="14" fill="#52616B">HTTP / REST API</text>
+<text x="820" y="650" font-family="Arial" font-size="14" fill="#52616B">Route handling and business logic</text>
+<text x="820" y="842" font-family="Arial" font-size="14" fill="#52616B">Mongoose ODM</text>
+<rect x="90" y="90" width="440" height="125" rx="18" fill="#E8F4EA" stroke="#287A43" stroke-width="2" filter="url(#shadow)"/>
+<rect x="90" y="90" width="10" height="125" rx="5" fill="#287A43"/>
+<text x="310.0" y="133" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#1D2B24">Customer Interface</text>
+<text x="310.0" y="165" text-anchor="middle" font-family="Arial" font-size="14" fill="#44534B">HTML pages • CSS • JavaScript • Bootstrap</text>
+<rect x="1070" y="90" width="440" height="125" rx="18" fill="#E8F4EA" stroke="#287A43" stroke-width="2" filter="url(#shadow)"/>
+<rect x="1070" y="90" width="10" height="125" rx="5" fill="#287A43"/>
+<text x="1290.0" y="133" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#1D2B24">Admin Dashboard</text>
+<text x="1290.0" y="165" text-anchor="middle" font-family="Arial" font-size="14" fill="#44534B">Admin pages • Product / Order / User management</text>
+<rect x="430" y="285" width="740" height="130" rx="18" fill="#EAF1FC" stroke="#315EAB" stroke-width="2" filter="url(#shadow)"/>
+<rect x="430" y="285" width="10" height="130" rx="5" fill="#315EAB"/>
+<text x="800.0" y="328" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#1D2B24">Frontend Application</text>
+<text x="800.0" y="360" text-anchor="middle" font-family="Arial" font-size="14" fill="#44534B">Customer storefront + Admin interface • Browser-side JavaScript</text>
+<rect x="430" y="490" width="740" height="125" rx="18" fill="#EAF1FC" stroke="#315EAB" stroke-width="2" filter="url(#shadow)"/>
+<rect x="430" y="490" width="10" height="125" rx="5" fill="#315EAB"/>
+<text x="800.0" y="533" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#1D2B24">Backend API – Node.js + Express.js</text>
+<text x="800.0" y="565" text-anchor="middle" font-family="Arial" font-size="14" fill="#44534B">REST endpoints: /api/auth • /products • /orders • /payment • /admin • gardening</text>
+<rect x="430" y="690" width="740" height="120" rx="18" fill="#F3ECFA" stroke="#7751A3" stroke-width="2" filter="url(#shadow)"/>
+<rect x="430" y="690" width="10" height="120" rx="5" fill="#7751A3"/>
+<text x="800.0" y="733" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#1D2B24">Application Logic &amp; Security</text>
+<text x="800.0" y="765" text-anchor="middle" font-family="Arial" font-size="14" fill="#44534B">Routes • Controllers • Authentication middleware • Email service</text>
+<rect x="560" y="865" width="480" height="100" rx="18" fill="#FFF2DF" stroke="#A66A18" stroke-width="2" filter="url(#shadow)"/>
+<rect x="560" y="865" width="10" height="100" rx="5" fill="#A66A18"/>
+<text x="800.0" y="908" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#1D2B24">MongoDB Atlas</text>
+<text x="800.0" y="940" text-anchor="middle" font-family="Arial" font-size="14" fill="#44534B">Mongoose models: User • Product • Order • GardenPost • GardenReminder</text>
+<rect x="80" y="690" width="280" height="150" rx="18" fill="#FFF2DF" stroke="#A66A18" stroke-width="2" filter="url(#shadow)"/>
+<rect x="80" y="690" width="10" height="150" rx="5" fill="#A66A18"/>
+<text x="220.0" y="733" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#1D2B24">Reminder Scheduler</text>
+<text x="220.0" y="765" text-anchor="middle" font-family="Arial" font-size="14" fill="#44534B">node-cron checks due reminders every minute</text>
+<rect x="80" y="875" width="280" height="85" rx="18" fill="#FCEBEC" stroke="#B5474B" stroke-width="2" filter="url(#shadow)"/>
+<rect x="80" y="875" width="10" height="85" rx="5" fill="#B5474B"/>
+<text x="220.0" y="918" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#1D2B24">Email Service</text>
+<text x="220.0" y="950" text-anchor="middle" font-family="Arial" font-size="14" fill="#44534B">Sends garden reminder emails</text>
+<rect x="1240" y="690" width="280" height="150" rx="18" fill="#FCEBEC" stroke="#B5474B" stroke-width="2" filter="url(#shadow)"/>
+<rect x="1240" y="690" width="10" height="150" rx="5" fill="#B5474B"/>
+<text x="1380.0" y="733" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#1D2B24">Payment Integration</text>
+<text x="1380.0" y="765" text-anchor="middle" font-family="Arial" font-size="14" fill="#44534B">Payment routes /api/payment</text>
+<text x="1380.0" y="787" text-anchor="middle" font-family="Arial" font-size="14" fill="#44534B">Provider details to be verified</text>
+<rect x="1240" y="875" width="280" height="85" rx="18" fill="#EEF0F2" stroke="#59636E" stroke-width="2" filter="url(#shadow)"/>
+<rect x="1240" y="875" width="10" height="85" rx="5" fill="#59636E"/>
+<text x="1380.0" y="918" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#1D2B24">Deployment</text>
+<text x="1380.0" y="950" text-anchor="middle" font-family="Arial" font-size="14" fill="#44534B">Frontend + backend hosted on Render</text>
+<text x="800" y="985" text-anchor="middle" font-family="Arial" font-size="12" fill="#718078">Note: Payment provider, exact frontend deployment arrangement, and route-to-controller mappings should be verified from source files before treating those details as final.</text>
+</svg>

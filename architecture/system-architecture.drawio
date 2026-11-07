@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" modified="2026-11-08T00:00:00.000Z" agent="ChatGPT" version="24.7.17">
+  <diagram id="botanical-bliss-system" name="System Architecture">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="&lt;b&gt;Customer Interface&lt;/b&gt;&lt;br&gt;HTML pages • CSS • JavaScript • Bootstrap" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4EA;strokeColor=#287A43;strokeWidth=2;fontColor=#1D2B24;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="90" y="90" width="440" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="&lt;b&gt;Admin Dashboard&lt;/b&gt;&lt;br&gt;Admin pages • Product / Order / User management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4EA;strokeColor=#287A43;strokeWidth=2;fontColor=#1D2B24;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="90" width="440" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="&lt;b&gt;Frontend Application&lt;/b&gt;&lt;br&gt;Customer storefront + Admin interface • Browser-side JavaScript" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF1FC;strokeColor=#315EAB;strokeWidth=2;fontColor=#1D2B24;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="430" y="285" width="740" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="&lt;b&gt;Backend API – Node.js + Express.js&lt;/b&gt;&lt;br&gt;REST endpoints: /api/auth • /products • /orders • /payment • /admin • gardening" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF1FC;strokeColor=#315EAB;strokeWidth=2;fontColor=#1D2B24;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="430" y="490" width="740" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="&lt;b&gt;Application Logic &amp;amp; Security&lt;/b&gt;&lt;br&gt;Routes • Controllers • Authentication middleware • Email service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3ECFA;strokeColor=#7751A3;strokeWidth=2;fontColor=#1D2B24;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="430" y="690" width="740" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="&lt;b&gt;MongoDB Atlas&lt;/b&gt;&lt;br&gt;Mongoose models: User • Product • Order • GardenPost • GardenReminder" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2DF;strokeColor=#A66A18;strokeWidth=2;fontColor=#1D2B24;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="560" y="865" width="480" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="&lt;b&gt;Reminder Scheduler&lt;/b&gt;&lt;br&gt;node-cron checks due reminders every minute" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2DF;strokeColor=#A66A18;strokeWidth=2;fontColor=#1D2B24;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="80" y="690" width="280" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="&lt;b&gt;Email Service&lt;/b&gt;&lt;br&gt;Sends garden reminder emails" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCEBEC;strokeColor=#B5474B;strokeWidth=2;fontColor=#1D2B24;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="80" y="875" width="280" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="&lt;b&gt;Payment Integration&lt;/b&gt;&lt;br&gt;Payment routes /api/payment&lt;br&gt;Provider details to be verified" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCEBEC;strokeColor=#B5474B;strokeWidth=2;fontColor=#1D2B24;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="690" width="280" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="&lt;b&gt;Deployment&lt;/b&gt;&lt;br&gt;Frontend + backend hosted on Render" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF0F2;strokeColor=#59636E;strokeWidth=2;fontColor=#1D2B24;fontSize=16;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="875" width="280" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#52616B;strokeWidth=2;" edge="1" parent="1" source="2" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#52616B;strokeWidth=2;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#52616B;strokeWidth=2;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#52616B;strokeWidth=2;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#52616B;strokeWidth=2;" edge="1" parent="1" source="6" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#52616B;strokeWidth=2;" edge="1" parent="1" source="8" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#52616B;strokeWidth=2;" edge="1" parent="1" source="8" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="27" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#52616B;strokeWidth=2;" edge="1" parent="1" source="6" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
