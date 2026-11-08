@@ -1,7 +1,7 @@
+const mongoose = require("mongoose");
 const User = require("../models/User");
 const Order = require("../models/Order");
 const Product = require("../models/Product");
-
 
 /* =========================================================
    DASHBOARD STATISTICS
@@ -675,7 +675,7 @@ const lowStockList = await Product.find({
 })
 .limit(10)
 .select("_id name stock price image category status");
-                
+
 
 
         /* -------------------------------------------------
@@ -1134,23 +1134,27 @@ const createProduct = async (req, res) => {
 
         });
 
+
     } catch (error) {
 
-        console.error(
-            "Create product error:",
-            error
-        );
+        console.error("Create product error:", error);
+
+        if (
+            error.name === "ValidationError" ||
+            error.name === "CastError"
+        ) {
+            return res.status(400).json({
+                message: "Product validation failed",
+                errors: error.message
+            });
+        }
 
         res.status(500).json({
-
-            message:
-                "Failed to create product"
-
+            message: "Failed to create product"
         });
-
     }
+    };
 
-};
 
 
 /* =========================================================
@@ -1160,6 +1164,12 @@ const createProduct = async (req, res) => {
 const updateProduct = async (req, res) => {
 
     try {
+
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    return res.status(400).json({
+        message: "Invalid product ID"
+    });
+}
 
         const product =
             await Product.findByIdAndUpdate(
@@ -1197,29 +1207,32 @@ const updateProduct = async (req, res) => {
 
         });
 
-    } catch (error) {
+    }
+     catch (error) {
 
-        console.error(
-            "Update product error:",
-            error
-        );
+        console.error("Update product error:", error);
+
+        if (
+            error.name === "ValidationError" ||
+            error.name === "CastError"
+        ) {
+            return res.status(400).json({
+                message: "Product validation failed",
+                errors: error.message
+            });
+        }
 
         res.status(500).json({
-
-            message:
-                "Failed to update product"
-
+            message: "Failed to update product"
         });
-
     }
+    };
 
-};
 
 
 /* =========================================================
    DELETE PRODUCT
 ========================================================= */
-
 const deleteProduct = async (req, res) => {
 
     try {
@@ -1249,49 +1262,30 @@ const deleteProduct = async (req, res) => {
 
         });
 
-    } catch (error) {
 
-        console.error(
-            "Delete product error:",
-            error
-        );
+
+        } catch (error) {
+        console.error("Delete product error:", error);
 
         res.status(500).json({
-
-            message:
-                "Failed to delete product"
-
+            message: "Failed to delete product"
         });
-
     }
-
 };
 
 
 /* =========================================================
    EXPORTS
 ========================================================= */
-
 module.exports = {
-
     getDashboardStats,
-
     getRecentOrders,
-
     getAllOrders,
-
     getOrderDetails,
-
     updateOrderStatus,
-
     getAllUsers,
-
     getAllProducts,
-
     createProduct,
-
     updateProduct,
-
     deleteProduct
-
 };
