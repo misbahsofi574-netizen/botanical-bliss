@@ -30,110 +30,71 @@ async function displayProduct() {
         return;
     }
 
+    // LOADING STATE
+    container.innerHTML = `
+        <div class="product-not-found">
+            <i class="bi bi-hourglass-split"></i>
+            <h2>Loading Product...</h2>
+            <p>Please wait while we fetch product details.</p>
+        </div>
+    `;
+
     try {
 
-        /* FETCH PRODUCTS FROM MONGODB */
-
         const response = await fetch(
-            "http://localhost:5000/api/products"
+            "https://botanical-bliss-52ra.onrender.com/api/products"
         );
 
         const data = await response.json();
 
         if (!response.ok) {
-
-            console.error(
-                "Failed to load product:",
-                data
+            throw new Error(
+                data.message || "Unable to load products."
             );
-
-            container.innerHTML = `
-                <div class="product-not-found">
-
-                    <i class="bi bi-flower1"></i>
-
-                    <h2>
-                        Unable to Load Product
-                    </h2>
-
-                    <p>
-                        Please try again later.
-                    </p>
-
-                    <a href="shop.html">
-                        Back to Shop
-                    </a>
-
-                </div>
-            `;
-
-            return;
         }
 
-        /* SAVE PRODUCTS */
+        if (!Array.isArray(data)) {
+            throw new Error("Invalid products response.");
+        }
 
         products = data;
 
-        /* FIND SELECTED PRODUCT */
-
         const product =
             products.find(function (item) {
-
                 return item.name === productName;
-
             });
 
-        /* PRODUCT NOT FOUND */
-
+        // PRODUCT NOT FOUND
         if (!product) {
 
             container.innerHTML = `
                 <div class="product-not-found">
-
                     <i class="bi bi-flower1"></i>
-
-                    <h2>
-                        Product Not Found
-                    </h2>
-
+                    <h2>Product Not Found</h2>
                     <p>
                         Please return to the shop
                         and select a product.
                     </p>
-
-                    <a href="shop.html">
-                        Back to Shop
-                    </a>
-
+                    <a href="shop.html">Back to Shop</a>
                 </div>
             `;
 
             return;
         }
 
-        /* SAVE CURRENT PRODUCT */
-
         currentProduct = product;
 
-        /* DISPLAY PRODUCT */
-
+        // DISPLAY PRODUCT
         container.innerHTML = `
 
             <div class="product-detail-card">
 
-                <!-- IMAGE -->
-
                 <div class="product-detail-image">
-
                     <img
                         src="${product.image}"
                         alt="${product.name}"
                     >
-
                 </div>
-
-
-                <!-- INFORMATION -->
 
                 <div class="product-detail-info">
 
@@ -141,9 +102,7 @@ async function displayProduct() {
                         ${product.category}
                     </span>
 
-                    <h1>
-                        ${product.name}
-                    </h1>
+                    <h1>${product.name}</h1>
 
                     <div class="product-price">
                         ₹${product.price}
@@ -153,72 +112,46 @@ async function displayProduct() {
                         ${product.description}
                     </p>
 
-
-                    <!-- FEATURES -->
-
-                    <h3>
-                        Product Features
-                    </h3>
+                    <h3>Product Features</h3>
 
                     <ul class="product-features">
-
                         <li>
                             <i class="bi bi-check-circle"></i>
                             Quality gardening product
                         </li>
-
                         <li>
                             <i class="bi bi-check-circle"></i>
                             Suitable for gardening needs
                         </li>
-
                         <li>
                             <i class="bi bi-check-circle"></i>
                             Easy to use
                         </li>
-
                     </ul>
-
-
-                    <!-- QUANTITY -->
 
                     <div class="quantity-section">
 
-                        <span>
-                            Quantity:
-                        </span>
+                        <span>Quantity:</span>
 
                         <div class="quantity-controls">
 
                             <button
                                 type="button"
                                 onclick="decreaseQuantity()"
-                            >
-                                −
-                            </button>
+                            >−</button>
 
-                            <span id="quantity">
-                                1
-                            </span>
+                            <span id="quantity">1</span>
 
                             <button
                                 type="button"
                                 onclick="increaseQuantity()"
-                            >
-                                +
-                            </button>
+                            >+</button>
 
                         </div>
 
                     </div>
 
-
-                    <!-- BUTTONS -->
-
-                    <a
-                        href="shop.html"
-                        class="back-to-shop"
-                    >
+                    <a href="shop.html" class="back-to-shop">
                         <i class="bi bi-arrow-left"></i>
                         Back to Shop
                     </a>
@@ -252,34 +185,37 @@ async function displayProduct() {
 
     } catch (error) {
 
-        console.error(
-            "Product loading error:",
-            error
-        );
+        console.error("Product loading error:", error);
 
         container.innerHTML = `
             <div class="product-not-found">
 
-                <i class="bi bi-flower1"></i>
+                <i class="bi bi-exclamation-circle"></i>
 
-                <h2>
-                    Unable to Load Product
-                </h2>
+                <h2>Unable to Load Product</h2>
 
                 <p>
-                    Please check your connection
-                    and try again.
+                    We couldn't load this product.
+                    Please check your connection and try again.
                 </p>
 
-                <a href="shop.html">
-                    Back to Shop
-                </a>
+                <button
+                    type="button"
+                    class="api-retry-btn"
+                    onclick="displayProduct()"
+                >
+                    <i class="bi bi-arrow-clockwise"></i>
+                    Try Again
+                </button>
+
+                <br><br>
+
+                <a href="shop.html">Back to Shop</a>
 
             </div>
         `;
     }
 }
-
 
 /* =========================================
    INCREASE QUANTITY

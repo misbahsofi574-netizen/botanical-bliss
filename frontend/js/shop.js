@@ -9,128 +9,121 @@ let products = [];
 
 async function loadProducts() {
 
+    const productGrid =
+        document.querySelector(".shop-products-grid");
+
+    if (productGrid) {
+        productGrid.innerHTML = `
+            <div class="api-state">
+                <i class="bi bi-hourglass-split"></i>
+                <h3>Loading Products...</h3>
+                <p>Please wait while we fetch our products.</p>
+            </div>
+        `;
+    }
+
     try {
-const response = await fetch(
-    "https://botanical-bliss-52ra.onrender.com/api/products"
-);
+
+        const response = await fetch(
+            "https://botanical-bliss-52ra.onrender.com/api/products"
+        );
 
         const data = await response.json();
 
         if (!response.ok) {
 
-            console.error(
-                "Failed to load products:",
-                data
-            );
+            console.error("Failed to load products:", data);
+
+            if (productGrid) {
+                productGrid.innerHTML = `
+                    <div class="api-state">
+                        <i class="bi bi-exclamation-circle"></i>
+                        <h3>Unable to Load Products</h3>
+                        <p>Something went wrong. Please try again.</p>
+                        <button onclick="loadProducts()" class="api-retry-btn">
+                            <i class="bi bi-arrow-clockwise"></i>
+                            Try Again
+                        </button>
+                    </div>
+                `;
+            }
 
             return;
         }
 
+        if (!Array.isArray(data)) {
+            throw new Error("Invalid products response.");
+        }
+
         products = data;
 
-        console.log(
-            "PRODUCTS FROM MONGODB:",
-            products
-        );
+        console.log("PRODUCTS FROM MONGODB:", products);
 
         renderProducts();
 
-        /* =================================================
-           APPLY CATEGORY FROM URL
-        ================================================= */
+        /* APPLY CATEGORY FROM URL */
 
         const urlParams =
-            new URLSearchParams(
-                window.location.search
-            );
+            new URLSearchParams(window.location.search);
 
         const categoryFromURL =
             urlParams.get("category");
 
         if (categoryFromURL) {
 
-            console.log(
-                "CATEGORY FROM URL:",
-                categoryFromURL
-            );
-
             const advancedCategory =
-                document.getElementById(
-                    "advancedCategory"
-                );
+                document.getElementById("advancedCategory");
 
             if (advancedCategory) {
 
                 const matchingOption =
-                    Array.from(
-                        advancedCategory.options
-                    ).find(function(option) {
-
-                        return (
-                            option.value
-                                .trim()
-                                .toLowerCase() ===
-                            categoryFromURL
-                                .trim()
-                                .toLowerCase()
-                        );
-
-                    });
+                    Array.from(advancedCategory.options).find(
+                        option =>
+                            option.value.trim().toLowerCase() ===
+                            categoryFromURL.trim().toLowerCase()
+                    );
 
                 if (matchingOption) {
-
-                    advancedCategory.value =
-                        matchingOption.value;
-
+                    advancedCategory.value = matchingOption.value;
                     applyAdvancedFilters();
-
                 }
-
             }
 
-            /* =================================================
-               UPDATE SHOP HEADING
-            ================================================= */
-
             const shopHeading =
-                document.querySelector(
-                    ".shop-heading h1"
-                );
+                document.querySelector(".shop-heading h1");
 
             if (shopHeading) {
-
-                shopHeading.textContent =
-                    categoryFromURL;
-
+                shopHeading.textContent = categoryFromURL;
             }
 
             const shopDescription =
-                document.querySelector(
-                    ".shop-heading p"
-                );
+                document.querySelector(".shop-heading p");
 
             if (shopDescription) {
-
                 shopDescription.textContent =
                     `Showing products from ${categoryFromURL}.`;
-
             }
-
         }
 
+    } catch (error) {
+
+        console.error("Product loading error:", error);
+
+        if (productGrid) {
+            productGrid.innerHTML = `
+                <div class="api-state">
+                    <i class="bi bi-wifi-off"></i>
+                    <h3>Connection Problem</h3>
+                    <p>We couldn't connect to the server. Please check your internet connection.</p>
+                    <button onclick="loadProducts()" class="api-retry-btn">
+                        <i class="bi bi-arrow-clockwise"></i>
+                        Try Again
+                    </button>
+                </div>
+            `;
+        }
     }
-
-    catch (error) {
-
-        console.error(
-            "Product loading error:",
-            error
-        );
-
-    }
-
 }
-
 
 /* =========================================================
    RENDER PRODUCTS

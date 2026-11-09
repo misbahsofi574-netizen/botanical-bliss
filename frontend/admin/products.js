@@ -68,7 +68,7 @@ async function loadProducts() {
 
 
         const response = await fetch(
-            "http://localhost:5000/api/admin/products",
+            "https://botanical-bliss-52ra.onrender.com/api/admin/products",
             {
                 headers: {
                     Authorization:
@@ -82,31 +82,65 @@ async function loadProducts() {
             await response.json();
 
 
-        if (!response.ok) {
+if (!response.ok) {
 
-            console.error(
-                "Failed to load products:",
-                products
-            );
+    console.error(
+        "Failed to load products:",
+        products
+    );
 
+    if (
+        response.status === 401 ||
+        response.status === 403
+    ) {
 
-            if (
-                response.status === 401 ||
-                response.status === 403
-            ) {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
 
-                localStorage.removeItem("token");
-                localStorage.removeItem("user");
+        window.location.href =
+            "../login.html";
 
-                window.location.href =
-                    "../login.html";
+        return;
 
-            }
+    }
 
-            return;
+    if (productsBody) {
 
-        }
+        productsBody.innerHTML = `
+            <tr>
+                <td colspan="6" class="orders-empty">
 
+                    <i class="bi bi-exclamation-circle"></i>
+
+                    <strong>
+                        Unable to load products
+                    </strong>
+
+                    <span>
+                        ${escapeHTML(
+                            products.message ||
+                            "The server could not load products. Please try again."
+                        )}
+                    </span>
+
+                    <button
+                        type="button"
+                        class="retry-orders-btn"
+                        onclick="loadProducts()"
+                    >
+                        <i class="bi bi-arrow-clockwise"></i>
+                        Try Again
+                    </button>
+
+                </td>
+            </tr>
+        `;
+
+    }
+
+    return;
+
+}
 
         allProducts =
             Array.isArray(products)
@@ -923,9 +957,9 @@ async function saveProduct(event) {
         const url =
             productId
 
-                ? `http://localhost:5000/api/admin/products/${productId}`
+                ? `https://botanical-bliss-52ra.onrender.com/api/admin/products/${productId}`
 
-                : "http://localhost:5000/api/admin/products";
+                : "https://botanical-bliss-52ra.onrender.com/api/admin/products";
 
 
         const method =
@@ -1033,7 +1067,7 @@ async function editProduct(productId) {
 
         const response =
             await fetch(
-                "http://localhost:5000/api/admin/products",
+                "https://botanical-bliss-52ra.onrender.com/api/admin/products",
                 {
                     headers: {
                         Authorization:
@@ -1191,7 +1225,7 @@ async function deleteProduct(productId) {
 
         const response =
             await fetch(
-                `http://localhost:5000/api/admin/products/${productId}`,
+                `https://botanical-bliss-52ra.onrender.com/api/admin/products/${productId}`,
                 {
                     method: "DELETE",
 

@@ -14413,3 +14413,45 @@ html {
     background: #e5e7eb;
 
 }
+
+
+
+/* API LOADING AND ERROR STATES */
+
+.api-state {
+    grid-column: 1 / -1;
+    width: 100%;
+    padding: 55px 20px;
+    text-align: center;
+    color: #315d3d;
+}
+
+.api-state > i {
+    display: block;
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.api-state h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.api-state p {
+    color: #68716a;
+    margin-bottom: 20px;
+}
+
+.api-retry-btn {
+    border: none;
+    border-radius: 8px;
+    padding: 11px 22px;
+    background: #315d3d;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.api-retry-btn:hover {
+    background: #24482e;
+}
